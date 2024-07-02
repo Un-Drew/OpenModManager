@@ -1,5 +1,6 @@
-## OPEN MOD MANAGER
-For A Hat in Time
+## OPEN MOD MANAGER // UNDREW EDIT
+UnDrew: This is a **fork of [mcu8](https://github.com/mcu8)'s [OpenModManager](https://github.com/mcu8/OpenModManager)**, where I can make my personal edits (mostly just adding support for new tags for now).
+Something I learned the hard way: Some packages, like CUFramework, are not available from the get-go. You have to go to Project > Manage NuGet Packages, where you can download everything that's missing. Keep this in mind if you want to fork this or the og OMM with your own changes!
 
 ![Screenshot](https://hat.ovh/omm.png)
 
