@@ -226,6 +226,7 @@ namespace ModdingTools.Windows
                 Debug.WriteLine(e.Message + "\n" + e.ToString());
             }
 
+            /* UnDrew Comment : This is a custom build, so no updater.
             Debug.WriteLine("Setup update checker...");
 
             UpdateChk = new UpdateChecker(BuildData.CurrentVersion, BuildData.UpdateUrl, new Action(() => {
@@ -240,6 +241,7 @@ namespace ModdingTools.Windows
                     }
                 }));
             }));
+            */
 
             Automation.AddAutomationEventHandler(
                 WindowPattern.WindowOpenedEvent,
