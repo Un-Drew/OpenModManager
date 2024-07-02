@@ -44,6 +44,9 @@ namespace ModdingTools.Windows
             "DO NOT RESEARCH",
             "CHAT, SAY POGGERS",
             "ALWAYSLOADED",
+            // UnDrew Add Start : To funny or not to funny...
+            "LET HIM COOK",
+            // UnDrew Add End
             "FATAL ERROR 0x0"
         };
 
