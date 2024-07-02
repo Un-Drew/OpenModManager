@@ -256,7 +256,8 @@ namespace ModdingTools.Windows
                 Console.WriteLine("new window opened");
             });
 
-            UpdateChk.CheckForUpdatesAsync();
+            // UnDrew Comment : This is a custom build, so no updater.
+            //UpdateChk.CheckForUpdatesAsync();
         }
 
         public void LoadModCategories()
