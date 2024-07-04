@@ -1262,5 +1262,12 @@ namespace ModdingTools.Windows
             OMMSettings.Instance.LastAction = comboBox3.SelectedIndex;
             OMMSettings.Instance.Save();
         }
+
+        private void cuButtonConfigureCook_Click(object sender, EventArgs e)
+        {
+            var form = new ExtendedCookTools(Mod);
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.Show();
+        }
     }
 }

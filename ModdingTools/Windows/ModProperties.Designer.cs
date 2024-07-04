@@ -106,13 +106,9 @@ namespace ModdingTools.Windows
             this.mButton5 = new CUFramework.Controls.CUButton();
             this.label27 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.processRunner1 = new ModdingTools.GUI.ProcessRunner();
             this.tab7 = new System.Windows.Forms.TabPage();
-            this.arList1 = new ModdingTools.GUI.ARList();
             this.tab8 = new System.Windows.Forms.TabPage();
-            this.contentBrowser1 = new ModdingTools.GUI.ContentBrowser();
             this.tab2 = new System.Windows.Forms.TabPage();
-            this.configList1 = new ModdingTools.GUI.ConfigList();
             this.tab1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.mButton8 = new CUFramework.Controls.CUButton();
@@ -136,6 +132,11 @@ namespace ModdingTools.Windows
             this.mButton4 = new CUFramework.Controls.CUButton();
             this.mButton2 = new CUFramework.Controls.CUButton();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.processRunner1 = new ModdingTools.GUI.ProcessRunner();
+            this.arList1 = new ModdingTools.GUI.ARList();
+            this.contentBrowser1 = new ModdingTools.GUI.ContentBrowser();
+            this.configList1 = new ModdingTools.GUI.ConfigList();
+            this.cuButtonConfigureCook = new CUFramework.Controls.CUButton();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconView)).BeginInit();
             this.tabControl2.SuspendLayout();
@@ -998,6 +999,7 @@ namespace ModdingTools.Windows
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cuButtonConfigureCook);
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.cuButton1);
             this.panel1.Controls.Add(this.mButton10);
@@ -1082,7 +1084,7 @@ namespace ModdingTools.Windows
             this.mButton6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.mButton6.Name = "mButton6";
             this.mButton6.NoFocus = false;
-            this.mButton6.Size = new System.Drawing.Size(157, 48);
+            this.mButton6.Size = new System.Drawing.Size(115, 48);
             this.mButton6.TabIndex = 13;
             this.mButton6.Text = "COOK MOD";
             this.mButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1129,16 +1131,6 @@ namespace ModdingTools.Windows
             this.label17.Text = "MOD CLASS:";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
-            // processRunner1
-            // 
-            this.processRunner1.BackColor = System.Drawing.Color.Black;
-            this.processRunner1.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
-            this.processRunner1.Location = new System.Drawing.Point(5, 122);
-            this.processRunner1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.processRunner1.Name = "processRunner1";
-            this.processRunner1.Size = new System.Drawing.Size(698, 317);
-            this.processRunner1.TabIndex = 15;
-            // 
             // tab7
             // 
             this.tab7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -1149,19 +1141,6 @@ namespace ModdingTools.Windows
             this.tab7.Size = new System.Drawing.Size(708, 473);
             this.tab7.TabIndex = 3;
             this.tab7.Text = "ASSET REPLACE";
-            // 
-            // arList1
-            // 
-            this.arList1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.arList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.arList1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.arList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.arList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.arList1.Location = new System.Drawing.Point(0, 0);
-            this.arList1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.arList1.Name = "arList1";
-            this.arList1.Size = new System.Drawing.Size(708, 473);
-            this.arList1.TabIndex = 0;
             // 
             // tab8
             // 
@@ -1174,17 +1153,6 @@ namespace ModdingTools.Windows
             this.tab8.TabIndex = 4;
             this.tab8.Text = "CONTENT";
             // 
-            // contentBrowser1
-            // 
-            this.contentBrowser1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.contentBrowser1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.contentBrowser1.Font = new System.Drawing.Font("Segoe UI Semilight", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.contentBrowser1.ForeColor = System.Drawing.Color.White;
-            this.contentBrowser1.Location = new System.Drawing.Point(3, 3);
-            this.contentBrowser1.Name = "contentBrowser1";
-            this.contentBrowser1.Size = new System.Drawing.Size(700, 467);
-            this.contentBrowser1.TabIndex = 0;
-            // 
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -1195,17 +1163,6 @@ namespace ModdingTools.Windows
             this.tab2.Size = new System.Drawing.Size(708, 473);
             this.tab2.TabIndex = 5;
             this.tab2.Text = "MOD CONFIG";
-            // 
-            // configList1
-            // 
-            this.configList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.configList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.configList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.configList1.Location = new System.Drawing.Point(0, 0);
-            this.configList1.Margin = new System.Windows.Forms.Padding(0);
-            this.configList1.Name = "configList1";
-            this.configList1.Size = new System.Drawing.Size(708, 473);
-            this.configList1.TabIndex = 0;
             // 
             // tab1
             // 
@@ -1560,6 +1517,68 @@ namespace ModdingTools.Windows
             this.panel14.Size = new System.Drawing.Size(142, 3);
             this.panel14.TabIndex = 40;
             // 
+            // processRunner1
+            // 
+            this.processRunner1.BackColor = System.Drawing.Color.Black;
+            this.processRunner1.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.processRunner1.Location = new System.Drawing.Point(5, 122);
+            this.processRunner1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.processRunner1.Name = "processRunner1";
+            this.processRunner1.Size = new System.Drawing.Size(698, 317);
+            this.processRunner1.TabIndex = 15;
+            // 
+            // arList1
+            // 
+            this.arList1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.arList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.arList1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.arList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.arList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.arList1.Location = new System.Drawing.Point(0, 0);
+            this.arList1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.arList1.Name = "arList1";
+            this.arList1.Size = new System.Drawing.Size(708, 473);
+            this.arList1.TabIndex = 0;
+            // 
+            // contentBrowser1
+            // 
+            this.contentBrowser1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.contentBrowser1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contentBrowser1.Font = new System.Drawing.Font("Segoe UI Semilight", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.contentBrowser1.ForeColor = System.Drawing.Color.White;
+            this.contentBrowser1.Location = new System.Drawing.Point(3, 3);
+            this.contentBrowser1.Name = "contentBrowser1";
+            this.contentBrowser1.Size = new System.Drawing.Size(700, 467);
+            this.contentBrowser1.TabIndex = 0;
+            // 
+            // configList1
+            // 
+            this.configList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.configList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.configList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.configList1.Location = new System.Drawing.Point(0, 0);
+            this.configList1.Margin = new System.Windows.Forms.Padding(0);
+            this.configList1.Name = "configList1";
+            this.configList1.Size = new System.Drawing.Size(708, 473);
+            this.configList1.TabIndex = 0;
+            // 
+            // cuButtonConfigureCook
+            // 
+            this.cuButtonConfigureCook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.cuButtonConfigureCook.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(64)))));
+            this.cuButtonConfigureCook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cuButtonConfigureCook.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cuButtonConfigureCook.ForeColor = System.Drawing.Color.White;
+            this.cuButtonConfigureCook.Image = global::ModdingTools.Properties.Resources.settings_icon;
+            this.cuButtonConfigureCook.Location = new System.Drawing.Point(456, 34);
+            this.cuButtonConfigureCook.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.cuButtonConfigureCook.Name = "cuButtonConfigureCook";
+            this.cuButtonConfigureCook.NoFocus = false;
+            this.cuButtonConfigureCook.Size = new System.Drawing.Size(40, 48);
+            this.cuButtonConfigureCook.TabIndex = 24;
+            this.cuButtonConfigureCook.UseVisualStyleBackColor = false;
+            this.cuButtonConfigureCook.Click += new System.EventHandler(this.cuButtonConfigureCook_Click);
+            // 
             // ModProperties
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1744,5 +1763,6 @@ namespace ModdingTools.Windows
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Panel panel14;
+        private CUButton cuButtonConfigureCook;
     }
 }
