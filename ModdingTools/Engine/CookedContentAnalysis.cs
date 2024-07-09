@@ -2,23 +2,25 @@
 using Steamworks;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.IO.Packaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UELib;
 
 namespace ModdingTools.Engine
 {
     public class CookedContentAnalysis
     {
-        public class CookedAsset
+        public class CookedObject
         {
-            public string AssetType { get; protected set; }
-            public string AssetRefPath { get; protected set; }
+            public CookedObject Outer { get; protected set; }
+            public List<CookedObject> Children { get; protected set; } = new List<CookedObject>();
+
+            public List<AnalysisPackage> ReferencedBy { get; protected set; } = new List<AnalysisPackage>();
+
+            public string ObjectName { get; protected set; }
+            public string ObjectType { get; protected set; }
+            public string ObjectRefPath { get; protected set; }
             public long SizeInBytes { get; protected set; }
+            public bool bIsAsset { get; protected set; }
 
             static public bool IsCookedAsset(UExportTableItem exp)
             {
@@ -37,11 +39,35 @@ namespace ModdingTools.Engine
                 return true;
             }
 
-            public CookedAsset(UExportTableItem exp)
+            public CookedObject(UExportTableItem exp, bool isAsset)
             {
-                AssetType = exp.Class?.ObjectName ?? "Class";
-                AssetRefPath = exp.GetReferencePath();
+                ObjectName = exp.ObjectName;
+                ObjectType = exp.Class?.ObjectName ?? "Class";
+                ObjectRefPath = exp.GetReferencePath();
                 SizeInBytes = exp.SerialSize;
+                bIsAsset = isAsset;
+            }
+
+            public void SetOuter(CookedObject newOuter)
+            {
+                //if (Outer != null) Outer.ApplySizeRecursive(-SizeInBytes);
+                Outer = newOuter;
+                //if (Outer != null) Outer.ApplySizeRecursive(SizeInBytes);
+            }
+
+            /*
+            public void ApplySizeRecursive(long sizeAdd)
+            {
+                SizeInBytes += sizeAdd;
+                if (Outer != null) Outer.ApplySizeRecursive(sizeAdd);
+            }
+            */
+
+            public void AddReferenceRecursive(AnalysisPackage packageReferencingUs)
+            {
+                if (ReferencedBy.Contains(packageReferencingUs)) return;
+                ReferencedBy.Add(packageReferencingUs);
+                if (Outer != null) Outer.AddReferenceRecursive(packageReferencingUs);
             }
         };
 
@@ -51,9 +77,9 @@ namespace ModdingTools.Engine
 
             public Exception Error { get; protected set; }
 
-            public List<CookedAsset> ReferencedAssets { get; protected set; }
+            public List<CookedObject> ReferencedAssets { get; protected set; }
 
-            public AnalysisPackage(string packagePath, string friendlyPath, Dictionary<string, CookedAsset> AllCookedAssetsInMod, Action<string> setStatusAct)
+            public AnalysisPackage(string packagePath, string friendlyPath, CookedContentAnalysis Analysis, Action<string> setStatusAct)
             {
                 PackagePath = packagePath;
                 UnrealPackage loadedPackage = null;
@@ -66,6 +92,7 @@ namespace ModdingTools.Engine
                     // This should return true 99.999% of the time, but checking just in case.
                     if (DecompressFacade.IsPackageCompressed(loadedPackage))
                     {
+                        // This package is compressed, including the export table. Gotta decompress it first :/
                         setStatusAct($"Decompressing and analysing package: {friendlyPath}");
 
                         uncompressedPath = DecompressFacade.DecompressPackage(packagePath, DecompressFacade.GetDecompressCacheDir());
@@ -80,24 +107,74 @@ namespace ModdingTools.Engine
 
                     // Time to go through the package's exports and see which assets are present.
                     // Don't need to InitializePackage here, since we don't need the constructed objects (for now).
-                    CookedAsset asset;
-                    string path;
-                    ReferencedAssets = new List<CookedAsset>();
-                    foreach (var exp in loadedPackage.Exports)
                     {
-                        if (!CookedAsset.IsCookedAsset(exp)) continue;
-
-                        path = exp.GetPath().ToUpperInvariant();
-                        if (!AllCookedAssetsInMod.TryGetValue(path, out asset))
+                        CookedObject obj, objOuter;
+                        UExportTableItem expOuter;
+                        string path;
+                        bool alreadyRegistered;
+                        ReferencedAssets = new List<CookedObject>();
+                        foreach (var exp in loadedPackage.Exports)
                         {
-                            asset = new CookedAsset(exp);
-                            AllCookedAssetsInMod.Add(path, asset);
+                            if (!CookedObject.IsCookedAsset(exp)) continue;
+
+                            alreadyRegistered = Analysis.Objects.TryGetValue(path = exp.GetPath().ToUpperInvariant(), out obj);
+                            if (!alreadyRegistered)
+                            {
+                                // New asset, register it.
+                                obj = new CookedObject(exp, true);
+                                Analysis.Objects.Add(path, obj);
+                            }
+                            ReferencedAssets.Add(obj);
+
+                            if (alreadyRegistered)
+                            {
+                                obj.AddReferenceRecursive(this);
+                                continue;
+                            }
+
+                            obj.ReferencedBy.Add(this);
+                            
+                            // This asseet wasn't registered before. Let's climb the parent chain and link its outer.
+                            expOuter = (UExportTableItem)exp.Outer;
+                            while (expOuter != null)
+                            {
+                                alreadyRegistered = Analysis.Objects.TryGetValue(path = expOuter.GetPath().ToUpperInvariant(), out objOuter);
+                                if (!alreadyRegistered)
+                                {
+                                    // New outer, register it.
+                                    objOuter = new CookedObject(expOuter, false);
+                                    Analysis.Objects.Add(path, objOuter);
+                                }
+
+                                obj.SetOuter(objOuter);
+                                objOuter.Children.Add(obj);
+                                obj = objOuter;
+
+                                if (alreadyRegistered)
+                                {
+                                    obj.AddReferenceRecursive(this);
+                                    break;
+                                }
+
+                                obj.ReferencedBy.Add(this);
+
+                                // This outer wasn't registered before either, keep going.
+                                expOuter = (UExportTableItem)expOuter.Outer;
+                                continue;
+                            }
+
+                            if (expOuter == null)
+                            {
+                                // Got to the end of the outer chain, meaning that this is a never-before-registered
+                                // force-cooked package!!!!! Add it to the tree.
+                                Analysis.AssetTree.Add(obj);
+                            }
                         }
-                        ReferencedAssets.Add(asset);
                     }
-                    ReferencedAssets.TrimExcess();
 
                     loadedPackage.Dispose();
+
+                    ReferencedAssets.TrimExcess();
                 }
                 catch (Exception e)
                 {
@@ -129,8 +206,9 @@ namespace ModdingTools.Engine
 
         public ModObject Mod { get; protected set; }
 
-        public Dictionary<string, CookedAsset> Assets { get; protected set; } = new Dictionary<string, CookedAsset>();
-        public List<AnalysisPackage> Packages { get; protected set; } = null;
+        public List<CookedObject> AssetTree { get; protected set; } = new List<CookedObject>();
+        public Dictionary<string, CookedObject> Objects { get; protected set; } = new Dictionary<string, CookedObject>();
+        public List<AnalysisPackage> PackageFiles { get; protected set; } = null;
 
         public CookedContentAnalysis(ModObject mod)
         {
@@ -150,22 +228,24 @@ namespace ModdingTools.Engine
                 allCookedPackageFiles.AddRange(GetFilesByType(path, "*.upk"));
                 allCookedPackageFiles.AddRange(GetFilesByType(path, "*.umap"));
 
-                Packages = new List<AnalysisPackage>(allCookedPackageFiles.Count);
+                PackageFiles = new List<AnalysisPackage>(allCookedPackageFiles.Count);
 
                 int packagesAnalysed = 0;
                 foreach (var packagePath in allCookedPackageFiles)
                 {
-                    Packages.Add(new AnalysisPackage(packagePath, GetRelativePath(packagePath, Mod.RootPath), Assets, setStatusAct));
+                    PackageFiles.Add(new AnalysisPackage(packagePath, GetRelativePath(packagePath, Mod.RootPath), this, setStatusAct));
 
                     packagesAnalysed++;
                     setProgressAct((int)(100f * packagesAnalysed / allCookedPackageFiles.Count));
                 }
             }
 
-            setStatusAct("Done!");
-
             // We got what we wanted from the decompressed packages. Just in case there's some leftovers, trash them.
             DecompressFacade.ClearDecompressCache();
+
+            setStatusAct("Sorting...");
+
+            SortAlphabeticallyRecursive(AssetTree);
 
             setStatusAct("");
         }
@@ -174,6 +254,15 @@ namespace ModdingTools.Engine
         {
             // The engine seems to be able to read subfolders in CookedPC, so do this recursively.
             return Directory.GetFiles(path, type, SearchOption.AllDirectories);
+        }
+
+        public void SortAlphabeticallyRecursive(List<CookedObject> list)
+        {
+            list.Sort((x, y) => String.Compare(x.ObjectName, y.ObjectName, true));
+            foreach (var obj in list)
+            {
+                SortAlphabeticallyRecursive(obj.Children);
+            }
         }
 
         // Kinda ugly, but works well enough under normal circumstances.

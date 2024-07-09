@@ -84,8 +84,7 @@ namespace ModdingTools.Windows
             CUMessageBox.Show(
                 "This tool:"
                 + "\n    - Shows which assets have been included into this mod's cooked packages."
-                + "\n    - Shows which assets are shared by (duplicated in) multiple map packages."
-                + "\n    - Shows tips on how to optimize storage usage.",
+                + "\n    - Shows which assets are shared by (duplicated in) multiple map packages.",
                 "Info"
             );
         }
