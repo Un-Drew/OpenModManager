@@ -192,10 +192,10 @@
     <Compile Include="Windows\AboutWindow.Designer.cs">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\CookedContentAnalysisResults.cs">
+    <Compile Include="Windows\Tools\CookedContentAnalysisResults.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\CookedContentAnalysisResults.Designer.cs">
+    <Compile Include="Windows\Tools\CookedContentAnalysisResults.Designer.cs">
       <DependentUpon>CookedContentAnalysisResults.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\ExtendedCookTools.cs">
@@ -325,7 +325,7 @@
     <EmbeddedResource Include="Windows\AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\CookedContentAnalysisResults.resx">
+    <EmbeddedResource Include="Windows\Tools\CookedContentAnalysisResults.resx">
       <DependentUpon>CookedContentAnalysisResults.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\ExtendedCookTools.resx">
