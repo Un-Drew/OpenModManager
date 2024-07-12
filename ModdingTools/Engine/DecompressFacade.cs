@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CUFramework.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using UELib;
 
 namespace ModdingTools.Engine
@@ -14,6 +16,24 @@ namespace ModdingTools.Engine
         static public string GetDecompressorPath()
         {
             return Path.Combine(Program.GetAppRoot(), "decompress.exe");
+        }
+
+        static public bool DoesDecompressorExist()
+        {
+            return File.Exists(GetDecompressorPath());
+        }
+
+        static public void WarnNoDecompressor()
+        {
+            var result = CUMessageBox.Show(
+                "This tool requires Glidor's Unreal Package Decompressor in the mod manager's root folder.\n\n"
+                + "Would you like to go to the download page?",
+                "Missing decompress.exe!", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+            );
+            if (result == DialogResult.Yes)
+            {
+                Utils.StartInDefaultBrowser("https://www.gildor.org/downloads");
+            }
         }
 
         static public string GetDecompressCacheDir()

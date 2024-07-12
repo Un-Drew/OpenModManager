@@ -33,19 +33,9 @@ namespace ModdingTools.Windows
         {
             if (BuildingAnalysis != null) return;
 
-            string decompressorPath = DecompressFacade.GetDecompressorPath();
-            if (!File.Exists(decompressorPath))
+            if (!DecompressFacade.DoesDecompressorExist())
             {
-                var result = CUMessageBox.Show(
-                    "This tool requires Glidor's Unreal Package Decompressor."
-                    + " Once downloaded, place decompress.exe into the mod manager's root folder.\n\n"
-                    + "Would you like to go to the download page?",
-                    "Missing decompress.exe!", MessageBoxButtons.YesNo, MessageBoxIcon.Question
-                );
-                if (result == DialogResult.Yes)
-                {
-                    Utils.StartInDefaultBrowser("https://www.gildor.org/downloads");
-                }
+                DecompressFacade.WarnNoDecompressor();
                 return;
             }
 
