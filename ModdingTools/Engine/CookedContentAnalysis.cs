@@ -79,7 +79,7 @@ namespace ModdingTools.Engine
 
             public List<CookedObject> ReferencedAssets { get; protected set; }
 
-            public AnalysisPackage(string packagePath, string friendlyPath, CookedContentAnalysis Analysis, Action<string> setStatusAct)
+            public AnalysisPackage(string packagePath, string friendlyPath, string decompressCachePath, CookedContentAnalysis Analysis, Action<string> setStatusAct)
             {
                 PackagePath = packagePath;
                 UnrealPackage loadedPackage = null;
@@ -95,7 +95,7 @@ namespace ModdingTools.Engine
                         // This package is compressed, including the export table. Gotta decompress it first :/
                         setStatusAct($"Decompressing and analysing package: {friendlyPath}");
 
-                        uncompressedPath = DecompressFacade.DecompressPackage(packagePath, DecompressFacade.GetDecompressCacheDir());
+                        uncompressedPath = DecompressFacade.DecompressPackage(packagePath, decompressCachePath);
 
                         loadedPackage.Dispose();
                         loadedPackage = UnrealLoader.LoadPackage(uncompressedPath);
@@ -217,7 +217,8 @@ namespace ModdingTools.Engine
 
         public void RunAnalysis(Action<string> setStatusAct, Action<int> setProgressAct)
         {
-            DecompressFacade.EnsureDecompressCache();
+            var decompressCachePath = Path.Combine(DecompressFacade.GetDecompressCacheDir(), "CookedContentAnalysis");
+            Directory.CreateDirectory(decompressCachePath);
 
             var path = Mod.GetCookedDir();
             if (Directory.Exists(path))
@@ -233,15 +234,15 @@ namespace ModdingTools.Engine
                 int packagesAnalysed = 0;
                 foreach (var packagePath in allCookedPackageFiles)
                 {
-                    PackageFiles.Add(new AnalysisPackage(packagePath, GetRelativePath(packagePath, Mod.RootPath), this, setStatusAct));
+                    PackageFiles.Add(new AnalysisPackage(packagePath, GetRelativePath(packagePath, Mod.RootPath), decompressCachePath, this, setStatusAct));
 
                     packagesAnalysed++;
                     setProgressAct((int)(100f * packagesAnalysed / allCookedPackageFiles.Count));
                 }
             }
 
-            // We got what we wanted from the decompressed packages. Just in case there's some leftovers, trash them.
-            DecompressFacade.ClearDecompressCache();
+            // We got what we wanted from the decompressed packages. Just in case there's some leftovers somehow, trash them.
+            DecompressFacade.ClearDecompressCache(decompressCachePath);
 
             setStatusAct("Sorting...");
 

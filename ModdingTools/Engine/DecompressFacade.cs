@@ -30,9 +30,8 @@ namespace ModdingTools.Engine
             }
         }
 
-        static public void ClearDecompressCache()
+        static public void ClearDecompressCache(string path)
         {
-            var path = GetDecompressCacheDir();
             if (Directory.Exists(path))
             {
                 foreach (var file in Directory.GetFiles(path, "*.u"))
