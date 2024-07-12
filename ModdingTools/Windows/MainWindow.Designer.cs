@@ -49,6 +49,7 @@ namespace ModdingTools.Windows
             this.panel1 = new System.Windows.Forms.Panel();
             this.cuButton1 = new CUFramework.Controls.CUButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.aLWAYSLOADEDCHECKERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -133,11 +134,12 @@ namespace ModdingTools.Windows
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.assetExporterToolStripMenuItem,
             this.flipbookGeneratorToolStripMenuItem,
-            this.wORKSHOPBLOCKERToolStripMenuItem});
+            this.wORKSHOPBLOCKERToolStripMenuItem,
+            this.aLWAYSLOADEDCHECKERToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 92);
             this.contextMenuStrip1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip1_Closed);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
@@ -270,6 +272,14 @@ namespace ModdingTools.Windows
             this.panel2.Size = new System.Drawing.Size(145, 3);
             this.panel2.TabIndex = 39;
             // 
+            // aLWAYSLOADEDCHECKERToolStripMenuItem
+            // 
+            this.aLWAYSLOADEDCHECKERToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.aLWAYSLOADEDCHECKERToolStripMenuItem.Name = "aLWAYSLOADEDCHECKERToolStripMenuItem";
+            this.aLWAYSLOADEDCHECKERToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.aLWAYSLOADEDCHECKERToolStripMenuItem.Text = "ALWAYSLOADED CHECKER";
+            this.aLWAYSLOADEDCHECKERToolStripMenuItem.Click += new System.EventHandler(this.aLWAYSLOADEDCHECKERToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,6 +333,7 @@ namespace ModdingTools.Windows
         private CUButton cuButton1;
         private System.Windows.Forms.ToolStripMenuItem wORKSHOPBLOCKERToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripMenuItem aLWAYSLOADEDCHECKERToolStripMenuItem;
     }
 }
 

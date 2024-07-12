@@ -382,5 +382,14 @@ namespace ModdingTools.Windows
                 }
             }
         }
+
+        private void aLWAYSLOADEDCHECKERToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!AlwaysLoadedChecker.PreOpen()) return;
+
+            var w = new AlwaysLoadedChecker();
+            w.StartPosition = FormStartPosition.CenterParent;
+            w.ShowDialog(this);
+        }
     }
 }

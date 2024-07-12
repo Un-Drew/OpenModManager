@@ -192,6 +192,12 @@
     <Compile Include="Windows\AboutWindow.Designer.cs">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Tools\AlwaysLoadedChecker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Tools\AlwaysLoadedChecker.Designer.cs">
+      <DependentUpon>AlwaysLoadedChecker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Tools\CookedContentAnalysisResults.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Tools\AlwaysLoadedChecker.resx">
+      <DependentUpon>AlwaysLoadedChecker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Tools\CookedContentAnalysisResults.resx">
       <DependentUpon>CookedContentAnalysisResults.cs</DependentUpon>
