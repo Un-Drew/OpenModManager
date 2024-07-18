@@ -342,7 +342,7 @@
             this.Location = new System.Drawing.Point(0, 0);
             this.MinimumSize = new System.Drawing.Size(350, 300);
             this.Name = "CookedContentAnalysisResults";
-            this.Text = "COOK ANALYSIS : RESULTS";
+            this.Text = "COOK ANALYSIS RESULTS";
             this.Load += new System.EventHandler(this.CookedContentAnalysisResults_Load);
             this.Controls.SetChildIndex(this.cookedAssetsSplit, 0);
             this.cookedAssetsSplit.Panel1.ResumeLayout(false);

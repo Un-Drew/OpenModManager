@@ -59,6 +59,7 @@
             this.launchGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.launchGameNoWorkshopModsSpecifyMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.launchGameWorkshopModsSpecifyMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyzeCookedContentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -121,13 +122,14 @@
             this.toolStripSeparator1,
             this.openDirectoryToolStripMenuItem,
             this.openInVSC,
+            this.analyzeCookedContentToolStripMenuItem,
             this.moveToToolStripMenuItem,
             this.scriptingToolStripMenuItem,
             this.deleteModToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 186);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 208);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // cookModToolStripMenuItem
@@ -139,7 +141,7 @@
             this.compileCookToolStripMenuItem,
             this.compileAndCookAndToolStripMenuItem});
             this.cookModToolStripMenuItem.Name = "cookModToolStripMenuItem";
-            this.cookModToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.cookModToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.cookModToolStripMenuItem.Text = "Build";
             // 
             // compileScriptsToolStripMenuItem
@@ -171,7 +173,7 @@
             this.mafiaTownToolStripMenuItem,
             this.hatInTimeEntryToolStripMenuItem});
             this.testModToolStripMenuItem.Name = "testModToolStripMenuItem";
-            this.testModToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.testModToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.testModToolStripMenuItem.Text = "Test mod";
             // 
             // titleScreenToolStripMenuItem
@@ -205,19 +207,19 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
             // 
             // openDirectoryToolStripMenuItem
             // 
             this.openDirectoryToolStripMenuItem.Name = "openDirectoryToolStripMenuItem";
-            this.openDirectoryToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.openDirectoryToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.openDirectoryToolStripMenuItem.Text = "Open directory";
             this.openDirectoryToolStripMenuItem.Click += new System.EventHandler(this.openDirectoryToolStripMenuItem_Click);
             // 
             // openInVSC
             // 
             this.openInVSC.Name = "openInVSC";
-            this.openInVSC.Size = new System.Drawing.Size(155, 22);
+            this.openInVSC.Size = new System.Drawing.Size(176, 22);
             this.openInVSC.Text = "Open in VS Code";
             this.openInVSC.Click += new System.EventHandler(this.openInVSC_Click);
             // 
@@ -227,7 +229,7 @@
             this.moveToToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testToolStripMenuItem});
             this.moveToToolStripMenuItem.Name = "moveToToolStripMenuItem";
-            this.moveToToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.moveToToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.moveToToolStripMenuItem.Text = "Move to";
             this.moveToToolStripMenuItem.DropDownOpening += new System.EventHandler(this.moveoToolStripMenuItem_DropDownOpening);
             // 
@@ -242,7 +244,7 @@
             this.scriptingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.scriptWatcherToolStripMenuItem2});
             this.scriptingToolStripMenuItem.Name = "scriptingToolStripMenuItem";
-            this.scriptingToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.scriptingToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.scriptingToolStripMenuItem.Text = "Scripting";
             // 
             // scriptWatcherToolStripMenuItem2
@@ -255,7 +257,7 @@
             // deleteModToolStripMenuItem
             // 
             this.deleteModToolStripMenuItem.Name = "deleteModToolStripMenuItem";
-            this.deleteModToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.deleteModToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.deleteModToolStripMenuItem.Text = "Delete mod";
             this.deleteModToolStripMenuItem.Click += new System.EventHandler(this.deleteModToolStripMenuItem_Click);
             // 
@@ -315,6 +317,13 @@
             this.launchGameWorkshopModsSpecifyMapToolStripMenuItem.Text = "Launch game (Workshop mods, specify map...)";
             this.launchGameWorkshopModsSpecifyMapToolStripMenuItem.Click += new System.EventHandler(this.launchGameWorkshopModsSpecifyMapToolStripMenuItem_Click);
             // 
+            // analyzeCookedContentToolStripMenuItem
+            // 
+            this.analyzeCookedContentToolStripMenuItem.Name = "analyzeCookedContentToolStripMenuItem";
+            this.analyzeCookedContentToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.analyzeCookedContentToolStripMenuItem.Text = "Analyze cooked content";
+            this.analyzeCookedContentToolStripMenuItem.Click += new System.EventHandler(this.analyzeCookedContentToolStripMenuItem_Click);
+            // 
             // ModTile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,5 +372,6 @@
         private System.Windows.Forms.ToolStripMenuItem launchGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem launchGameNoWorkshopModsSpecifyMapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem launchGameWorkshopModsSpecifyMapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analyzeCookedContentToolStripMenuItem;
     }
 }
