@@ -117,4 +117,109 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="checkboxCustomCooking.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cookSettingsPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabControl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabGeneral.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="checkBox_Env_CookInIsolation.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>139, 17</value>
+  </metadata>
+  <data name="checkBox_Env_CookInIsolation.ToolTip" xml:space="preserve">
+    <value>Default: DISABLED
+
+If enabled, temporarily disables all other local mods while cooking this mod. Could
+be used to speed up the cooking process, as well as to avoid AlwaysLoaded issues
+caused by other mods.</value>
+  </data>
+  <metadata name="settingsTitle_Env.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="generalSettings_Script.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="checkBox_Script_CookNonAL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="checkBox_Script_CookNonAL.ToolTip" xml:space="preserve">
+    <value>Default: DISABLED
+
+If enabled, any of this mod's scripts, and their content, will be embedded into any maps in which
+they're referenced (unless referenced by a Cook Group). As a result, the script package won't be
+present in the cooked mod.
+
+May be useful for large level mods that don't want their scripts always loaded in memory.</value>
+  </data>
+  <metadata name="checkBox_Script_EmbedNonAL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="checkBox_Script_EmbedNonAL.ToolTip" xml:space="preserve">
+    <value>Default: DISABLED
+
+If enabled, any base-game Non-AlwaysLoaded classes referenced by your custom
+scripts will be embedded (cooked) into the script package.
+NOTE: If your mod also contains maps, this may require multiple cook commands.
+
+May be useful for mods that need to access variables/functions specific to a
+Non-AlwaysLoaded class.</value>
+  </data>
+  <metadata name="settingsTitle_Script.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabCookGroups.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="tabImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADC
+        BAAAAk1TRnQBSQFMAgEBAgEAAZgBAAGYAQABIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        AwABIAMAAQEBAAEgBgABQP8A/wD/AP8AlgA0/xAANP//AIkANP8QADT//wCJAAj/JAAI/xAACP8kAAj/
+        /wA5ABj/OAAI/wwABP8UAAj/EAAI/wwABP8UAAj//wA5ABj/OAAI/wwACP8QAAj/EAAI/wwACP8QAAj/
+        /wAhAAj/EAAY/xAACP8gAAj/DAAM/wwACP8QAAj/DAAM/wwACP//ACEAEP8IABj/CAAQ/yAACP8MABD/
+        CAAI/xAACP8MABD/CAAI//8AHQBQ/xwACP8MAAz/DAAI/xAACP8MAAz/DAAI//8AHQBQ/xwACP8MAAj/
+        EAAI/xAACP8MAAj/EAAI//8AGQAg/xgAIP8YAAj/DAAE/xQACP8QAAj/DAAE/xQACP//ABkAHP8IABD/
+        CAAc/xgACP8kAAj/EAAI/yQACP//AB0AFP8IABj/CAAU/xwANP8QADT//wAlAAz/BAAg/wQADP8kADT/
+        EAA0//8AKQAI/wQAIP8EAAj/NAAM/0wADP//ADEACP8EACD/BAAI/zgADP9EAAz//wAxAAz/BAAg/wQA
+        DP84AAz/BAAE/ywABP8EAAz//wAtABT/CAAY/wgAFP80ABD/LAAQ//8ALQAc/wgAEP8IABz/NAAM/wwA
+        CP8YAAz//wAxACD/GAAg/zAAEP8IABT/EAAQ//8AMQBQ/0gAIP//AEkAUP9EAAj/BAAI/wgAEP//AEUA
+        EP8IABj/CAAQ/0QACP8IAAj/EAAI//8ARQAI/xAAGP8QAAj/RAAI/wQAFP8IAAj//wBdABj/XAAQ/wgA
+        GP//AF0AGP9cAAz/FAAQ//8A0QAI/yAACP//ANEAEP8UAAj//wDdABD/CAAI//8A6QAU//8A9QAI//8A
+        PQABQgFNAT4HAAE+AwABKAMAAYADAAEgAwABAQEAAQEGAAECFgAD/wEACP8IAAj/CAAE/wEAAQcBgAED
+        CAAE/wEAAQcBgAEDCAAE/wE/AecBnwHzCAAB/wHwAT8B/wE7AecBnQHzCAAB/wHwAT8B/wE5AecBnAHz
+        CAAB/AHwATwB/wE4AecBnAFzCAAB/AIwAf8BOAFnAZwBMwgAAfgCAAF/ATgB5wGcAXMIAAH4AgABfwE5
+        AecBnAHzCAAB8AEPAcABPwE7AecBnQHzCAAB8AEYAWACPwHnAZ8B8wgAAfgCMAF/AQABBwGAAQMIAAH+
+        ASABEQH/AQABBwGAAQMIAAH/ASABEwH/AeMC/wGPCAAB/wEgARMB/wHxAv8BHwgAAf4BIAERAf8B+AG/
+        AfoBPwgAAfgCMAF/AfwBPwH4AX8IAAHwARgBYAE/Af4BOQH4Af8IAAHwAQ8BwAE/AfwBMAF4AX8IAAH4
+        AgABfwH/AeABHwH/CAAB+AIAAX8B/wHJAYcB/wgAAfwCMAL/AZkB5wH/CAAB/AHwATwC/wGQAWcB/wgA
+        Af8B8AE/Av8BhgEHAf8IAAH/AfABPwL/AY8BhwH/CAAF/wGfAecB/wgABf8BhwHPAf8IAAX/AeEBnwH/
+        CAAF/wH4AT8B/wgABf8B/gF/Af8IAAs=
+</value>
+  </data>
+  <metadata name="tabController.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cookSettingsTitleBorder.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cookSettingsTitleContent.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cookSettingsTitleContent.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>
