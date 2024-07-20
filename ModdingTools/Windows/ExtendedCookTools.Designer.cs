@@ -34,30 +34,37 @@
             this.cookSettingsPanel = new ModdingTools.GUI.BorderPanel();
             this.tabControl = new CUFramework.Controls.Tabs.CUBorderlessTabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
-            this.generalSettings_Env = new System.Windows.Forms.Panel();
-            this.checkBox_Env_CookInIsolation = new System.Windows.Forms.CheckBox();
-            this.settingsTitle_Env = new System.Windows.Forms.Label();
+            this.generalSettings_Maps = new System.Windows.Forms.Panel();
+            this.label_Maps_AudioLanguages = new System.Windows.Forms.LinkLabel();
+            this.textBox_Maps_AudioLanguages = new CUFramework.Controls.CUTextBox();
+            this.check_Maps_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
+            this.settingsTitle_Maps = new System.Windows.Forms.Label();
             this.generalSettings_Script = new System.Windows.Forms.Panel();
-            this.radio_Script_Type_Default = new System.Windows.Forms.RadioButton();
-            this.group_Script_Type = new CUFramework.Controls.CUGroupBox();
-            this.checkBox_Script_CookNonAL = new System.Windows.Forms.CheckBox();
-            this.checkBox_Script_EmbedNonAL = new System.Windows.Forms.CheckBox();
+            this.check_Script_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
+            this.nestLevel = new System.Windows.Forms.Panel();
+            this.nestLine2 = new System.Windows.Forms.Panel();
+            this.nestLine1 = new System.Windows.Forms.Panel();
+            this.check_Script_EmbedNonAL = new System.Windows.Forms.CheckBox();
+            this.combo_Script_LoadScope = new System.Windows.Forms.ComboBox();
+            this.label_Script_LoadScope = new System.Windows.Forms.Label();
             this.settingsTitle_Script = new System.Windows.Forms.Label();
+            this.generalSettings_Env = new System.Windows.Forms.Panel();
+            this.check_Env_CookInIsolation = new System.Windows.Forms.CheckBox();
+            this.settingsTitle_Env = new System.Windows.Forms.Label();
             this.tabCookGroups = new System.Windows.Forms.TabPage();
             this.tabImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabController = new CUFramework.Controls.Tabs.CUTabController();
             this.cookSettingsTitleBorder = new System.Windows.Forms.Panel();
             this.cookSettingsTitleContent = new System.Windows.Forms.Panel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.radio_Script_Type_Embed = new System.Windows.Forms.RadioButton();
-            this.check_Script_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
-            this.radio_Script_Type_NonAL = new System.Windows.Forms.RadioButton();
+            this.check_Maps_DeleteLocINT = new System.Windows.Forms.CheckBox();
             this.cookSettingsPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabGeneral.SuspendLayout();
-            this.generalSettings_Env.SuspendLayout();
+            this.generalSettings_Maps.SuspendLayout();
             this.generalSettings_Script.SuspendLayout();
-            this.group_Script_Type.SuspendLayout();
+            this.nestLevel.SuspendLayout();
+            this.generalSettings_Env.SuspendLayout();
             this.cookSettingsTitleBorder.SuspendLayout();
             this.cookSettingsTitleContent.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +79,8 @@
             this.checkboxCustomCooking.Size = new System.Drawing.Size(210, 28);
             this.checkboxCustomCooking.TabIndex = 30;
             this.checkboxCustomCooking.Text = "ENABLE CUSTOM COOKING";
+            this.toolTip.SetToolTip(this.checkboxCustomCooking, "Enables custom cook functionality. This is required for any of the options below." +
+        "\r\nIf disabled, the mod will be cooked normally, with no extra fixes.");
             this.checkboxCustomCooking.UseVisualStyleBackColor = false;
             // 
             // cookSettingsPanel
@@ -84,7 +93,7 @@
             this.cookSettingsPanel.Location = new System.Drawing.Point(4, 64);
             this.cookSettingsPanel.Name = "cookSettingsPanel";
             this.cookSettingsPanel.Padding = new System.Windows.Forms.Padding(2);
-            this.cookSettingsPanel.Size = new System.Drawing.Size(532, 300);
+            this.cookSettingsPanel.Size = new System.Drawing.Size(442, 300);
             this.cookSettingsPanel.TabIndex = 31;
             // 
             // tabControl
@@ -97,119 +106,182 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(428, 296);
+            this.tabControl.Size = new System.Drawing.Size(338, 296);
             this.tabControl.TabIndex = 1;
             // 
             // tabGeneral
             // 
             this.tabGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.tabGeneral.Controls.Add(this.generalSettings_Env);
+            this.tabGeneral.Controls.Add(this.generalSettings_Maps);
             this.tabGeneral.Controls.Add(this.generalSettings_Script);
+            this.tabGeneral.Controls.Add(this.generalSettings_Env);
             this.tabGeneral.ImageIndex = 0;
             this.tabGeneral.Location = new System.Drawing.Point(0, 0);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(5);
-            this.tabGeneral.Size = new System.Drawing.Size(428, 296);
+            this.tabGeneral.Size = new System.Drawing.Size(338, 296);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "GENERAL";
             // 
-            // generalSettings_Env
+            // generalSettings_Maps
             // 
-            this.generalSettings_Env.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.generalSettings_Env.Controls.Add(this.checkBox_Env_CookInIsolation);
-            this.generalSettings_Env.Controls.Add(this.settingsTitle_Env);
-            this.generalSettings_Env.Location = new System.Drawing.Point(8, 241);
-            this.generalSettings_Env.Name = "generalSettings_Env";
-            this.generalSettings_Env.Padding = new System.Windows.Forms.Padding(4);
-            this.generalSettings_Env.Size = new System.Drawing.Size(412, 50);
-            this.generalSettings_Env.TabIndex = 32;
+            this.generalSettings_Maps.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.generalSettings_Maps.Controls.Add(this.check_Maps_DeleteLocINT);
+            this.generalSettings_Maps.Controls.Add(this.textBox_Maps_AudioLanguages);
+            this.generalSettings_Maps.Controls.Add(this.label_Maps_AudioLanguages);
+            this.generalSettings_Maps.Controls.Add(this.check_Maps_ExcludeBaseALAssets);
+            this.generalSettings_Maps.Controls.Add(this.settingsTitle_Maps);
+            this.generalSettings_Maps.Location = new System.Drawing.Point(8, 170);
+            this.generalSettings_Maps.Name = "generalSettings_Maps";
+            this.generalSettings_Maps.Padding = new System.Windows.Forms.Padding(4);
+            this.generalSettings_Maps.Size = new System.Drawing.Size(322, 120);
+            this.generalSettings_Maps.TabIndex = 33;
             // 
-            // checkBox_Env_CookInIsolation
+            // label_Maps_AudioLanguages
             // 
-            this.checkBox_Env_CookInIsolation.AutoSize = true;
-            this.checkBox_Env_CookInIsolation.Location = new System.Drawing.Point(7, 26);
-            this.checkBox_Env_CookInIsolation.Name = "checkBox_Env_CookInIsolation";
-            this.checkBox_Env_CookInIsolation.Size = new System.Drawing.Size(105, 17);
-            this.checkBox_Env_CookInIsolation.TabIndex = 0;
-            this.checkBox_Env_CookInIsolation.Text = "Cook in islolation";
-            this.toolTip.SetToolTip(this.checkBox_Env_CookInIsolation, resources.GetString("checkBox_Env_CookInIsolation.ToolTip"));
-            this.checkBox_Env_CookInIsolation.UseVisualStyleBackColor = true;
+            this.label_Maps_AudioLanguages.AutoSize = true;
+            this.label_Maps_AudioLanguages.LinkArea = new System.Windows.Forms.LinkArea(30, 17);
+            this.label_Maps_AudioLanguages.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.label_Maps_AudioLanguages.Location = new System.Drawing.Point(7, 49);
+            this.label_Maps_AudioLanguages.Margin = new System.Windows.Forms.Padding(3);
+            this.label_Maps_AudioLanguages.Name = "label_Maps_AudioLanguages";
+            this.label_Maps_AudioLanguages.Size = new System.Drawing.Size(257, 17);
+            this.label_Maps_AudioLanguages.TabIndex = 34;
+            this.label_Maps_AudioLanguages.TabStop = true;
+            this.label_Maps_AudioLanguages.Text = "Audio localization languages (see documentation):";
+            this.label_Maps_AudioLanguages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Maps_AudioLanguages.UseCompatibleTextRendering = true;
+            this.label_Maps_AudioLanguages.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
+            this.label_Maps_AudioLanguages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label_Maps_AudioLanguages_LinkClicked);
             // 
-            // settingsTitle_Env
+            // textBox_Maps_AudioLanguages
             // 
-            this.settingsTitle_Env.AutoSize = true;
-            this.settingsTitle_Env.BackColor = System.Drawing.Color.Transparent;
-            this.settingsTitle_Env.ForeColor = System.Drawing.Color.DarkGray;
-            this.settingsTitle_Env.Location = new System.Drawing.Point(7, 7);
-            this.settingsTitle_Env.Margin = new System.Windows.Forms.Padding(3);
-            this.settingsTitle_Env.Name = "settingsTitle_Env";
-            this.settingsTitle_Env.Size = new System.Drawing.Size(87, 13);
-            this.settingsTitle_Env.TabIndex = 29;
-            this.settingsTitle_Env.Text = "ENVIRONMENT";
+            this.textBox_Maps_AudioLanguages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.textBox_Maps_AudioLanguages.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.textBox_Maps_AudioLanguages.ForeColor = System.Drawing.Color.White;
+            this.textBox_Maps_AudioLanguages.Location = new System.Drawing.Point(7, 68);
+            this.textBox_Maps_AudioLanguages.Name = "textBox_Maps_AudioLanguages";
+            this.textBox_Maps_AudioLanguages.Size = new System.Drawing.Size(306, 20);
+            this.textBox_Maps_AudioLanguages.TabIndex = 40;
+            this.toolTip.SetToolTip(this.textBox_Maps_AudioLanguages, "Languages in which to cook the mod\'s audio, separated by \'+\' characters.\r\nFor exa" +
+        "mple: INT+FRA+ITA\r\nIf blank, the mod won\'t use localization cooking.");
+            // 
+            // check_Maps_ExcludeBaseALAssets
+            // 
+            this.check_Maps_ExcludeBaseALAssets.AutoSize = true;
+            this.check_Maps_ExcludeBaseALAssets.Location = new System.Drawing.Point(7, 26);
+            this.check_Maps_ExcludeBaseALAssets.Name = "check_Maps_ExcludeBaseALAssets";
+            this.check_Maps_ExcludeBaseALAssets.Size = new System.Drawing.Size(224, 17);
+            this.check_Maps_ExcludeBaseALAssets.TabIndex = 0;
+            this.check_Maps_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
+            this.toolTip.SetToolTip(this.check_Maps_ExcludeBaseALAssets, resources.GetString("check_Maps_ExcludeBaseALAssets.ToolTip"));
+            this.check_Maps_ExcludeBaseALAssets.UseVisualStyleBackColor = true;
+            // 
+            // settingsTitle_Maps
+            // 
+            this.settingsTitle_Maps.AutoSize = true;
+            this.settingsTitle_Maps.BackColor = System.Drawing.Color.Transparent;
+            this.settingsTitle_Maps.ForeColor = System.Drawing.Color.DarkGray;
+            this.settingsTitle_Maps.Location = new System.Drawing.Point(7, 7);
+            this.settingsTitle_Maps.Margin = new System.Windows.Forms.Padding(3);
+            this.settingsTitle_Maps.Name = "settingsTitle_Maps";
+            this.settingsTitle_Maps.Size = new System.Drawing.Size(37, 13);
+            this.settingsTitle_Maps.TabIndex = 29;
+            this.settingsTitle_Maps.Text = "MAPS";
             // 
             // generalSettings_Script
             // 
             this.generalSettings_Script.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.generalSettings_Script.Controls.Add(this.group_Script_Type);
-            this.generalSettings_Script.Controls.Add(this.checkBox_Script_CookNonAL);
-            this.generalSettings_Script.Controls.Add(this.checkBox_Script_EmbedNonAL);
+            this.generalSettings_Script.Controls.Add(this.check_Script_ExcludeBaseALAssets);
+            this.generalSettings_Script.Controls.Add(this.nestLevel);
+            this.generalSettings_Script.Controls.Add(this.check_Script_EmbedNonAL);
+            this.generalSettings_Script.Controls.Add(this.combo_Script_LoadScope);
+            this.generalSettings_Script.Controls.Add(this.label_Script_LoadScope);
             this.generalSettings_Script.Controls.Add(this.settingsTitle_Script);
-            this.generalSettings_Script.Location = new System.Drawing.Point(8, 8);
+            this.generalSettings_Script.Location = new System.Drawing.Point(8, 64);
             this.generalSettings_Script.Name = "generalSettings_Script";
             this.generalSettings_Script.Padding = new System.Windows.Forms.Padding(4);
-            this.generalSettings_Script.Size = new System.Drawing.Size(412, 227);
+            this.generalSettings_Script.Size = new System.Drawing.Size(322, 100);
             this.generalSettings_Script.TabIndex = 31;
             // 
-            // radio_Script_Type_Default
+            // check_Script_ExcludeBaseALAssets
             // 
-            this.radio_Script_Type_Default.AutoSize = true;
-            this.radio_Script_Type_Default.Location = new System.Drawing.Point(8, 29);
-            this.radio_Script_Type_Default.Name = "radio_Script_Type_Default";
-            this.radio_Script_Type_Default.Size = new System.Drawing.Size(192, 17);
-            this.radio_Script_Type_Default.TabIndex = 31;
-            this.radio_Script_Type_Default.TabStop = true;
-            this.radio_Script_Type_Default.Text = "Normal - No fancy fixes are applied.";
-            this.radio_Script_Type_Default.UseVisualStyleBackColor = true;
+            this.check_Script_ExcludeBaseALAssets.AutoSize = true;
+            this.check_Script_ExcludeBaseALAssets.Location = new System.Drawing.Point(27, 76);
+            this.check_Script_ExcludeBaseALAssets.Name = "check_Script_ExcludeBaseALAssets";
+            this.check_Script_ExcludeBaseALAssets.Size = new System.Drawing.Size(224, 17);
+            this.check_Script_ExcludeBaseALAssets.TabIndex = 33;
+            this.check_Script_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
+            this.toolTip.SetToolTip(this.check_Script_ExcludeBaseALAssets, resources.GetString("check_Script_ExcludeBaseALAssets.ToolTip"));
+            this.check_Script_ExcludeBaseALAssets.UseVisualStyleBackColor = true;
             // 
-            // group_Script_Type
+            // nestLevel
             // 
-            this.group_Script_Type.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.group_Script_Type.BorderSize = 3;
-            this.group_Script_Type.Controls.Add(this.radio_Script_Type_NonAL);
-            this.group_Script_Type.Controls.Add(this.check_Script_ExcludeBaseALAssets);
-            this.group_Script_Type.Controls.Add(this.radio_Script_Type_Embed);
-            this.group_Script_Type.Controls.Add(this.radio_Script_Type_Default);
-            this.group_Script_Type.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.group_Script_Type.HeaderFontColor = System.Drawing.Color.White;
-            this.group_Script_Type.HeaderHeight = 20;
-            this.group_Script_Type.HeaderText = "COOKING TYPE";
-            this.group_Script_Type.Location = new System.Drawing.Point(7, 72);
-            this.group_Script_Type.Name = "group_Script_Type";
-            this.group_Script_Type.Padding = new System.Windows.Forms.Padding(5, 26, 5, 5);
-            this.group_Script_Type.Size = new System.Drawing.Size(396, 146);
-            this.group_Script_Type.TabIndex = 32;
+            this.nestLevel.BackColor = System.Drawing.Color.Transparent;
+            this.nestLevel.Controls.Add(this.nestLine2);
+            this.nestLevel.Controls.Add(this.nestLine1);
+            this.nestLevel.Location = new System.Drawing.Point(13, 73);
+            this.nestLevel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.nestLevel.Name = "nestLevel";
+            this.nestLevel.Size = new System.Drawing.Size(11, 11);
+            this.nestLevel.TabIndex = 36;
             // 
-            // checkBox_Script_CookNonAL
+            // nestLine2
             // 
-            this.checkBox_Script_CookNonAL.AutoSize = true;
-            this.checkBox_Script_CookNonAL.Location = new System.Drawing.Point(7, 49);
-            this.checkBox_Script_CookNonAL.Name = "checkBox_Script_CookNonAL";
-            this.checkBox_Script_CookNonAL.Size = new System.Drawing.Size(160, 17);
-            this.checkBox_Script_CookNonAL.TabIndex = 30;
-            this.checkBox_Script_CookNonAL.Text = "Cook as Non-AlwaysLoaded";
-            this.toolTip.SetToolTip(this.checkBox_Script_CookNonAL, resources.GetString("checkBox_Script_CookNonAL.ToolTip"));
-            this.checkBox_Script_CookNonAL.UseVisualStyleBackColor = true;
+            this.nestLine2.BackColor = System.Drawing.Color.Gray;
+            this.nestLine2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.nestLine2.Location = new System.Drawing.Point(1, 10);
+            this.nestLine2.Margin = new System.Windows.Forms.Padding(0);
+            this.nestLine2.Name = "nestLine2";
+            this.nestLine2.Size = new System.Drawing.Size(10, 1);
+            this.nestLine2.TabIndex = 35;
             // 
-            // checkBox_Script_EmbedNonAL
+            // nestLine1
             // 
-            this.checkBox_Script_EmbedNonAL.AutoSize = true;
-            this.checkBox_Script_EmbedNonAL.Location = new System.Drawing.Point(7, 26);
-            this.checkBox_Script_EmbedNonAL.Name = "checkBox_Script_EmbedNonAL";
-            this.checkBox_Script_EmbedNonAL.Size = new System.Drawing.Size(246, 17);
-            this.checkBox_Script_EmbedNonAL.TabIndex = 0;
-            this.checkBox_Script_EmbedNonAL.Text = "Embed referenced Non-AlwaysLoaded classes";
-            this.toolTip.SetToolTip(this.checkBox_Script_EmbedNonAL, resources.GetString("checkBox_Script_EmbedNonAL.ToolTip"));
-            this.checkBox_Script_EmbedNonAL.UseVisualStyleBackColor = true;
+            this.nestLine1.BackColor = System.Drawing.Color.Gray;
+            this.nestLine1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nestLine1.Location = new System.Drawing.Point(0, 0);
+            this.nestLine1.Margin = new System.Windows.Forms.Padding(0);
+            this.nestLine1.Name = "nestLine1";
+            this.nestLine1.Size = new System.Drawing.Size(1, 11);
+            this.nestLine1.TabIndex = 34;
+            // 
+            // check_Script_EmbedNonAL
+            // 
+            this.check_Script_EmbedNonAL.AutoSize = true;
+            this.check_Script_EmbedNonAL.Location = new System.Drawing.Point(7, 53);
+            this.check_Script_EmbedNonAL.Name = "check_Script_EmbedNonAL";
+            this.check_Script_EmbedNonAL.Size = new System.Drawing.Size(154, 17);
+            this.check_Script_EmbedNonAL.TabIndex = 0;
+            this.check_Script_EmbedNonAL.Text = "AlwaysLoaded workaround";
+            this.toolTip.SetToolTip(this.check_Script_EmbedNonAL, resources.GetString("check_Script_EmbedNonAL.ToolTip"));
+            this.check_Script_EmbedNonAL.UseVisualStyleBackColor = true;
+            // 
+            // combo_Script_LoadScope
+            // 
+            this.combo_Script_LoadScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.combo_Script_LoadScope.FormattingEnabled = true;
+            this.combo_Script_LoadScope.Items.AddRange(new object[] {
+            "AlwaysLoadad",
+            "Non-AlwaysLoaded",
+            "Auto"});
+            this.combo_Script_LoadScope.Location = new System.Drawing.Point(192, 26);
+            this.combo_Script_LoadScope.Name = "combo_Script_LoadScope";
+            this.combo_Script_LoadScope.Size = new System.Drawing.Size(121, 21);
+            this.combo_Script_LoadScope.TabIndex = 38;
+            this.combo_Script_LoadScope.Text = "AlwaysLoaded";
+            this.toolTip.SetToolTip(this.combo_Script_LoadScope, resources.GetString("combo_Script_LoadScope.ToolTip"));
+            // 
+            // label_Script_LoadScope
+            // 
+            this.label_Script_LoadScope.Location = new System.Drawing.Point(7, 26);
+            this.label_Script_LoadScope.Margin = new System.Windows.Forms.Padding(3);
+            this.label_Script_LoadScope.Name = "label_Script_LoadScope";
+            this.label_Script_LoadScope.Size = new System.Drawing.Size(170, 21);
+            this.label_Script_LoadScope.TabIndex = 37;
+            this.label_Script_LoadScope.Text = "Load scope:";
+            this.label_Script_LoadScope.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip.SetToolTip(this.label_Script_LoadScope, resources.GetString("label_Script_LoadScope.ToolTip"));
             // 
             // settingsTitle_Script
             // 
@@ -223,6 +295,42 @@
             this.settingsTitle_Script.TabIndex = 29;
             this.settingsTitle_Script.Text = "SCRIPT PACKAGE";
             // 
+            // generalSettings_Env
+            // 
+            this.generalSettings_Env.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.generalSettings_Env.Controls.Add(this.check_Env_CookInIsolation);
+            this.generalSettings_Env.Controls.Add(this.settingsTitle_Env);
+            this.generalSettings_Env.Location = new System.Drawing.Point(8, 8);
+            this.generalSettings_Env.Name = "generalSettings_Env";
+            this.generalSettings_Env.Padding = new System.Windows.Forms.Padding(4);
+            this.generalSettings_Env.Size = new System.Drawing.Size(322, 50);
+            this.generalSettings_Env.TabIndex = 32;
+            // 
+            // check_Env_CookInIsolation
+            // 
+            this.check_Env_CookInIsolation.AutoSize = true;
+            this.check_Env_CookInIsolation.Location = new System.Drawing.Point(7, 26);
+            this.check_Env_CookInIsolation.Name = "check_Env_CookInIsolation";
+            this.check_Env_CookInIsolation.Size = new System.Drawing.Size(105, 17);
+            this.check_Env_CookInIsolation.TabIndex = 0;
+            this.check_Env_CookInIsolation.Text = "Cook in islolation";
+            this.toolTip.SetToolTip(this.check_Env_CookInIsolation, "If enabled, temporarily disables all other local mods while cooking this mod. Cou" +
+        "ld\r\nbe used to speed up the cooking process, as well as to avoid AlwaysLoaded is" +
+        "sues\r\ncaused by other mods.");
+            this.check_Env_CookInIsolation.UseVisualStyleBackColor = true;
+            // 
+            // settingsTitle_Env
+            // 
+            this.settingsTitle_Env.AutoSize = true;
+            this.settingsTitle_Env.BackColor = System.Drawing.Color.Transparent;
+            this.settingsTitle_Env.ForeColor = System.Drawing.Color.DarkGray;
+            this.settingsTitle_Env.Location = new System.Drawing.Point(7, 7);
+            this.settingsTitle_Env.Margin = new System.Windows.Forms.Padding(3);
+            this.settingsTitle_Env.Name = "settingsTitle_Env";
+            this.settingsTitle_Env.Size = new System.Drawing.Size(87, 13);
+            this.settingsTitle_Env.TabIndex = 29;
+            this.settingsTitle_Env.Text = "ENVIRONMENT";
+            // 
             // tabCookGroups
             // 
             this.tabCookGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
@@ -230,7 +338,7 @@
             this.tabCookGroups.Location = new System.Drawing.Point(0, 0);
             this.tabCookGroups.Name = "tabCookGroups";
             this.tabCookGroups.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCookGroups.Size = new System.Drawing.Size(388, 296);
+            this.tabCookGroups.Size = new System.Drawing.Size(338, 296);
             this.tabCookGroups.TabIndex = 1;
             this.tabCookGroups.Text = "COOK GROUPS";
             // 
@@ -275,44 +383,28 @@
             this.cookSettingsTitleContent.Size = new System.Drawing.Size(216, 28);
             this.cookSettingsTitleContent.TabIndex = 33;
             // 
-            // radio_Script_Type_Embed
+            // toolTip
             // 
-            this.radio_Script_Type_Embed.AutoSize = true;
-            this.radio_Script_Type_Embed.Location = new System.Drawing.Point(8, 52);
-            this.radio_Script_Type_Embed.Name = "radio_Script_Type_Embed";
-            this.radio_Script_Type_Embed.Size = new System.Drawing.Size(346, 17);
-            this.radio_Script_Type_Embed.TabIndex = 32;
-            this.radio_Script_Type_Embed.TabStop = true;
-            this.radio_Script_Type_Embed.Text = "Embed - Any referenced Non-AlwaysLoaded classes are embedded.";
-            this.radio_Script_Type_Embed.UseVisualStyleBackColor = true;
+            this.toolTip.AutoPopDelay = 30000;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.ReshowDelay = 100;
             // 
-            // check_Script_ExcludeBaseALAssets
+            // check_Maps_DeleteLocINT
             // 
-            this.check_Script_ExcludeBaseALAssets.AutoSize = true;
-            this.check_Script_ExcludeBaseALAssets.Location = new System.Drawing.Point(29, 75);
-            this.check_Script_ExcludeBaseALAssets.Margin = new System.Windows.Forms.Padding(24, 3, 3, 3);
-            this.check_Script_ExcludeBaseALAssets.Name = "check_Script_ExcludeBaseALAssets";
-            this.check_Script_ExcludeBaseALAssets.Size = new System.Drawing.Size(224, 17);
-            this.check_Script_ExcludeBaseALAssets.TabIndex = 33;
-            this.check_Script_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
-            this.check_Script_ExcludeBaseALAssets.UseVisualStyleBackColor = true;
-            // 
-            // radio_Script_Type_NonAL
-            // 
-            this.radio_Script_Type_NonAL.AutoSize = true;
-            this.radio_Script_Type_NonAL.Location = new System.Drawing.Point(8, 98);
-            this.radio_Script_Type_NonAL.Name = "radio_Script_Type_NonAL";
-            this.radio_Script_Type_NonAL.Size = new System.Drawing.Size(317, 17);
-            this.radio_Script_Type_NonAL.TabIndex = 34;
-            this.radio_Script_Type_NonAL.TabStop = true;
-            this.radio_Script_Type_NonAL.Text = "Content - Custom classes, by default, won\'t be AlwaysLoaded.";
-            this.radio_Script_Type_NonAL.UseVisualStyleBackColor = true;
+            this.check_Maps_DeleteLocINT.AutoSize = true;
+            this.check_Maps_DeleteLocINT.Location = new System.Drawing.Point(7, 94);
+            this.check_Maps_DeleteLocINT.Name = "check_Maps_DeleteLocINT";
+            this.check_Maps_DeleteLocINT.Size = new System.Drawing.Size(230, 17);
+            this.check_Maps_DeleteLocINT.TabIndex = 41;
+            this.check_Maps_DeleteLocINT.Text = "Delete auto-generated LOC_INT packages";
+            this.toolTip.SetToolTip(this.check_Maps_DeleteLocINT, resources.GetString("check_Maps_DeleteLocINT.ToolTip"));
+            this.check_Maps_DeleteLocINT.UseVisualStyleBackColor = true;
             // 
             // ExtendedCookTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 400);
+            this.ClientSize = new System.Drawing.Size(450, 400);
             this.Controls.Add(this.cookSettingsPanel);
             this.Controls.Add(this.cookSettingsTitleBorder);
             this.IsMaximizeButtonEnabled = false;
@@ -325,12 +417,13 @@
             this.cookSettingsPanel.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
-            this.generalSettings_Env.ResumeLayout(false);
-            this.generalSettings_Env.PerformLayout();
+            this.generalSettings_Maps.ResumeLayout(false);
+            this.generalSettings_Maps.PerformLayout();
             this.generalSettings_Script.ResumeLayout(false);
             this.generalSettings_Script.PerformLayout();
-            this.group_Script_Type.ResumeLayout(false);
-            this.group_Script_Type.PerformLayout();
+            this.nestLevel.ResumeLayout(false);
+            this.generalSettings_Env.ResumeLayout(false);
+            this.generalSettings_Env.PerformLayout();
             this.cookSettingsTitleBorder.ResumeLayout(false);
             this.cookSettingsTitleContent.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -348,18 +441,24 @@
         private System.Windows.Forms.TabPage tabGeneral;
         private System.Windows.Forms.TabPage tabCookGroups;
         private System.Windows.Forms.ImageList tabImageList;
-        private System.Windows.Forms.CheckBox checkBox_Script_EmbedNonAL;
+        private System.Windows.Forms.CheckBox check_Script_EmbedNonAL;
         private System.Windows.Forms.Label settingsTitle_Script;
-        private System.Windows.Forms.CheckBox checkBox_Script_CookNonAL;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Panel generalSettings_Script;
         private System.Windows.Forms.Panel generalSettings_Env;
-        private System.Windows.Forms.CheckBox checkBox_Env_CookInIsolation;
+        private System.Windows.Forms.CheckBox check_Env_CookInIsolation;
         private System.Windows.Forms.Label settingsTitle_Env;
-        private System.Windows.Forms.RadioButton radio_Script_Type_Default;
-        private CUFramework.Controls.CUGroupBox group_Script_Type;
-        private System.Windows.Forms.RadioButton radio_Script_Type_Embed;
         private System.Windows.Forms.CheckBox check_Script_ExcludeBaseALAssets;
-        private System.Windows.Forms.RadioButton radio_Script_Type_NonAL;
+        private System.Windows.Forms.Panel nestLevel;
+        private System.Windows.Forms.Panel nestLine2;
+        private System.Windows.Forms.Panel nestLine1;
+        private System.Windows.Forms.Label label_Script_LoadScope;
+        private System.Windows.Forms.ComboBox combo_Script_LoadScope;
+        private System.Windows.Forms.Panel generalSettings_Maps;
+        private System.Windows.Forms.CheckBox check_Maps_ExcludeBaseALAssets;
+        private System.Windows.Forms.Label settingsTitle_Maps;
+        private CUFramework.Controls.CUTextBox textBox_Maps_AudioLanguages;
+        private System.Windows.Forms.LinkLabel label_Maps_AudioLanguages;
+        private System.Windows.Forms.CheckBox check_Maps_DeleteLocINT;
     }
 }

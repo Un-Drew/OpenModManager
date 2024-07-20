@@ -25,6 +25,13 @@ namespace ModdingTools.Windows
             InitializeComponent();
 
             Mod = mod;
+
+
+        }
+
+        private void label_Maps_AudioLanguages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Utils.StartInDefaultBrowser("https://docs.unrealengine.com/udk/Three/LocalizationReference.html#Audio");
         }
     }
 }

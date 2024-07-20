@@ -120,6 +120,9 @@
   <metadata name="checkboxCustomCooking.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>139, 17</value>
+  </metadata>
   <metadata name="cookSettingsPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -129,51 +132,54 @@
   <metadata name="tabGeneral.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="checkBox_Env_CookInIsolation.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>139, 17</value>
   </metadata>
-  <data name="checkBox_Env_CookInIsolation.ToolTip" xml:space="preserve">
-    <value>Default: DISABLED
-
-If enabled, temporarily disables all other local mods while cooking this mod. Could
-be used to speed up the cooking process, as well as to avoid AlwaysLoaded issues
-caused by other mods.</value>
+  <data name="check_Maps_DeleteLocINT.ToolTip" xml:space="preserve">
+    <value>If enabled, the generated LOC_INT packages will be deleted from the CookedPC folder. Note that these
+packages may contain custom fonts (if not referenced by an AL script), so be careful with this option!!</value>
   </data>
-  <metadata name="settingsTitle_Env.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="check_Maps_ExcludeBaseALAssets.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="check_Maps_ExcludeBaseALAssets.ToolTip" xml:space="preserve">
+    <value>By default, a cooked mod embeds any assets that it references, even those that are already loaded
+by the base-game. This option attempts to reduce storage usage skipping those assets.
+
+NOTES:
+- This option is specific to map packages. A similar setting exists for the script package.</value>
+  </data>
+  <metadata name="settingsTitle_Maps.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="generalSettings_Script.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="checkBox_Script_CookNonAL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="check_Script_ExcludeBaseALAssets.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="checkBox_Script_CookNonAL.ToolTip" xml:space="preserve">
-    <value>Default: DISABLED
-
-If enabled, any of this mod's scripts, and their content, will be embedded into any maps in which
-they're referenced (unless referenced by a Cook Group). As a result, the script package won't be
-present in the cooked mod.
-
-May be useful for large level mods that don't want their scripts always loaded in memory.</value>
-  </data>
-  <metadata name="checkBox_Script_EmbedNonAL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="nestLevel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="checkBox_Script_EmbedNonAL.ToolTip" xml:space="preserve">
-    <value>Default: DISABLED
-
-If enabled, any base-game Non-AlwaysLoaded classes referenced by your custom
-scripts will be embedded (cooked) into the script package.
-NOTE: If your mod also contains maps, this may require multiple cook commands.
-
-May be useful for mods that need to access variables/functions specific to a
-Non-AlwaysLoaded class.</value>
-  </data>
+  <metadata name="check_Script_EmbedNonAL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="combo_Script_LoadScope.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_Script_LoadScope.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="settingsTitle_Script.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="generalSettings_Env.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="check_Env_CookInIsolation.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="settingsTitle_Env.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="tabCookGroups.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -187,7 +193,7 @@ Non-AlwaysLoaded class.</value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADC
-        BAAAAk1TRnQBSQFMAgEBAgEAAZgBAAGYAQABIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        BAAAAk1TRnQBSQFMAgEBAgEAAbABAAGwAQABIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABIAMAAQEBAAEgBgABQP8A/wD/AP8AlgA0/xAANP//AIkANP8QADT//wCJAAj/JAAI/xAACP8kAAj/
         /wA5ABj/OAAI/wwABP8UAAj/EAAI/wwABP8UAAj//wA5ABj/OAAI/wwACP8QAAj/EAAI/wwACP8QAAj/
         /wAhAAj/EAAY/xAACP8gAAj/DAAM/wwACP8QAAj/DAAM/wwACP//ACEAEP8IABj/CAAQ/yAACP8MABD/
@@ -211,6 +217,73 @@ Non-AlwaysLoaded class.</value>
 </value>
   </data>
   <metadata name="tabController.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="check_Script_ExcludeBaseALAssets.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="check_Script_ExcludeBaseALAssets.ToolTip" xml:space="preserve">
+    <value>By default, a cooked mod embeds any assets that it references, even those that are already loaded
+by the base-game. This option attempts to reduce storage usage skipping those assets.
+
+NOTES:
+- This option is specific to the script package. A similar setting exists for maps.
+- To work with the script package, this REQUIRES the AlwaysLoaded workaround!</value>
+  </data>
+  <metadata name="nestLevel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nestLine2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nestLine1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nestLine2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nestLine1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="check_Script_EmbedNonAL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="check_Script_EmbedNonAL.ToolTip" xml:space="preserve">
+    <value>If enabled, the mod's script package copies any Non-AL class that it references.
+
+PROS:
+- Allows safely making references to Non-AlwaysLoaded classes from base-game.
+CONS:
+- If your mod also contains maps, this may require multiple cook commands. They'll still be
+cooked correctly, but it might take a longer time.</value>
+  </data>
+  <metadata name="combo_Script_LoadScope.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="combo_Script_LoadScope.ToolTip" xml:space="preserve">
+    <value>- AlwaysLoaded = All classes are AL. This is how the engine normally cooks any mod scripts, and
+it's the ideal option for mods without maps.
+- Non-AlwaysLoaded = All classes are Non-AL.
+- Auto = Allows a mix of both types of classes. A class is considered AL if it (or one of its parents)
+contains the 'AlwaysLoaded' tag in the class header. A class may also become AL by proxy it it's
+referenced by another AL class.</value>
+  </data>
+  <metadata name="label_Script_LoadScope.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="label_Script_LoadScope.ToolTip" xml:space="preserve">
+    <value>Defines the 'AlwaysLoaded-ness' of this mod's classes.
+- An AlwaysLoaded (AL) class is only stored in the mod's script package, and is loaded at all times.
+- A Non-AlwaysLoaded (Non-AL) class is copied into each map that references it. This may take up more
+storage space, but saves RAM.</value>
+  </data>
+  <metadata name="settingsTitle_Script.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="check_Env_CookInIsolation.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="settingsTitle_Env.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="cookSettingsTitleBorder.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
