@@ -56,7 +56,8 @@ namespace ModdingTools.Windows
 
             public long GetSize(bool withDupes = false)
             {
-                if (!Object.bIsAsset) return 0;
+                // Packages and groupings should not be counted.
+                if (!Object.bIsContent) return 0;
                 if (withDupes)
                     return Object.SizeInBytes * MatchCount;
                 else
@@ -65,8 +66,16 @@ namespace ModdingTools.Windows
 
             public long GetFullSizeOfMatches(bool withDupes = false)
             {
-                if (!IsMatch) return 0;
-                return GetSize(withDupes) + GetFullSizeOfMatchesInTree(Children, withDupes);
+                return GetSize(withDupes) +
+                (
+                    // An asset's size SHOULD also include the size of its sub-objects. However, since
+                    // sub-objects are never shown in the tree, their MatchCount is always 0, ironically
+                    // resulting in a smaller size when calculating the size w/ dupes. So, when tallying
+                    // the dupe-size of an asset, multiply the children size with the parent's match count!
+                    (Object.bIsAsset && withDupes) ? (MatchCount * GetFullSizeOfMatchesInTree(Children, false))
+                    // Otherwise just recurse normally.
+                    : GetFullSizeOfMatchesInTree(Children, withDupes)
+                );
             }
 
             static public long GetFullSizeOfMatchesInTree(List<CookedObjectTreeNode> tree, bool withDupes = false)
@@ -74,8 +83,12 @@ namespace ModdingTools.Windows
                 long size = 0;
                 foreach (var node in tree)
                 {
-                    if (!node.IsMatch) continue;
-                    size += node.GetSize(withDupes) + GetFullSizeOfMatchesInTree(node.Children, withDupes);
+                    // Skip non-matches, unless this is a sub-object. Those should always be taken into account so that we
+                    // always measure the full size of an asset - that includes its children.
+                    // May not matter too much for, say, Materials, but there's assets like Font that have nested textures.
+                    if (!node.IsMatch && (!node.Object.bIsContent || node.Object.bIsAsset))
+                        continue;
+                    size += node.GetFullSizeOfMatches(withDupes);
                 }
                 return size;
             }

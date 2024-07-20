@@ -15,14 +15,22 @@ namespace ModdingTools.Engine
             public List<CookedObject> Children { get; protected set; } = new List<CookedObject>();
 
             public List<AnalysisPackage> ReferencedBy { get; protected set; } = new List<AnalysisPackage>();
-
+            
             public string ObjectName { get; protected set; }
             public string ObjectType { get; protected set; }
             public string ObjectRefPath { get; protected set; }
             public long SizeInBytes { get; protected set; }
+
+            /// <summary>
+            /// True = A cooked asset/class, or a sub-object of a cooked asset. False = Package/grouping.
+            /// </summary>
+            public bool bIsContent { get; protected set; }
+            /// <summary>
+            /// If true, this cooked content is directly nested in a package or grouping. Implies bIsContent.
+            /// </summary>
             public bool bIsAsset { get; protected set; }
 
-            static public bool IsCookedAsset(UExportTableItem exp)
+            static public bool IsCookedContent(UExportTableItem exp)
             {
                 // Only count forced export objects, i.e. those that were cooked from somewhere else.
                 if ((exp.ExportFlags & (uint)UELib.Flags.ExportFlags.ForcedExport) == 0) return false;
@@ -30,22 +38,26 @@ namespace ModdingTools.Engine
                 // Don't count the root packages, or, if it somehow happens, import-parented objects.
                 if (exp.OuterIndex <= 0) return false;
 
-                // Don't count sub-objects like material nodes.
-                if (exp.OuterIndex <= 0 || (((UExportTableItem)exp.Outer).Class?.ObjectName.ToString().ToUpperInvariant() ?? "") != "PACKAGE") return false;
-
                 // Don't count groupings, AKA categories, AKA sub-packages.
                 if ((exp.Class?.ObjectName.ToString().ToUpperInvariant() ?? "") == "PACKAGE") return false;
 
                 return true;
             }
 
-            public CookedObject(UExportTableItem exp, bool isAsset)
+            static public bool IsDirectChildOfPackage(UExportTableItem exp)
+            {
+                return exp.OuterIndex > 0 && (((UExportTableItem)exp.Outer).Class?.ObjectName.ToString().ToUpperInvariant() ?? "") == "PACKAGE";
+            }
+
+            public CookedObject(UExportTableItem exp, bool isContent)
             {
                 ObjectName = exp.ObjectName;
                 ObjectType = exp.Class?.ObjectName ?? "Class";
                 ObjectRefPath = exp.GetReferencePath();
                 SizeInBytes = exp.SerialSize;
-                bIsAsset = isAsset;
+
+                bIsContent = isContent;
+                bIsAsset = isContent && IsDirectChildOfPackage(exp);
             }
 
             public void SetOuter(CookedObject newOuter)
@@ -111,11 +123,11 @@ namespace ModdingTools.Engine
                         CookedObject obj, objOuter;
                         UExportTableItem expOuter;
                         string path;
-                        bool alreadyRegistered;
+                        bool alreadyRegistered, isContent;
                         ReferencedAssets = new List<CookedObject>();
                         foreach (var exp in loadedPackage.Exports)
                         {
-                            if (!CookedObject.IsCookedAsset(exp)) continue;
+                            if (!CookedObject.IsCookedContent(exp)) continue;
 
                             alreadyRegistered = Analysis.Objects.TryGetValue(path = exp.GetPath().ToUpperInvariant(), out obj);
                             if (!alreadyRegistered)
@@ -136,13 +148,18 @@ namespace ModdingTools.Engine
                             
                             // This asseet wasn't registered before. Let's climb the parent chain and link its outer.
                             expOuter = (UExportTableItem)exp.Outer;
+                            isContent = true;
                             while (expOuter != null)
                             {
+                                // For each outer, check if it's considered "content". Do this until we reach one that isn't (possibly a package/grouping),
+                                // after which all following outers will definitely be non-content.
+                                isContent = isContent && CookedObject.IsCookedContent(expOuter);
+
                                 alreadyRegistered = Analysis.Objects.TryGetValue(path = expOuter.GetPath().ToUpperInvariant(), out objOuter);
                                 if (!alreadyRegistered)
                                 {
                                     // New outer, register it.
-                                    objOuter = new CookedObject(expOuter, false);
+                                    objOuter = new CookedObject(expOuter, isContent);
                                     Analysis.Objects.Add(path, objOuter);
                                 }
 
