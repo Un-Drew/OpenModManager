@@ -1265,9 +1265,9 @@ namespace ModdingTools.Windows
 
         private void cuButtonConfigureCook_Click(object sender, EventArgs e)
         {
-            var form = new ExtendedCookTools(Mod);
+            var form = new CookSettingsWindow(Mod);
             form.StartPosition = FormStartPosition.CenterParent;
-            form.Show();
+            form.ShowDialog();
         }
     }
 }

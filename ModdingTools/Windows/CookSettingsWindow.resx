@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="check_EnableCustomCooking.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>139, 17</value>
+  </metadata>
+  <metadata name="cookSettingsPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabControl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabGeneral.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="check_Maps_DeleteLocINT.ToolTip" xml:space="preserve">
+    <value>If enabled, the generated LOC_INT packages will be deleted from the CookedPC folder. Note that these
+packages may contain custom fonts (if not referenced by an AL script), so be careful with this option!!</value>
+  </data>
+  <metadata name="check_Maps_ExcludeBaseALAssets.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="check_Maps_ExcludeBaseALAssets.ToolTip" xml:space="preserve">
+    <value>By default, a cooked mod embeds any assets that it references, even those that are already loaded
+by the base-game. This option attempts to reduce storage usage skipping those assets.
+
+NOTES:
+- This option is specific to map packages. A similar setting exists for the script package.</value>
+  </data>
+  <metadata name="settingsTitle_Maps.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="generalSettings_Script.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="check_Script_ExcludeBaseALAssets.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="check_Script_ExcludeBaseALAssets.ToolTip" xml:space="preserve">
+    <value>By default, a cooked mod embeds any assets that it references, even those that are already loaded
+by the base-game. This option attempts to reduce storage usage skipping those assets.
+
+NOTES:
+- This option is specific to the script package. A similar setting exists for maps.
+- To work with the script package, this REQUIRES the AlwaysLoaded workaround!</value>
+  </data>
+  <metadata name="nestLevel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nestLine2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nestLine1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="check_Script_ALWorkaround.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="check_Script_ALWorkaround.ToolTip" xml:space="preserve">
+    <value>If enabled, the mod's script package copies any Non-AL class that it references.
+
+PROS:
+- Allows safely making references to Non-AlwaysLoaded classes from base-game.
+CONS:
+- If your mod also contains maps, this may require multiple cook commands. They'll still be
+cooked correctly, but it might take a longer time.</value>
+  </data>
+  <data name="combo_Script_LoadScope.ToolTip" xml:space="preserve">
+    <value>- AlwaysLoaded = All classes are AL. This is how the engine normally cooks any mod scripts, and
+it's the ideal option for mods without maps.
+- Non-AlwaysLoaded = All classes are Non-AL.
+- Auto = Allows a mix of both types of classes. A class is considered AL if it (or one of its parents)
+contains the 'AlwaysLoaded' tag in the class header. A class may also become AL by proxy it it's
+referenced by another AL class.</value>
+  </data>
+  <metadata name="label_Script_LoadScope.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="label_Script_LoadScope.ToolTip" xml:space="preserve">
+    <value>Defines the 'AlwaysLoaded-ness' of this mod's classes.
+- An AlwaysLoaded (AL) class is only stored in the mod's script package, and is loaded at all times.
+- A Non-AlwaysLoaded (Non-AL) class is copied into each map that references it. This may take up more
+storage space, but saves RAM.</value>
+  </data>
+  <metadata name="settingsTitle_Script.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="generalSettings_Env.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="check_Env_CookInIsolation.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="settingsTitle_Env.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabCookGroups.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="tabImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADC
+        BAAAAk1TRnQBSQFMAgEBAgEAAdABAAHQAQABIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        AwABIAMAAQEBAAEgBgABQP8A/wD/AP8AlgA0/xAANP//AIkANP8QADT//wCJAAj/JAAI/xAACP8kAAj/
+        /wA5ABj/OAAI/wwABP8UAAj/EAAI/wwABP8UAAj//wA5ABj/OAAI/wwACP8QAAj/EAAI/wwACP8QAAj/
+        /wAhAAj/EAAY/xAACP8gAAj/DAAM/wwACP8QAAj/DAAM/wwACP//ACEAEP8IABj/CAAQ/yAACP8MABD/
+        CAAI/xAACP8MABD/CAAI//8AHQBQ/xwACP8MAAz/DAAI/xAACP8MAAz/DAAI//8AHQBQ/xwACP8MAAj/
+        EAAI/xAACP8MAAj/EAAI//8AGQAg/xgAIP8YAAj/DAAE/xQACP8QAAj/DAAE/xQACP//ABkAHP8IABD/
+        CAAc/xgACP8kAAj/EAAI/yQACP//AB0AFP8IABj/CAAU/xwANP8QADT//wAlAAz/BAAg/wQADP8kADT/
+        EAA0//8AKQAI/wQAIP8EAAj/NAAM/0wADP//ADEACP8EACD/BAAI/zgADP9EAAz//wAxAAz/BAAg/wQA
+        DP84AAz/BAAE/ywABP8EAAz//wAtABT/CAAY/wgAFP80ABD/LAAQ//8ALQAc/wgAEP8IABz/NAAM/wwA
+        CP8YAAz//wAxACD/GAAg/zAAEP8IABT/EAAQ//8AMQBQ/0gAIP//AEkAUP9EAAj/BAAI/wgAEP//AEUA
+        EP8IABj/CAAQ/0QACP8IAAj/EAAI//8ARQAI/xAAGP8QAAj/RAAI/wQAFP8IAAj//wBdABj/XAAQ/wgA
+        GP//AF0AGP9cAAz/FAAQ//8A0QAI/yAACP//ANEAEP8UAAj//wDdABD/CAAI//8A6QAU//8A9QAI//8A
+        PQABQgFNAT4HAAE+AwABKAMAAYADAAEgAwABAQEAAQEGAAECFgAD/wEACP8IAAj/CAAE/wEAAQcBgAED
+        CAAE/wEAAQcBgAEDCAAE/wE/AecBnwHzCAAB/wHwAT8B/wE7AecBnQHzCAAB/wHwAT8B/wE5AecBnAHz
+        CAAB/AHwATwB/wE4AecBnAFzCAAB/AIwAf8BOAFnAZwBMwgAAfgCAAF/ATgB5wGcAXMIAAH4AgABfwE5
+        AecBnAHzCAAB8AEPAcABPwE7AecBnQHzCAAB8AEYAWACPwHnAZ8B8wgAAfgCMAF/AQABBwGAAQMIAAH+
+        ASABEQH/AQABBwGAAQMIAAH/ASABEwH/AeMC/wGPCAAB/wEgARMB/wHxAv8BHwgAAf4BIAERAf8B+AG/
+        AfoBPwgAAfgCMAF/AfwBPwH4AX8IAAHwARgBYAE/Af4BOQH4Af8IAAHwAQ8BwAE/AfwBMAF4AX8IAAH4
+        AgABfwH/AeABHwH/CAAB+AIAAX8B/wHJAYcB/wgAAfwCMAL/AZkB5wH/CAAB/AHwATwC/wGQAWcB/wgA
+        Af8B8AE/Av8BhgEHAf8IAAH/AfABPwL/AY8BhwH/CAAF/wGfAecB/wgABf8BhwHPAf8IAAX/AeEBnwH/
+        CAAF/wH4AT8B/wgABf8B/gF/Af8IAAs=
+</value>
+  </data>
+  <metadata name="tabController.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cookSettingsTitleBorder.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cookSettingsTitleContent.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
