@@ -111,9 +111,12 @@ namespace ModdingTools.Windows
 
         public void UpdateDependenciesToALWorkaround()
         {
+            var color = check_Script_ALWorkaround.Checked ? Color.White : Color.Gray;
             // Kind of a hack, but this looks better than using "Enabled" which uses a hardcoded color.
             // Maybe this could be a class?
-            check_Script_ExcludeBaseALAssets.ForeColor = check_Script_ALWorkaround.Checked ? Color.White : Color.Gray;
+            check_Script_ExcludeBaseALAssets.ForeColor = color;
+            label_Script_LoadScope.ForeColor = color;
+            combo_Script_LoadScope.BackColor = color;
         }
 
         public void UpdateDisabledBackground()

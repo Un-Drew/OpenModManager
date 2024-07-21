@@ -14,21 +14,22 @@ namespace ModdingTools.Settings
 {
     public class CookSettings
     {
-        public bool EnableCustomCooking { get; set; } = false;
-
-        /* GENERAL SETTINGS */
-
-        public bool Env_CookInIsolation { get; set; } = false;
-
         public enum ScriptLoadScope
         {
             AlwaysLoaded,
             NonAlwaysLoaded,
             Auto
         };
-        public ScriptLoadScope Script_LoadScope { get; set; } = ScriptLoadScope.AlwaysLoaded;
+
+        public bool EnableCustomCooking { get; set; } = false;
+
+        /* GENERAL SETTINGS */
+
+        public bool Env_CookInIsolation { get; set; } = false;
+
         public bool Script_AlwaysLoadedWorkaround { get; set; } = false;
         public bool Script_ExcludeBaseAlwaysLoadedAssets { get; set; } = false;
+        public ScriptLoadScope Script_LoadScope { get; set; } = ScriptLoadScope.AlwaysLoaded;
 
         public bool Maps_ExcludeBaseAlwaysLoadedAssets { get; set; } = false;
         public string Maps_AudioLanguages { get; set; } = "";
