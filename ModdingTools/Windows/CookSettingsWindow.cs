@@ -17,13 +17,13 @@ using ModdingTools.Settings;
 
 namespace ModdingTools.Windows
 {
-    public partial class ExtendedCookTools : CUWindow
+    public partial class CookSettingsWindow : CUWindow
     {
         public ModObject Mod { get; protected set; }
 
         public bool NotUserInflicted;
 
-        public ExtendedCookTools(ModObject mod)
+        public CookSettingsWindow(ModObject mod)
         {
             InitializeComponent();
 

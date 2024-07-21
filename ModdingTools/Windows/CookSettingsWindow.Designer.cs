@@ -1,6 +1,6 @@
 ﻿namespace ModdingTools.Windows
 {
-    partial class ExtendedCookTools
+    partial class CookSettingsWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExtendedCookTools));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CookSettingsWindow));
             this.check_EnableCustomCooking = new System.Windows.Forms.CheckBox();
             this.cookSettingsPanel = new ModdingTools.GUI.BorderPanel();
             this.tabControl = new CUFramework.Controls.Tabs.CUBorderlessTabControl();
@@ -457,7 +457,7 @@
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // ExtendedCookTools
+            // CookSettingsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -473,8 +473,8 @@
             this.Location = new System.Drawing.Point(0, 0);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ExtendedCookTools";
-            this.Text = "EXTENDED COOK TOOLS";
+            this.Name = "CookSettingsWindow";
+            this.Text = "CUSTOM COOK SETTINGS";
             this.Controls.SetChildIndex(this.cookSettingsTitleBorder, 0);
             this.Controls.SetChildIndex(this.cookSettingsPanel, 0);
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
