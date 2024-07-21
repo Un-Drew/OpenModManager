@@ -81,6 +81,19 @@ namespace ModdingTools.Modding
         public string RootPath { get; private set; }
         public ModDirectorySource RootSource { get; private set; }
 
+        private CookSettings _CookSettings;
+
+        public CookSettings CookSettings { 
+            get
+            {
+                if (_CookSettings == null)
+                {
+                    _CookSettings = CookSettings.LoadSettingsForMod(this);
+                }
+                return _CookSettings;
+            }
+        }
+
         public void UpdateVSCodeRunTasks()
         {
             if (!OMMSettings.Instance.VSCIntegration) return;

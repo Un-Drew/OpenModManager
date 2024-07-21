@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExtendedCookTools));
-            this.checkboxCustomCooking = new System.Windows.Forms.CheckBox();
+            this.check_EnableCustomCooking = new System.Windows.Forms.CheckBox();
             this.cookSettingsPanel = new ModdingTools.GUI.BorderPanel();
             this.tabControl = new CUFramework.Controls.Tabs.CUBorderlessTabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.generalSettings_Maps = new System.Windows.Forms.Panel();
-            this.label_Maps_AudioLanguages = new System.Windows.Forms.LinkLabel();
+            this.check_Maps_DeleteLocINT = new System.Windows.Forms.CheckBox();
             this.textBox_Maps_AudioLanguages = new CUFramework.Controls.CUTextBox();
+            this.label_Maps_AudioLanguages = new System.Windows.Forms.LinkLabel();
             this.check_Maps_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
             this.settingsTitle_Maps = new System.Windows.Forms.Label();
             this.generalSettings_Script = new System.Windows.Forms.Panel();
@@ -44,7 +45,7 @@
             this.nestLevel = new System.Windows.Forms.Panel();
             this.nestLine2 = new System.Windows.Forms.Panel();
             this.nestLine1 = new System.Windows.Forms.Panel();
-            this.check_Script_EmbedNonAL = new System.Windows.Forms.CheckBox();
+            this.check_Script_ALWorkaround = new System.Windows.Forms.CheckBox();
             this.combo_Script_LoadScope = new System.Windows.Forms.ComboBox();
             this.label_Script_LoadScope = new System.Windows.Forms.Label();
             this.settingsTitle_Script = new System.Windows.Forms.Label();
@@ -57,7 +58,9 @@
             this.cookSettingsTitleBorder = new System.Windows.Forms.Panel();
             this.cookSettingsTitleContent = new System.Windows.Forms.Panel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.check_Maps_DeleteLocINT = new System.Windows.Forms.CheckBox();
+            this.buttonSave = new CUFramework.Controls.CUButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonCancel = new CUFramework.Controls.CUButton();
             this.cookSettingsPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -67,21 +70,23 @@
             this.generalSettings_Env.SuspendLayout();
             this.cookSettingsTitleBorder.SuspendLayout();
             this.cookSettingsTitleContent.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // checkboxCustomCooking
+            // check_EnableCustomCooking
             // 
-            this.checkboxCustomCooking.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkboxCustomCooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxCustomCooking.Location = new System.Drawing.Point(6, 0);
-            this.checkboxCustomCooking.Name = "checkboxCustomCooking";
-            this.checkboxCustomCooking.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.checkboxCustomCooking.Size = new System.Drawing.Size(210, 28);
-            this.checkboxCustomCooking.TabIndex = 30;
-            this.checkboxCustomCooking.Text = "ENABLE CUSTOM COOKING";
-            this.toolTip.SetToolTip(this.checkboxCustomCooking, "Enables custom cook functionality. This is required for any of the options below." +
+            this.check_EnableCustomCooking.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.check_EnableCustomCooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_EnableCustomCooking.Location = new System.Drawing.Point(6, 0);
+            this.check_EnableCustomCooking.Name = "check_EnableCustomCooking";
+            this.check_EnableCustomCooking.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.check_EnableCustomCooking.Size = new System.Drawing.Size(210, 28);
+            this.check_EnableCustomCooking.TabIndex = 30;
+            this.check_EnableCustomCooking.Text = "ENABLE CUSTOM COOKING";
+            this.toolTip.SetToolTip(this.check_EnableCustomCooking, "Enables custom cook functionality. This is required for any of the options below." +
         "\r\nIf disabled, the mod will be cooked normally, with no extra fixes.");
-            this.checkboxCustomCooking.UseVisualStyleBackColor = false;
+            this.check_EnableCustomCooking.UseVisualStyleBackColor = false;
+            this.check_EnableCustomCooking.CheckedChanged += new System.EventHandler(this.check_EnableCustomCooking_CheckedChanged);
             // 
             // cookSettingsPanel
             // 
@@ -112,6 +117,7 @@
             // tabGeneral
             // 
             this.tabGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.tabGeneral.BackgroundImage = global::ModdingTools.Properties.Resources.disabled_background;
             this.tabGeneral.Controls.Add(this.generalSettings_Maps);
             this.tabGeneral.Controls.Add(this.generalSettings_Script);
             this.tabGeneral.Controls.Add(this.generalSettings_Env);
@@ -125,6 +131,7 @@
             // 
             // generalSettings_Maps
             // 
+            this.generalSettings_Maps.BackColor = System.Drawing.Color.Transparent;
             this.generalSettings_Maps.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.generalSettings_Maps.Controls.Add(this.check_Maps_DeleteLocINT);
             this.generalSettings_Maps.Controls.Add(this.textBox_Maps_AudioLanguages);
@@ -136,6 +143,29 @@
             this.generalSettings_Maps.Padding = new System.Windows.Forms.Padding(4);
             this.generalSettings_Maps.Size = new System.Drawing.Size(322, 120);
             this.generalSettings_Maps.TabIndex = 33;
+            // 
+            // check_Maps_DeleteLocINT
+            // 
+            this.check_Maps_DeleteLocINT.AutoSize = true;
+            this.check_Maps_DeleteLocINT.Location = new System.Drawing.Point(7, 94);
+            this.check_Maps_DeleteLocINT.Name = "check_Maps_DeleteLocINT";
+            this.check_Maps_DeleteLocINT.Size = new System.Drawing.Size(230, 17);
+            this.check_Maps_DeleteLocINT.TabIndex = 41;
+            this.check_Maps_DeleteLocINT.Text = "Delete auto-generated LOC_INT packages";
+            this.toolTip.SetToolTip(this.check_Maps_DeleteLocINT, resources.GetString("check_Maps_DeleteLocINT.ToolTip"));
+            this.check_Maps_DeleteLocINT.UseVisualStyleBackColor = true;
+            // 
+            // textBox_Maps_AudioLanguages
+            // 
+            this.textBox_Maps_AudioLanguages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.textBox_Maps_AudioLanguages.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.textBox_Maps_AudioLanguages.ForeColor = System.Drawing.Color.White;
+            this.textBox_Maps_AudioLanguages.Location = new System.Drawing.Point(7, 68);
+            this.textBox_Maps_AudioLanguages.Name = "textBox_Maps_AudioLanguages";
+            this.textBox_Maps_AudioLanguages.Size = new System.Drawing.Size(306, 20);
+            this.textBox_Maps_AudioLanguages.TabIndex = 40;
+            this.toolTip.SetToolTip(this.textBox_Maps_AudioLanguages, "Languages in which to cook the mod\'s audio, separated by \'+\' characters.\r\nFor exa" +
+        "mple: INT+FRA+ITA\r\nIf blank, the mod won\'t use localization cooking.");
             // 
             // label_Maps_AudioLanguages
             // 
@@ -153,18 +183,6 @@
             this.label_Maps_AudioLanguages.UseCompatibleTextRendering = true;
             this.label_Maps_AudioLanguages.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
             this.label_Maps_AudioLanguages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label_Maps_AudioLanguages_LinkClicked);
-            // 
-            // textBox_Maps_AudioLanguages
-            // 
-            this.textBox_Maps_AudioLanguages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.textBox_Maps_AudioLanguages.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            this.textBox_Maps_AudioLanguages.ForeColor = System.Drawing.Color.White;
-            this.textBox_Maps_AudioLanguages.Location = new System.Drawing.Point(7, 68);
-            this.textBox_Maps_AudioLanguages.Name = "textBox_Maps_AudioLanguages";
-            this.textBox_Maps_AudioLanguages.Size = new System.Drawing.Size(306, 20);
-            this.textBox_Maps_AudioLanguages.TabIndex = 40;
-            this.toolTip.SetToolTip(this.textBox_Maps_AudioLanguages, "Languages in which to cook the mod\'s audio, separated by \'+\' characters.\r\nFor exa" +
-        "mple: INT+FRA+ITA\r\nIf blank, the mod won\'t use localization cooking.");
             // 
             // check_Maps_ExcludeBaseALAssets
             // 
@@ -191,10 +209,11 @@
             // 
             // generalSettings_Script
             // 
+            this.generalSettings_Script.BackColor = System.Drawing.Color.Transparent;
             this.generalSettings_Script.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.generalSettings_Script.Controls.Add(this.check_Script_ExcludeBaseALAssets);
             this.generalSettings_Script.Controls.Add(this.nestLevel);
-            this.generalSettings_Script.Controls.Add(this.check_Script_EmbedNonAL);
+            this.generalSettings_Script.Controls.Add(this.check_Script_ALWorkaround);
             this.generalSettings_Script.Controls.Add(this.combo_Script_LoadScope);
             this.generalSettings_Script.Controls.Add(this.label_Script_LoadScope);
             this.generalSettings_Script.Controls.Add(this.settingsTitle_Script);
@@ -213,7 +232,7 @@
             this.check_Script_ExcludeBaseALAssets.TabIndex = 33;
             this.check_Script_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
             this.toolTip.SetToolTip(this.check_Script_ExcludeBaseALAssets, resources.GetString("check_Script_ExcludeBaseALAssets.ToolTip"));
-            this.check_Script_ExcludeBaseALAssets.UseVisualStyleBackColor = true;
+            this.check_Script_ExcludeBaseALAssets.UseVisualStyleBackColor = false;
             // 
             // nestLevel
             // 
@@ -246,16 +265,17 @@
             this.nestLine1.Size = new System.Drawing.Size(1, 11);
             this.nestLine1.TabIndex = 34;
             // 
-            // check_Script_EmbedNonAL
+            // check_Script_ALWorkaround
             // 
-            this.check_Script_EmbedNonAL.AutoSize = true;
-            this.check_Script_EmbedNonAL.Location = new System.Drawing.Point(7, 53);
-            this.check_Script_EmbedNonAL.Name = "check_Script_EmbedNonAL";
-            this.check_Script_EmbedNonAL.Size = new System.Drawing.Size(154, 17);
-            this.check_Script_EmbedNonAL.TabIndex = 0;
-            this.check_Script_EmbedNonAL.Text = "AlwaysLoaded workaround";
-            this.toolTip.SetToolTip(this.check_Script_EmbedNonAL, resources.GetString("check_Script_EmbedNonAL.ToolTip"));
-            this.check_Script_EmbedNonAL.UseVisualStyleBackColor = true;
+            this.check_Script_ALWorkaround.AutoSize = true;
+            this.check_Script_ALWorkaround.Location = new System.Drawing.Point(7, 53);
+            this.check_Script_ALWorkaround.Name = "check_Script_ALWorkaround";
+            this.check_Script_ALWorkaround.Size = new System.Drawing.Size(154, 17);
+            this.check_Script_ALWorkaround.TabIndex = 0;
+            this.check_Script_ALWorkaround.Text = "AlwaysLoaded workaround";
+            this.toolTip.SetToolTip(this.check_Script_ALWorkaround, resources.GetString("check_Script_ALWorkaround.ToolTip"));
+            this.check_Script_ALWorkaround.UseVisualStyleBackColor = true;
+            this.check_Script_ALWorkaround.CheckedChanged += new System.EventHandler(this.check_Script_ALWorkaround_CheckedChanged);
             // 
             // combo_Script_LoadScope
             // 
@@ -265,9 +285,9 @@
             "AlwaysLoadad",
             "Non-AlwaysLoaded",
             "Auto"});
-            this.combo_Script_LoadScope.Location = new System.Drawing.Point(192, 26);
+            this.combo_Script_LoadScope.Location = new System.Drawing.Point(143, 26);
             this.combo_Script_LoadScope.Name = "combo_Script_LoadScope";
-            this.combo_Script_LoadScope.Size = new System.Drawing.Size(121, 21);
+            this.combo_Script_LoadScope.Size = new System.Drawing.Size(170, 21);
             this.combo_Script_LoadScope.TabIndex = 38;
             this.combo_Script_LoadScope.Text = "AlwaysLoaded";
             this.toolTip.SetToolTip(this.combo_Script_LoadScope, resources.GetString("combo_Script_LoadScope.ToolTip"));
@@ -277,7 +297,7 @@
             this.label_Script_LoadScope.Location = new System.Drawing.Point(7, 26);
             this.label_Script_LoadScope.Margin = new System.Windows.Forms.Padding(3);
             this.label_Script_LoadScope.Name = "label_Script_LoadScope";
-            this.label_Script_LoadScope.Size = new System.Drawing.Size(170, 21);
+            this.label_Script_LoadScope.Size = new System.Drawing.Size(126, 21);
             this.label_Script_LoadScope.TabIndex = 37;
             this.label_Script_LoadScope.Text = "Load scope:";
             this.label_Script_LoadScope.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -297,6 +317,7 @@
             // 
             // generalSettings_Env
             // 
+            this.generalSettings_Env.BackColor = System.Drawing.Color.Transparent;
             this.generalSettings_Env.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.generalSettings_Env.Controls.Add(this.check_Env_CookInIsolation);
             this.generalSettings_Env.Controls.Add(this.settingsTitle_Env);
@@ -375,7 +396,7 @@
             // cookSettingsTitleContent
             // 
             this.cookSettingsTitleContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cookSettingsTitleContent.Controls.Add(this.checkboxCustomCooking);
+            this.cookSettingsTitleContent.Controls.Add(this.check_EnableCustomCooking);
             this.cookSettingsTitleContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cookSettingsTitleContent.Location = new System.Drawing.Point(2, 2);
             this.cookSettingsTitleContent.Name = "cookSettingsTitleContent";
@@ -389,31 +410,74 @@
             this.toolTip.InitialDelay = 500;
             this.toolTip.ReshowDelay = 100;
             // 
-            // check_Maps_DeleteLocINT
+            // buttonSave
             // 
-            this.check_Maps_DeleteLocINT.AutoSize = true;
-            this.check_Maps_DeleteLocINT.Location = new System.Drawing.Point(7, 94);
-            this.check_Maps_DeleteLocINT.Name = "check_Maps_DeleteLocINT";
-            this.check_Maps_DeleteLocINT.Size = new System.Drawing.Size(230, 17);
-            this.check_Maps_DeleteLocINT.TabIndex = 41;
-            this.check_Maps_DeleteLocINT.Text = "Delete auto-generated LOC_INT packages";
-            this.toolTip.SetToolTip(this.check_Maps_DeleteLocINT, resources.GetString("check_Maps_DeleteLocINT.ToolTip"));
-            this.check_Maps_DeleteLocINT.UseVisualStyleBackColor = true;
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.buttonSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.ForeColor = System.Drawing.Color.White;
+            this.buttonSave.Location = new System.Drawing.Point(3, 3);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.NoFocus = false;
+            this.buttonSave.Size = new System.Drawing.Size(217, 26);
+            this.buttonSave.TabIndex = 33;
+            this.buttonSave.Text = "SAVE";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.buttonCancel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSave, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 366);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 32);
+            this.tableLayoutPanel1.TabIndex = 34;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
+            this.buttonCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.ForeColor = System.Drawing.Color.Black;
+            this.buttonCancel.Location = new System.Drawing.Point(226, 3);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.NoFocus = false;
+            this.buttonCancel.Size = new System.Drawing.Size(217, 26);
+            this.buttonCancel.TabIndex = 34;
+            this.buttonCancel.Text = "CANCEL";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // ExtendedCookTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 400);
+            this.ControlBoxVisible = false;
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.cookSettingsPanel);
             this.Controls.Add(this.cookSettingsTitleBorder);
+            this.IsCloseButtonEnabled = false;
             this.IsMaximizeButtonEnabled = false;
+            this.IsMinimizeButtonEnabled = false;
             this.IsResizable = false;
             this.Location = new System.Drawing.Point(0, 0);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ExtendedCookTools";
             this.Text = "EXTENDED COOK TOOLS";
             this.Controls.SetChildIndex(this.cookSettingsTitleBorder, 0);
             this.Controls.SetChildIndex(this.cookSettingsPanel, 0);
+            this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
             this.cookSettingsPanel.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -426,13 +490,14 @@
             this.generalSettings_Env.PerformLayout();
             this.cookSettingsTitleBorder.ResumeLayout(false);
             this.cookSettingsTitleContent.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkboxCustomCooking;
+        private System.Windows.Forms.CheckBox check_EnableCustomCooking;
         private GUI.BorderPanel cookSettingsPanel;
         private System.Windows.Forms.Panel cookSettingsTitleBorder;
         private System.Windows.Forms.Panel cookSettingsTitleContent;
@@ -441,7 +506,7 @@
         private System.Windows.Forms.TabPage tabGeneral;
         private System.Windows.Forms.TabPage tabCookGroups;
         private System.Windows.Forms.ImageList tabImageList;
-        private System.Windows.Forms.CheckBox check_Script_EmbedNonAL;
+        private System.Windows.Forms.CheckBox check_Script_ALWorkaround;
         private System.Windows.Forms.Label settingsTitle_Script;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Panel generalSettings_Script;
@@ -460,5 +525,8 @@
         private CUFramework.Controls.CUTextBox textBox_Maps_AudioLanguages;
         private System.Windows.Forms.LinkLabel label_Maps_AudioLanguages;
         private System.Windows.Forms.CheckBox check_Maps_DeleteLocINT;
+        private CUFramework.Controls.CUButton buttonSave;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private CUFramework.Controls.CUButton buttonCancel;
     }
 }

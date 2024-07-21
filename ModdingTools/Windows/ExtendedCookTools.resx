@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="checkboxCustomCooking.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="check_EnableCustomCooking.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -132,23 +132,9 @@
   <metadata name="tabGeneral.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>139, 17</value>
-  </metadata>
-  <data name="check_Maps_DeleteLocINT.ToolTip" xml:space="preserve">
-    <value>If enabled, the generated LOC_INT packages will be deleted from the CookedPC folder. Note that these
-packages may contain custom fonts (if not referenced by an AL script), so be careful with this option!!</value>
-  </data>
   <metadata name="check_Maps_ExcludeBaseALAssets.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="check_Maps_ExcludeBaseALAssets.ToolTip" xml:space="preserve">
-    <value>By default, a cooked mod embeds any assets that it references, even those that are already loaded
-by the base-game. This option attempts to reduce storage usage skipping those assets.
-
-NOTES:
-- This option is specific to map packages. A similar setting exists for the script package.</value>
-  </data>
   <metadata name="settingsTitle_Maps.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -161,10 +147,7 @@ NOTES:
   <metadata name="nestLevel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="check_Script_EmbedNonAL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="combo_Script_LoadScope.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="check_Script_ALWorkaround.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="label_Script_LoadScope.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -193,7 +176,7 @@ NOTES:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADC
-        BAAAAk1TRnQBSQFMAgEBAgEAAbABAAGwAQABIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        BAAAAk1TRnQBSQFMAgEBAgEAAcgBAAHIAQABIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABIAMAAQEBAAEgBgABQP8A/wD/AP8AlgA0/xAANP//AIkANP8QADT//wCJAAj/JAAI/xAACP8kAAj/
         /wA5ABj/OAAI/wwABP8UAAj/EAAI/wwABP8UAAj//wA5ABj/OAAI/wwACP8QAAj/EAAI/wwACP8QAAj/
         /wAhAAj/EAAY/xAACP8gAAj/DAAM/wwACP8QAAj/DAAM/wwACP//ACEAEP8IABj/CAAQ/yAACP8MABD/
@@ -217,6 +200,26 @@ NOTES:
 </value>
   </data>
   <metadata name="tabController.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>139, 17</value>
+  </metadata>
+  <data name="check_Maps_DeleteLocINT.ToolTip" xml:space="preserve">
+    <value>If enabled, the generated LOC_INT packages will be deleted from the CookedPC folder. Note that these
+packages may contain custom fonts (if not referenced by an AL script), so be careful with this option!!</value>
+  </data>
+  <metadata name="check_Maps_ExcludeBaseALAssets.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="check_Maps_ExcludeBaseALAssets.ToolTip" xml:space="preserve">
+    <value>By default, a cooked mod embeds any assets that it references, even those that are already loaded
+by the base-game. This option attempts to reduce storage usage skipping those assets.
+
+NOTES:
+- This option is specific to map packages. A similar setting exists for the script package.</value>
+  </data>
+  <metadata name="settingsTitle_Maps.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="check_Script_ExcludeBaseALAssets.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -245,10 +248,10 @@ NOTES:
   <metadata name="nestLine1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="check_Script_EmbedNonAL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="check_Script_ALWorkaround.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="check_Script_EmbedNonAL.ToolTip" xml:space="preserve">
+  <data name="check_Script_ALWorkaround.ToolTip" xml:space="preserve">
     <value>If enabled, the mod's script package copies any Non-AL class that it references.
 
 PROS:
@@ -257,9 +260,6 @@ CONS:
 - If your mod also contains maps, this may require multiple cook commands. They'll still be
 cooked correctly, but it might take a longer time.</value>
   </data>
-  <metadata name="combo_Script_LoadScope.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="combo_Script_LoadScope.ToolTip" xml:space="preserve">
     <value>- AlwaysLoaded = All classes are AL. This is how the engine normally cooks any mod scripts, and
 it's the ideal option for mods without maps.

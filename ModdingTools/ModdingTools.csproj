@@ -173,6 +173,7 @@
     <Compile Include="Logging\Handlers\DebuggerLogger.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Settings\CookSettings.cs" />
     <Compile Include="Settings\OMMSettings.cs" />
     <Compile Include="Windows\ArrayInputWindow.cs">
       <SubType>Form</SubType>
@@ -405,6 +406,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hueh.ico" />
+    <None Include="Resources\disabled_background.png" />
     <None Include="Resources\noimage_wide.png" />
     <None Include="Resources\about.png" />
     <None Include="Resources\heeh_3.png" />
