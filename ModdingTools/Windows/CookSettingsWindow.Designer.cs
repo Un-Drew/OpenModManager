@@ -41,13 +41,16 @@
             this.check_Maps_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
             this.settingsTitle_Maps = new System.Windows.Forms.Label();
             this.generalSettings_Script = new System.Windows.Forms.Panel();
+            this.combo_Script_LoadScope = new System.Windows.Forms.ComboBox();
+            this.label_Script_LoadScope = new System.Windows.Forms.Label();
             this.check_Script_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
+            this.nestLevel2 = new System.Windows.Forms.Panel();
+            this.nestLine4 = new System.Windows.Forms.Panel();
+            this.nestLine3 = new System.Windows.Forms.Panel();
             this.nestLevel1 = new System.Windows.Forms.Panel();
             this.nestLine2 = new System.Windows.Forms.Panel();
             this.nestLine1 = new System.Windows.Forms.Panel();
             this.check_Script_ALWorkaround = new System.Windows.Forms.CheckBox();
-            this.combo_Script_LoadScope = new System.Windows.Forms.ComboBox();
-            this.label_Script_LoadScope = new System.Windows.Forms.Label();
             this.settingsTitle_Script = new System.Windows.Forms.Label();
             this.generalSettings_Env = new System.Windows.Forms.Panel();
             this.check_Env_CookInIsolation = new System.Windows.Forms.CheckBox();
@@ -61,20 +64,19 @@
             this.buttonSave = new CUFramework.Controls.CUButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCancel = new CUFramework.Controls.CUButton();
-            this.nestLevel2 = new System.Windows.Forms.Panel();
-            this.nestLine4 = new System.Windows.Forms.Panel();
-            this.nestLine3 = new System.Windows.Forms.Panel();
+            this.label_Maps_MoveMethod = new System.Windows.Forms.Label();
+            this.combo_Maps_MoveMethod = new System.Windows.Forms.ComboBox();
             this.cookSettingsPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.generalSettings_Maps.SuspendLayout();
             this.generalSettings_Script.SuspendLayout();
+            this.nestLevel2.SuspendLayout();
             this.nestLevel1.SuspendLayout();
             this.generalSettings_Env.SuspendLayout();
             this.cookSettingsTitleBorder.SuspendLayout();
             this.cookSettingsTitleContent.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.nestLevel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // check_EnableCustomCooking
@@ -102,7 +104,7 @@
             this.cookSettingsPanel.Location = new System.Drawing.Point(4, 64);
             this.cookSettingsPanel.Name = "cookSettingsPanel";
             this.cookSettingsPanel.Padding = new System.Windows.Forms.Padding(2);
-            this.cookSettingsPanel.Size = new System.Drawing.Size(442, 300);
+            this.cookSettingsPanel.Size = new System.Drawing.Size(442, 329);
             this.cookSettingsPanel.TabIndex = 31;
             // 
             // tabControl
@@ -115,7 +117,7 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(338, 296);
+            this.tabControl.Size = new System.Drawing.Size(338, 325);
             this.tabControl.TabIndex = 1;
             // 
             // tabGeneral
@@ -128,7 +130,7 @@
             this.tabGeneral.Location = new System.Drawing.Point(0, 0);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(4);
-            this.tabGeneral.Size = new System.Drawing.Size(338, 296);
+            this.tabGeneral.Size = new System.Drawing.Size(338, 325);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "GENERAL";
             // 
@@ -136,6 +138,8 @@
             // 
             this.generalSettings_Maps.BackColor = System.Drawing.Color.Transparent;
             this.generalSettings_Maps.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.generalSettings_Maps.Controls.Add(this.combo_Maps_MoveMethod);
+            this.generalSettings_Maps.Controls.Add(this.label_Maps_MoveMethod);
             this.generalSettings_Maps.Controls.Add(this.check_Maps_DeleteLocINT);
             this.generalSettings_Maps.Controls.Add(this.textBox_Maps_AudioLanguages);
             this.generalSettings_Maps.Controls.Add(this.label_Maps_AudioLanguages);
@@ -144,7 +148,7 @@
             this.generalSettings_Maps.Location = new System.Drawing.Point(7, 171);
             this.generalSettings_Maps.Name = "generalSettings_Maps";
             this.generalSettings_Maps.Padding = new System.Windows.Forms.Padding(4);
-            this.generalSettings_Maps.Size = new System.Drawing.Size(324, 120);
+            this.generalSettings_Maps.Size = new System.Drawing.Size(324, 147);
             this.generalSettings_Maps.TabIndex = 33;
             // 
             // check_Maps_DeleteLocINT
@@ -197,6 +201,7 @@
             this.check_Maps_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
             this.toolTip.SetToolTip(this.check_Maps_ExcludeBaseALAssets, resources.GetString("check_Maps_ExcludeBaseALAssets.ToolTip"));
             this.check_Maps_ExcludeBaseALAssets.UseVisualStyleBackColor = true;
+            this.check_Maps_ExcludeBaseALAssets.CheckedChanged += new System.EventHandler(this.check_Maps_ExcludeBaseALAssets_CheckedChanged);
             // 
             // settingsTitle_Maps
             // 
@@ -227,6 +232,33 @@
             this.generalSettings_Script.Size = new System.Drawing.Size(324, 102);
             this.generalSettings_Script.TabIndex = 31;
             // 
+            // combo_Script_LoadScope
+            // 
+            this.combo_Script_LoadScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.combo_Script_LoadScope.FormattingEnabled = true;
+            this.combo_Script_LoadScope.Items.AddRange(new object[] {
+            "AlwaysLoadad",
+            "Non-AlwaysLoaded",
+            "Auto"});
+            this.combo_Script_LoadScope.Location = new System.Drawing.Point(145, 72);
+            this.combo_Script_LoadScope.Name = "combo_Script_LoadScope";
+            this.combo_Script_LoadScope.Size = new System.Drawing.Size(170, 21);
+            this.combo_Script_LoadScope.TabIndex = 38;
+            this.combo_Script_LoadScope.Text = "AlwaysLoaded";
+            this.toolTip.SetToolTip(this.combo_Script_LoadScope, resources.GetString("combo_Script_LoadScope.ToolTip"));
+            this.combo_Script_LoadScope.SelectedIndexChanged += new System.EventHandler(this.combo_Script_LoadScope_SelectedIndexChanged);
+            // 
+            // label_Script_LoadScope
+            // 
+            this.label_Script_LoadScope.Location = new System.Drawing.Point(26, 72);
+            this.label_Script_LoadScope.Margin = new System.Windows.Forms.Padding(3);
+            this.label_Script_LoadScope.Name = "label_Script_LoadScope";
+            this.label_Script_LoadScope.Size = new System.Drawing.Size(110, 21);
+            this.label_Script_LoadScope.TabIndex = 37;
+            this.label_Script_LoadScope.Text = "Load scope:";
+            this.label_Script_LoadScope.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip.SetToolTip(this.label_Script_LoadScope, resources.GetString("label_Script_LoadScope.ToolTip"));
+            // 
             // check_Script_ExcludeBaseALAssets
             // 
             this.check_Script_ExcludeBaseALAssets.AutoSize = true;
@@ -237,6 +269,37 @@
             this.check_Script_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
             this.toolTip.SetToolTip(this.check_Script_ExcludeBaseALAssets, resources.GetString("check_Script_ExcludeBaseALAssets.ToolTip"));
             this.check_Script_ExcludeBaseALAssets.UseVisualStyleBackColor = false;
+            // 
+            // nestLevel2
+            // 
+            this.nestLevel2.BackColor = System.Drawing.Color.Transparent;
+            this.nestLevel2.Controls.Add(this.nestLine4);
+            this.nestLevel2.Controls.Add(this.nestLine3);
+            this.nestLevel2.Location = new System.Drawing.Point(12, 57);
+            this.nestLevel2.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.nestLevel2.Name = "nestLevel2";
+            this.nestLevel2.Size = new System.Drawing.Size(11, 27);
+            this.nestLevel2.TabIndex = 37;
+            // 
+            // nestLine4
+            // 
+            this.nestLine4.BackColor = System.Drawing.Color.Gray;
+            this.nestLine4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.nestLine4.Location = new System.Drawing.Point(1, 26);
+            this.nestLine4.Margin = new System.Windows.Forms.Padding(0);
+            this.nestLine4.Name = "nestLine4";
+            this.nestLine4.Size = new System.Drawing.Size(10, 1);
+            this.nestLine4.TabIndex = 35;
+            // 
+            // nestLine3
+            // 
+            this.nestLine3.BackColor = System.Drawing.Color.Gray;
+            this.nestLine3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nestLine3.Location = new System.Drawing.Point(0, 0);
+            this.nestLine3.Margin = new System.Windows.Forms.Padding(0);
+            this.nestLine3.Name = "nestLine3";
+            this.nestLine3.Size = new System.Drawing.Size(1, 27);
+            this.nestLine3.TabIndex = 34;
             // 
             // nestLevel1
             // 
@@ -280,32 +343,6 @@
             this.toolTip.SetToolTip(this.check_Script_ALWorkaround, resources.GetString("check_Script_ALWorkaround.ToolTip"));
             this.check_Script_ALWorkaround.UseVisualStyleBackColor = true;
             this.check_Script_ALWorkaround.CheckedChanged += new System.EventHandler(this.check_Script_ALWorkaround_CheckedChanged);
-            // 
-            // combo_Script_LoadScope
-            // 
-            this.combo_Script_LoadScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.combo_Script_LoadScope.FormattingEnabled = true;
-            this.combo_Script_LoadScope.Items.AddRange(new object[] {
-            "AlwaysLoadad",
-            "Non-AlwaysLoaded",
-            "Auto"});
-            this.combo_Script_LoadScope.Location = new System.Drawing.Point(145, 72);
-            this.combo_Script_LoadScope.Name = "combo_Script_LoadScope";
-            this.combo_Script_LoadScope.Size = new System.Drawing.Size(170, 21);
-            this.combo_Script_LoadScope.TabIndex = 38;
-            this.combo_Script_LoadScope.Text = "AlwaysLoaded";
-            this.toolTip.SetToolTip(this.combo_Script_LoadScope, resources.GetString("combo_Script_LoadScope.ToolTip"));
-            // 
-            // label_Script_LoadScope
-            // 
-            this.label_Script_LoadScope.Location = new System.Drawing.Point(26, 72);
-            this.label_Script_LoadScope.Margin = new System.Windows.Forms.Padding(3);
-            this.label_Script_LoadScope.Name = "label_Script_LoadScope";
-            this.label_Script_LoadScope.Size = new System.Drawing.Size(90, 21);
-            this.label_Script_LoadScope.TabIndex = 37;
-            this.label_Script_LoadScope.Text = "Load scope:";
-            this.label_Script_LoadScope.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip.SetToolTip(this.label_Script_LoadScope, resources.GetString("label_Script_LoadScope.ToolTip"));
             // 
             // settingsTitle_Script
             // 
@@ -383,7 +420,7 @@
             this.tabController.Name = "tabController";
             this.tabController.ParentTabControl = this.tabControl;
             this.tabController.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            this.tabController.Size = new System.Drawing.Size(100, 296);
+            this.tabController.Size = new System.Drawing.Size(100, 325);
             this.tabController.TabIndex = 0;
             this.tabController.Text = "cuTabController1";
             // 
@@ -437,12 +474,12 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonCancel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonSave, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 366);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 396);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 32);
             this.tableLayoutPanel1.TabIndex = 34;
             // 
@@ -461,42 +498,37 @@
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // nestLevel2
+            // label_Maps_MoveMethod
             // 
-            this.nestLevel2.BackColor = System.Drawing.Color.Transparent;
-            this.nestLevel2.Controls.Add(this.nestLine4);
-            this.nestLevel2.Controls.Add(this.nestLine3);
-            this.nestLevel2.Location = new System.Drawing.Point(12, 57);
-            this.nestLevel2.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.nestLevel2.Name = "nestLevel2";
-            this.nestLevel2.Size = new System.Drawing.Size(11, 27);
-            this.nestLevel2.TabIndex = 37;
+            this.label_Maps_MoveMethod.Location = new System.Drawing.Point(7, 117);
+            this.label_Maps_MoveMethod.Margin = new System.Windows.Forms.Padding(3);
+            this.label_Maps_MoveMethod.Name = "label_Maps_MoveMethod";
+            this.label_Maps_MoveMethod.Size = new System.Drawing.Size(130, 21);
+            this.label_Maps_MoveMethod.TabIndex = 42;
+            this.label_Maps_MoveMethod.Text = "Move method:";
+            this.label_Maps_MoveMethod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip.SetToolTip(this.label_Maps_MoveMethod, "Some combinations of settings may require temporarily moving your maps to a\r\nsepa" +
+        "rate location, while cooking. This setting controls how these files are \'moved\'." +
+        "");
             // 
-            // nestLine4
+            // combo_Maps_MoveMethod
             // 
-            this.nestLine4.BackColor = System.Drawing.Color.Gray;
-            this.nestLine4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.nestLine4.Location = new System.Drawing.Point(1, 26);
-            this.nestLine4.Margin = new System.Windows.Forms.Padding(0);
-            this.nestLine4.Name = "nestLine4";
-            this.nestLine4.Size = new System.Drawing.Size(10, 1);
-            this.nestLine4.TabIndex = 35;
-            // 
-            // nestLine3
-            // 
-            this.nestLine3.BackColor = System.Drawing.Color.Gray;
-            this.nestLine3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.nestLine3.Location = new System.Drawing.Point(0, 0);
-            this.nestLine3.Margin = new System.Windows.Forms.Padding(0);
-            this.nestLine3.Name = "nestLine3";
-            this.nestLine3.Size = new System.Drawing.Size(1, 27);
-            this.nestLine3.TabIndex = 34;
+            this.combo_Maps_MoveMethod.FormattingEnabled = true;
+            this.combo_Maps_MoveMethod.Items.AddRange(new object[] {
+            "COPY (safer)",
+            "MOVE (faster)"});
+            this.combo_Maps_MoveMethod.Location = new System.Drawing.Point(145, 117);
+            this.combo_Maps_MoveMethod.Name = "combo_Maps_MoveMethod";
+            this.combo_Maps_MoveMethod.Size = new System.Drawing.Size(170, 21);
+            this.combo_Maps_MoveMethod.TabIndex = 43;
+            this.combo_Maps_MoveMethod.Text = "COPY (safer)";
+            this.toolTip.SetToolTip(this.combo_Maps_MoveMethod, resources.GetString("combo_Maps_MoveMethod.ToolTip"));
             // 
             // CookSettingsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 400);
+            this.ClientSize = new System.Drawing.Size(450, 430);
             this.ControlBoxVisible = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.cookSettingsPanel);
@@ -520,13 +552,13 @@
             this.generalSettings_Maps.PerformLayout();
             this.generalSettings_Script.ResumeLayout(false);
             this.generalSettings_Script.PerformLayout();
+            this.nestLevel2.ResumeLayout(false);
             this.nestLevel1.ResumeLayout(false);
             this.generalSettings_Env.ResumeLayout(false);
             this.generalSettings_Env.PerformLayout();
             this.cookSettingsTitleBorder.ResumeLayout(false);
             this.cookSettingsTitleContent.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.nestLevel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -567,5 +599,7 @@
         private System.Windows.Forms.Panel nestLevel2;
         private System.Windows.Forms.Panel nestLine4;
         private System.Windows.Forms.Panel nestLine3;
+        private System.Windows.Forms.Label label_Maps_MoveMethod;
+        private System.Windows.Forms.ComboBox combo_Maps_MoveMethod;
     }
 }

@@ -32,8 +32,10 @@ namespace ModdingTools.Windows
             if (!DesignMode)
             {
                 LoadSettings();
+
                 UpdateDependenciesToALWorkaround();
                 UpdateDisabledBackground();
+                UpdateMoveMethodState();
             }
         }
 
@@ -54,6 +56,7 @@ namespace ModdingTools.Windows
             check_Maps_ExcludeBaseALAssets.Checked = cookSettings.Script_ExcludeBaseAlwaysLoadedAssets;
             textBox_Maps_AudioLanguages.Text = cookSettings.Maps_AudioLanguages;
             check_Maps_DeleteLocINT.Checked = cookSettings.Maps_DeleteLocInt;
+            combo_Maps_MoveMethod.SelectedIndex = (int)cookSettings.Maps_MoveMethod;
 
             NotUserInflicted = false;
         }
@@ -73,6 +76,7 @@ namespace ModdingTools.Windows
             cookSettings.Script_ExcludeBaseAlwaysLoadedAssets = check_Maps_ExcludeBaseALAssets.Checked;
             cookSettings.Maps_AudioLanguages = textBox_Maps_AudioLanguages.Text;
             cookSettings.Maps_DeleteLocInt = check_Maps_DeleteLocINT.Checked;
+            cookSettings.Maps_MoveMethod = (CookSettings.MoveMethod)combo_Maps_MoveMethod.SelectedIndex;
 
             try
             {
@@ -107,6 +111,19 @@ namespace ModdingTools.Windows
         {
             if (NotUserInflicted) return;
             UpdateDependenciesToALWorkaround();
+            UpdateMoveMethodState();
+        }
+
+        private void combo_Script_LoadScope_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (NotUserInflicted) return;
+            UpdateMoveMethodState();
+        }
+
+        private void check_Maps_ExcludeBaseALAssets_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NotUserInflicted) return;
+            UpdateMoveMethodState();
         }
 
         public void UpdateDependenciesToALWorkaround()
@@ -126,6 +143,14 @@ namespace ModdingTools.Windows
             {
                 tab.BackgroundImage = newBg;
             }
+        }
+
+        public void UpdateMoveMethodState()
+        {
+            bool mapsRequireMoving = check_Script_ALWorkaround.Checked && combo_Script_LoadScope.SelectedIndex != 0 && check_Maps_ExcludeBaseALAssets.Checked;
+            var color = mapsRequireMoving ? Color.White : Color.Gray;
+            label_Maps_MoveMethod.ForeColor = color;
+            combo_Maps_MoveMethod.BackColor = color;
         }
     }
 }

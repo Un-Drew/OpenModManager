@@ -21,6 +21,12 @@ namespace ModdingTools.Settings
             Auto
         };
 
+        public enum MoveMethod
+        {
+            Copy,
+            Move
+        };
+
         public bool EnableCustomCooking { get; set; } = false;
 
         /* GENERAL SETTINGS */
@@ -34,6 +40,7 @@ namespace ModdingTools.Settings
         public bool Maps_ExcludeBaseAlwaysLoadedAssets { get; set; } = false;
         public string Maps_AudioLanguages { get; set; } = "";
         public bool Maps_DeleteLocInt { get; set; } = false;
+        public MoveMethod Maps_MoveMethod { get; set; } = MoveMethod.Copy;
 
         [XmlIgnore]
         public ModObject Mod { get; protected set; }
