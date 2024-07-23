@@ -95,8 +95,18 @@ namespace ModdingTools.Settings
             return instance;
         }
 
+        public CookSettings() { }
+
+        public CookSettings(ModObject mod)
+        {
+            Mod = mod;
+        }
+
         public void Save()
         {
+            if (Mod == null)
+                throw new ArgumentNullException("Cook settings not tied to a specific mod, cannot save.");
+            
             // Reget the cfg directory every time, in case the mod's folder was moved.
             string cfgDir = GetConfigDir(Mod);
             if (!Directory.Exists(cfgDir))
@@ -109,6 +119,25 @@ namespace ModdingTools.Settings
                 serializer.Serialize(writer, this);
                 writer.Close();
             }
+        }
+
+        public void CopySettingsFrom(CookSettings settings)
+        {
+            if (settings == null)
+                throw new ArgumentNullException("Cannot copy from null settings!");
+
+            EnableCustomCooking = settings.EnableCustomCooking;
+
+            Env_CookInIsolation = settings.Env_CookInIsolation;
+
+            Script_AlwaysLoadedWorkaround = settings.Script_AlwaysLoadedWorkaround;
+            Script_ExcludeBaseAlwaysLoadedAssets = settings.Script_ExcludeBaseAlwaysLoadedAssets;
+            Script_LoadScope = settings.Script_LoadScope;
+
+            Maps_ExcludeBaseAlwaysLoadedAssets = settings.Maps_ExcludeBaseAlwaysLoadedAssets;
+            Maps_AudioLanguages = settings.Maps_AudioLanguages;
+            Maps_DeleteLocInt = settings.Maps_DeleteLocInt;
+            Maps_MoveMethod = settings.Maps_MoveMethod;
         }
     }
 }

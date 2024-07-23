@@ -35,6 +35,8 @@
             this.tabControl = new CUFramework.Controls.Tabs.CUBorderlessTabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.generalSettings_Maps = new System.Windows.Forms.Panel();
+            this.combo_Maps_MoveMethod = new System.Windows.Forms.ComboBox();
+            this.label_Maps_MoveMethod = new System.Windows.Forms.Label();
             this.check_Maps_DeleteLocINT = new System.Windows.Forms.CheckBox();
             this.textBox_Maps_AudioLanguages = new CUFramework.Controls.CUTextBox();
             this.label_Maps_AudioLanguages = new System.Windows.Forms.LinkLabel();
@@ -64,8 +66,6 @@
             this.buttonSave = new CUFramework.Controls.CUButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCancel = new CUFramework.Controls.CUButton();
-            this.label_Maps_MoveMethod = new System.Windows.Forms.Label();
-            this.combo_Maps_MoveMethod = new System.Windows.Forms.ComboBox();
             this.cookSettingsPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -151,6 +151,33 @@
             this.generalSettings_Maps.Size = new System.Drawing.Size(324, 147);
             this.generalSettings_Maps.TabIndex = 33;
             // 
+            // combo_Maps_MoveMethod
+            // 
+            this.combo_Maps_MoveMethod.FormattingEnabled = true;
+            this.combo_Maps_MoveMethod.Items.AddRange(new object[] {
+            "COPY (safer)",
+            "MOVE (faster)"});
+            this.combo_Maps_MoveMethod.Location = new System.Drawing.Point(145, 117);
+            this.combo_Maps_MoveMethod.Name = "combo_Maps_MoveMethod";
+            this.combo_Maps_MoveMethod.Size = new System.Drawing.Size(170, 21);
+            this.combo_Maps_MoveMethod.TabIndex = 43;
+            this.combo_Maps_MoveMethod.Text = "COPY (safer)";
+            this.toolTip.SetToolTip(this.combo_Maps_MoveMethod, resources.GetString("combo_Maps_MoveMethod.ToolTip"));
+            this.combo_Maps_MoveMethod.SelectedIndexChanged += new System.EventHandler(this.combo_Maps_MoveMethod_SelectedIndexChanged);
+            // 
+            // label_Maps_MoveMethod
+            // 
+            this.label_Maps_MoveMethod.Location = new System.Drawing.Point(7, 117);
+            this.label_Maps_MoveMethod.Margin = new System.Windows.Forms.Padding(3);
+            this.label_Maps_MoveMethod.Name = "label_Maps_MoveMethod";
+            this.label_Maps_MoveMethod.Size = new System.Drawing.Size(130, 21);
+            this.label_Maps_MoveMethod.TabIndex = 42;
+            this.label_Maps_MoveMethod.Text = "Move method:";
+            this.label_Maps_MoveMethod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip.SetToolTip(this.label_Maps_MoveMethod, "Some combinations of settings may require temporarily moving your maps to a\r\nsepa" +
+        "rate location, while cooking. This setting controls how these files are \'moved\'." +
+        "");
+            // 
             // check_Maps_DeleteLocINT
             // 
             this.check_Maps_DeleteLocINT.AutoSize = true;
@@ -161,6 +188,7 @@
             this.check_Maps_DeleteLocINT.Text = "Delete auto-generated LOC_INT packages";
             this.toolTip.SetToolTip(this.check_Maps_DeleteLocINT, resources.GetString("check_Maps_DeleteLocINT.ToolTip"));
             this.check_Maps_DeleteLocINT.UseVisualStyleBackColor = true;
+            this.check_Maps_DeleteLocINT.CheckedChanged += new System.EventHandler(this.check_Maps_DeleteLocINT_CheckedChanged);
             // 
             // textBox_Maps_AudioLanguages
             // 
@@ -173,6 +201,8 @@
             this.textBox_Maps_AudioLanguages.TabIndex = 40;
             this.toolTip.SetToolTip(this.textBox_Maps_AudioLanguages, "Languages in which to cook the mod\'s audio, separated by \'+\' characters.\r\nFor exa" +
         "mple: INT+FRA+ITA\r\nIf blank, the mod won\'t use localization cooking.");
+            this.textBox_Maps_AudioLanguages.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_Maps_AudioLanguages_KeyUp);
+            this.textBox_Maps_AudioLanguages.Leave += new System.EventHandler(this.textBox_Maps_AudioLanguages_Leave);
             // 
             // label_Maps_AudioLanguages
             // 
@@ -269,6 +299,7 @@
             this.check_Script_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
             this.toolTip.SetToolTip(this.check_Script_ExcludeBaseALAssets, resources.GetString("check_Script_ExcludeBaseALAssets.ToolTip"));
             this.check_Script_ExcludeBaseALAssets.UseVisualStyleBackColor = false;
+            this.check_Script_ExcludeBaseALAssets.CheckedChanged += new System.EventHandler(this.check_Script_ExcludeBaseALAssets_CheckedChanged);
             // 
             // nestLevel2
             // 
@@ -380,6 +411,7 @@
         "ld\r\nbe used to speed up the cooking process, as well as to avoid AlwaysLoaded is" +
         "sues\r\ncaused by other mods.");
             this.check_Env_CookInIsolation.UseVisualStyleBackColor = true;
+            this.check_Env_CookInIsolation.CheckedChanged += new System.EventHandler(this.check_Env_CookInIsolation_CheckedChanged);
             // 
             // settingsTitle_Env
             // 
@@ -400,7 +432,7 @@
             this.tabCookGroups.Location = new System.Drawing.Point(0, 0);
             this.tabCookGroups.Name = "tabCookGroups";
             this.tabCookGroups.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCookGroups.Size = new System.Drawing.Size(338, 296);
+            this.tabCookGroups.Size = new System.Drawing.Size(338, 325);
             this.tabCookGroups.TabIndex = 1;
             this.tabCookGroups.Text = "COOK GROUPS";
             // 
@@ -497,32 +529,6 @@
             this.buttonCancel.Text = "CANCEL";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // label_Maps_MoveMethod
-            // 
-            this.label_Maps_MoveMethod.Location = new System.Drawing.Point(7, 117);
-            this.label_Maps_MoveMethod.Margin = new System.Windows.Forms.Padding(3);
-            this.label_Maps_MoveMethod.Name = "label_Maps_MoveMethod";
-            this.label_Maps_MoveMethod.Size = new System.Drawing.Size(130, 21);
-            this.label_Maps_MoveMethod.TabIndex = 42;
-            this.label_Maps_MoveMethod.Text = "Move method:";
-            this.label_Maps_MoveMethod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip.SetToolTip(this.label_Maps_MoveMethod, "Some combinations of settings may require temporarily moving your maps to a\r\nsepa" +
-        "rate location, while cooking. This setting controls how these files are \'moved\'." +
-        "");
-            // 
-            // combo_Maps_MoveMethod
-            // 
-            this.combo_Maps_MoveMethod.FormattingEnabled = true;
-            this.combo_Maps_MoveMethod.Items.AddRange(new object[] {
-            "COPY (safer)",
-            "MOVE (faster)"});
-            this.combo_Maps_MoveMethod.Location = new System.Drawing.Point(145, 117);
-            this.combo_Maps_MoveMethod.Name = "combo_Maps_MoveMethod";
-            this.combo_Maps_MoveMethod.Size = new System.Drawing.Size(170, 21);
-            this.combo_Maps_MoveMethod.TabIndex = 43;
-            this.combo_Maps_MoveMethod.Text = "COPY (safer)";
-            this.toolTip.SetToolTip(this.combo_Maps_MoveMethod, resources.GetString("combo_Maps_MoveMethod.ToolTip"));
             // 
             // CookSettingsWindow
             // 
