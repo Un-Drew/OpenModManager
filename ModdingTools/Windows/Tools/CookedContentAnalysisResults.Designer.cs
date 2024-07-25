@@ -31,35 +31,36 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CookedContentAnalysisResults));
             this.cookedAssetsSplit = new System.Windows.Forms.SplitContainer();
+            this.packagesBorder = new ModdingTools.GUI.BorderPanel();
+            this.packagesPanel = new System.Windows.Forms.Panel();
             this.selectAllPackagesCheckbox = new System.Windows.Forms.CheckBox();
             this.packagesTitle = new System.Windows.Forms.Label();
             this.filterPanel = new System.Windows.Forms.Panel();
             this.refreshButton = new CUFramework.Controls.CUButton();
             this.sortCombo = new System.Windows.Forms.ComboBox();
             this.sortLabel = new System.Windows.Forms.Label();
+            this.sharedCheckbox = new System.Windows.Forms.CheckBox();
+            this.contentPanel = new ModdingTools.GUI.BorderPanel();
+            this.contentTree = new System.Windows.Forms.TreeView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.contentTopBar = new System.Windows.Forms.Panel();
             this.contentSize = new System.Windows.Forms.Label();
             this.contentTitle = new System.Windows.Forms.Label();
             this.statsPanel = new System.Windows.Forms.Panel();
-            this.statsTitle = new System.Windows.Forms.Label();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.packagesBorder = new ModdingTools.GUI.BorderPanel();
-            this.packagesPanel = new System.Windows.Forms.Panel();
-            this.contentPanel = new ModdingTools.GUI.BorderPanel();
-            this.contentTree = new System.Windows.Forms.TreeView();
             this.statsBorder = new ModdingTools.GUI.BorderPanel();
             this.statsText = new System.Windows.Forms.Label();
-            this.sharedCheckbox = new System.Windows.Forms.CheckBox();
+            this.statsTitle = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ALRedundanciesCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cookedAssetsSplit)).BeginInit();
             this.cookedAssetsSplit.Panel1.SuspendLayout();
             this.cookedAssetsSplit.Panel2.SuspendLayout();
             this.cookedAssetsSplit.SuspendLayout();
+            this.packagesBorder.SuspendLayout();
             this.filterPanel.SuspendLayout();
+            this.contentPanel.SuspendLayout();
             this.contentTopBar.SuspendLayout();
             this.statsPanel.SuspendLayout();
-            this.packagesBorder.SuspendLayout();
-            this.contentPanel.SuspendLayout();
             this.statsBorder.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +90,28 @@
             this.cookedAssetsSplit.SplitterDistance = 230;
             this.cookedAssetsSplit.TabIndex = 0;
             // 
+            // packagesBorder
+            // 
+            this.packagesBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.packagesBorder.BorderThickness = 2;
+            this.packagesBorder.Controls.Add(this.packagesPanel);
+            this.packagesBorder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagesBorder.ForeColor = System.Drawing.Color.White;
+            this.packagesBorder.Location = new System.Drawing.Point(0, 22);
+            this.packagesBorder.Name = "packagesBorder";
+            this.packagesBorder.Padding = new System.Windows.Forms.Padding(5);
+            this.packagesBorder.Size = new System.Drawing.Size(230, 292);
+            this.packagesBorder.TabIndex = 29;
+            // 
+            // packagesPanel
+            // 
+            this.packagesPanel.AutoScroll = true;
+            this.packagesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagesPanel.Location = new System.Drawing.Point(5, 5);
+            this.packagesPanel.Name = "packagesPanel";
+            this.packagesPanel.Size = new System.Drawing.Size(220, 282);
+            this.packagesPanel.TabIndex = 0;
+            // 
             // selectAllPackagesCheckbox
             // 
             this.selectAllPackagesCheckbox.Location = new System.Drawing.Point(72, 2);
@@ -117,12 +140,13 @@
             this.filterPanel.Controls.Add(this.refreshButton);
             this.filterPanel.Controls.Add(this.sortCombo);
             this.filterPanel.Controls.Add(this.sortLabel);
+            this.filterPanel.Controls.Add(this.ALRedundanciesCheckbox);
             this.filterPanel.Controls.Add(this.sharedCheckbox);
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.filterPanel.Location = new System.Drawing.Point(0, 342);
+            this.filterPanel.Location = new System.Drawing.Point(0, 314);
             this.filterPanel.Name = "filterPanel";
             this.filterPanel.Padding = new System.Windows.Forms.Padding(4);
-            this.filterPanel.Size = new System.Drawing.Size(230, 92);
+            this.filterPanel.Size = new System.Drawing.Size(230, 120);
             this.filterPanel.TabIndex = 0;
             // 
             // refreshButton
@@ -133,7 +157,7 @@
             this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshButton.ForeColor = System.Drawing.Color.White;
             this.refreshButton.Image = global::ModdingTools.Properties.Resources.refresh;
-            this.refreshButton.Location = new System.Drawing.Point(4, 50);
+            this.refreshButton.Location = new System.Drawing.Point(4, 78);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.NoFocus = false;
             this.refreshButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -152,7 +176,7 @@
             this.sortCombo.Items.AddRange(new object[] {
             "TREE",
             "SIZE"});
-            this.sortCombo.Location = new System.Drawing.Point(154, 25);
+            this.sortCombo.Location = new System.Drawing.Point(153, 53);
             this.sortCombo.Name = "sortCombo";
             this.sortCombo.Size = new System.Drawing.Size(70, 21);
             this.sortCombo.TabIndex = 0;
@@ -162,13 +186,58 @@
             // sortLabel
             // 
             this.sortLabel.AutoSize = true;
-            this.sortLabel.Location = new System.Drawing.Point(5, 25);
+            this.sortLabel.Location = new System.Drawing.Point(7, 53);
+            this.sortLabel.Margin = new System.Windows.Forms.Padding(3);
             this.sortLabel.MinimumSize = new System.Drawing.Size(0, 21);
             this.sortLabel.Name = "sortLabel";
             this.sortLabel.Size = new System.Drawing.Size(52, 21);
             this.sortLabel.TabIndex = 1;
             this.sortLabel.Text = "Sort type:";
             this.sortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // sharedCheckbox
+            // 
+            this.sharedCheckbox.AutoSize = true;
+            this.sharedCheckbox.Location = new System.Drawing.Point(7, 7);
+            this.sharedCheckbox.Name = "sharedCheckbox";
+            this.sharedCheckbox.Size = new System.Drawing.Size(66, 17);
+            this.sharedCheckbox.TabIndex = 4;
+            this.sharedCheckbox.Text = "Shared?";
+            this.toolTip.SetToolTip(this.sharedCheckbox, "If enabled, the content panel will only show assets that are present in ALL selec" +
+        "ted maps.\r\nIf disabled, the content panel will show any assets that are present " +
+        "in the selected maps.");
+            this.sharedCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // contentPanel
+            // 
+            this.contentPanel.AutoScroll = true;
+            this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.contentPanel.BorderThickness = 2;
+            this.contentPanel.Controls.Add(this.contentTree);
+            this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentPanel.ForeColor = System.Drawing.Color.White;
+            this.contentPanel.Location = new System.Drawing.Point(0, 22);
+            this.contentPanel.Name = "contentPanel";
+            this.contentPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.contentPanel.Size = new System.Drawing.Size(512, 358);
+            this.contentPanel.TabIndex = 32;
+            // 
+            // contentTree
+            // 
+            this.contentTree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.contentTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.contentTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentTree.ForeColor = System.Drawing.Color.White;
+            this.contentTree.ImageIndex = 0;
+            this.contentTree.ImageList = this.imageList;
+            this.contentTree.LineColor = System.Drawing.Color.White;
+            this.contentTree.Location = new System.Drawing.Point(5, 5);
+            this.contentTree.Name = "contentTree";
+            this.contentTree.SelectedImageIndex = 0;
+            this.contentTree.Size = new System.Drawing.Size(502, 348);
+            this.contentTree.TabIndex = 0;
+            this.contentTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.contentTree_BeforeExpand);
+            this.contentTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.contentTree_AfterSelect);
             // 
             // imageList
             // 
@@ -224,77 +293,6 @@
             this.statsPanel.Size = new System.Drawing.Size(512, 54);
             this.statsPanel.TabIndex = 1;
             // 
-            // statsTitle
-            // 
-            this.statsTitle.BackColor = System.Drawing.Color.Transparent;
-            this.statsTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.statsTitle.ForeColor = System.Drawing.Color.DarkGray;
-            this.statsTitle.Location = new System.Drawing.Point(3, 3);
-            this.statsTitle.Name = "statsTitle";
-            this.statsTitle.Size = new System.Drawing.Size(506, 20);
-            this.statsTitle.TabIndex = 31;
-            this.statsTitle.Text = "STATS";
-            this.statsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // toolTip
-            // 
-            this.toolTip.AutoPopDelay = 15000;
-            this.toolTip.InitialDelay = 500;
-            this.toolTip.ReshowDelay = 100;
-            // 
-            // packagesBorder
-            // 
-            this.packagesBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.packagesBorder.BorderThickness = 2;
-            this.packagesBorder.Controls.Add(this.packagesPanel);
-            this.packagesBorder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.packagesBorder.ForeColor = System.Drawing.Color.White;
-            this.packagesBorder.Location = new System.Drawing.Point(0, 22);
-            this.packagesBorder.Name = "packagesBorder";
-            this.packagesBorder.Padding = new System.Windows.Forms.Padding(5);
-            this.packagesBorder.Size = new System.Drawing.Size(230, 320);
-            this.packagesBorder.TabIndex = 29;
-            // 
-            // packagesPanel
-            // 
-            this.packagesPanel.AutoScroll = true;
-            this.packagesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.packagesPanel.Location = new System.Drawing.Point(5, 5);
-            this.packagesPanel.Name = "packagesPanel";
-            this.packagesPanel.Size = new System.Drawing.Size(220, 310);
-            this.packagesPanel.TabIndex = 0;
-            // 
-            // contentPanel
-            // 
-            this.contentPanel.AutoScroll = true;
-            this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.contentPanel.BorderThickness = 2;
-            this.contentPanel.Controls.Add(this.contentTree);
-            this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contentPanel.ForeColor = System.Drawing.Color.White;
-            this.contentPanel.Location = new System.Drawing.Point(0, 22);
-            this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.contentPanel.Size = new System.Drawing.Size(512, 358);
-            this.contentPanel.TabIndex = 32;
-            // 
-            // contentTree
-            // 
-            this.contentTree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.contentTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.contentTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contentTree.ForeColor = System.Drawing.Color.White;
-            this.contentTree.ImageIndex = 0;
-            this.contentTree.ImageList = this.imageList;
-            this.contentTree.LineColor = System.Drawing.Color.White;
-            this.contentTree.Location = new System.Drawing.Point(5, 5);
-            this.contentTree.Name = "contentTree";
-            this.contentTree.SelectedImageIndex = 0;
-            this.contentTree.Size = new System.Drawing.Size(502, 348);
-            this.contentTree.TabIndex = 0;
-            this.contentTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.contentTree_BeforeExpand);
-            this.contentTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.contentTree_AfterSelect);
-            // 
             // statsBorder
             // 
             this.statsBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -318,20 +316,34 @@
             this.statsText.TabIndex = 0;
             this.statsText.Text = "Stats :)";
             // 
-            // sharedCheckbox
+            // statsTitle
             // 
-            this.sharedCheckbox.AutoSize = true;
-            this.sharedCheckbox.Location = new System.Drawing.Point(5, 5);
-            this.sharedCheckbox.MaximumSize = new System.Drawing.Size(0, 21);
-            this.sharedCheckbox.MinimumSize = new System.Drawing.Size(0, 21);
-            this.sharedCheckbox.Name = "sharedCheckbox";
-            this.sharedCheckbox.Size = new System.Drawing.Size(66, 21);
-            this.sharedCheckbox.TabIndex = 4;
-            this.sharedCheckbox.Text = "Shared?";
-            this.toolTip.SetToolTip(this.sharedCheckbox, "If enabled, the content panel will only show assets that are present in ALL selec" +
-        "ted maps.\r\nIf disabled, the content panel will show any assets that are present " +
-        "in the selected maps.");
-            this.sharedCheckbox.UseVisualStyleBackColor = true;
+            this.statsTitle.BackColor = System.Drawing.Color.Transparent;
+            this.statsTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statsTitle.ForeColor = System.Drawing.Color.DarkGray;
+            this.statsTitle.Location = new System.Drawing.Point(3, 3);
+            this.statsTitle.Name = "statsTitle";
+            this.statsTitle.Size = new System.Drawing.Size(506, 20);
+            this.statsTitle.TabIndex = 31;
+            this.statsTitle.Text = "STATS";
+            this.statsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 15000;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.ReshowDelay = 100;
+            // 
+            // ALRedundanciesCheckbox
+            // 
+            this.ALRedundanciesCheckbox.AutoSize = true;
+            this.ALRedundanciesCheckbox.Location = new System.Drawing.Point(7, 30);
+            this.ALRedundanciesCheckbox.Name = "ALRedundanciesCheckbox";
+            this.ALRedundanciesCheckbox.Size = new System.Drawing.Size(186, 17);
+            this.ALRedundanciesCheckbox.TabIndex = 5;
+            this.ALRedundanciesCheckbox.Text = "Only AlwaysLoaded redundancies";
+            this.toolTip.SetToolTip(this.ALRedundanciesCheckbox, resources.GetString("ALRedundanciesCheckbox.ToolTip"));
+            this.ALRedundanciesCheckbox.UseVisualStyleBackColor = true;
             // 
             // CookedContentAnalysisResults
             // 
@@ -349,12 +361,12 @@
             this.cookedAssetsSplit.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cookedAssetsSplit)).EndInit();
             this.cookedAssetsSplit.ResumeLayout(false);
+            this.packagesBorder.ResumeLayout(false);
             this.filterPanel.ResumeLayout(false);
             this.filterPanel.PerformLayout();
+            this.contentPanel.ResumeLayout(false);
             this.contentTopBar.ResumeLayout(false);
             this.statsPanel.ResumeLayout(false);
-            this.packagesBorder.ResumeLayout(false);
-            this.contentPanel.ResumeLayout(false);
             this.statsBorder.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -382,5 +394,6 @@
         private System.Windows.Forms.Label contentSize;
         private System.Windows.Forms.Panel contentTopBar;
         private System.Windows.Forms.CheckBox sharedCheckbox;
+        private System.Windows.Forms.CheckBox ALRedundanciesCheckbox;
     }
 }

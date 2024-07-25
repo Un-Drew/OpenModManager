@@ -107,6 +107,7 @@ namespace ModdingTools.Windows
         };
         public AssetSortType CurrentSortType { get; protected set; }
         public bool CurrentSearchUsesShared { get; protected set; }
+        public bool CurrentSearchUsesOnlyALRedundancies { get; protected set; }
 
         public List<CookedObjectTreeNode> FullContentTree { get; protected set; }
         public List<CookedObjectTreeNode> SizeSortedNodes { get; protected set; } = new List<CookedObjectTreeNode>();
@@ -130,6 +131,7 @@ namespace ModdingTools.Windows
 
             SelectedPackages = new List<CookedContentAnalysis.AnalysisPackage>(Analysis.PackageFiles);
             CurrentSearchUsesShared = false;
+            CurrentSearchUsesOnlyALRedundancies = false;
             CurrentSortType = AssetSortType.Tree;
             RefreshTree();
         }
@@ -221,6 +223,7 @@ namespace ModdingTools.Windows
                 }
 
                 CurrentSearchUsesShared = sharedCheckbox.Checked;
+                CurrentSearchUsesOnlyALRedundancies = ALRedundanciesCheckbox.Checked;
 
                 SelectedPackages.Clear();
                 for (int i = 0; i < PackageCheckboxes.Count; i++)
@@ -328,6 +331,8 @@ namespace ModdingTools.Windows
             {
                 return (obj) =>
                 {
+                    if (CurrentSearchUsesOnlyALRedundancies && (obj.Object.RefCount_Startup == 0 || obj.Object.RefCount_NonStartup == 0))
+                        return 0;
                     foreach (var selPkg in SelectedPackages)
                     {
                         if (!obj.Object.ReferencedBy.Contains(selPkg))
@@ -340,6 +345,8 @@ namespace ModdingTools.Windows
             {
                 return (obj) =>
                 {
+                    if (CurrentSearchUsesOnlyALRedundancies && (obj.Object.RefCount_Startup == 0 || obj.Object.RefCount_NonStartup == 0))
+                        return 0;
                     int count = 0;
                     foreach (var refPkg in obj.Object.ReferencedBy)
                     {

@@ -30,6 +30,9 @@ namespace ModdingTools.Engine
             /// </summary>
             public bool bIsAsset { get; protected set; }
 
+            public int RefCount_Startup { get; protected set; } = 0;
+            public int RefCount_NonStartup { get; protected set; } = 0;
+
             static public bool IsCookedContent(UExportTableItem exp)
             {
                 // Only count forced export objects, i.e. those that were cooked from somewhere else.
@@ -77,15 +80,27 @@ namespace ModdingTools.Engine
 
             public void AddReferenceRecursive(AnalysisPackage packageReferencingUs)
             {
-                if (ReferencedBy.Contains(packageReferencingUs)) return;
-                ReferencedBy.Add(packageReferencingUs);
+                if (!AddReferenceSimple(packageReferencingUs)) return;
                 if (Outer != null) Outer.AddReferenceRecursive(packageReferencingUs);
+            }
+
+            public bool AddReferenceSimple(AnalysisPackage packageReferencingUs)
+            {
+                if (ReferencedBy.Contains(packageReferencingUs)) return false;
+                ReferencedBy.Add(packageReferencingUs);
+                if (packageReferencingUs.IsStartupPackage)
+                    RefCount_Startup++;
+                else
+                    RefCount_NonStartup++;
+                return true;
             }
         };
 
         public class AnalysisPackage
         {
             public string PackagePath { get; protected set; }
+
+            public bool IsStartupPackage { get; protected set; }
 
             public Exception Error { get; protected set; }
 
@@ -96,6 +111,11 @@ namespace ModdingTools.Engine
                 PackagePath = packagePath;
                 UnrealPackage loadedPackage = null;
                 string uncompressedPath = null;
+
+                if (String.Compare(Path.GetExtension(PackagePath), ".u", true) == 0)
+                {
+                    IsStartupPackage = true;
+                }
 
                 try
                 {
@@ -144,7 +164,7 @@ namespace ModdingTools.Engine
                                 continue;
                             }
 
-                            obj.ReferencedBy.Add(this);
+                            obj.AddReferenceSimple(this);
                             
                             // This asseet wasn't registered before. Let's climb the parent chain and link its outer.
                             expOuter = (UExportTableItem)exp.Outer;
@@ -173,7 +193,7 @@ namespace ModdingTools.Engine
                                     break;
                                 }
 
-                                obj.ReferencedBy.Add(this);
+                                obj.AddReferenceSimple(this);
 
                                 // This outer wasn't registered before either, keep going.
                                 expOuter = (UExportTableItem)expOuter.Outer;
