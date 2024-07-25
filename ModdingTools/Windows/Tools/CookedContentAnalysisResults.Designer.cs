@@ -39,6 +39,7 @@
             this.refreshButton = new CUFramework.Controls.CUButton();
             this.sortCombo = new System.Windows.Forms.ComboBox();
             this.sortLabel = new System.Windows.Forms.Label();
+            this.ALRedundanciesCheckbox = new System.Windows.Forms.CheckBox();
             this.sharedCheckbox = new System.Windows.Forms.CheckBox();
             this.contentPanel = new ModdingTools.GUI.BorderPanel();
             this.contentTree = new System.Windows.Forms.TreeView();
@@ -51,7 +52,6 @@
             this.statsText = new System.Windows.Forms.Label();
             this.statsTitle = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ALRedundanciesCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cookedAssetsSplit)).BeginInit();
             this.cookedAssetsSplit.Panel1.SuspendLayout();
             this.cookedAssetsSplit.Panel2.SuspendLayout();
@@ -78,7 +78,7 @@
             this.cookedAssetsSplit.Panel1.Controls.Add(this.selectAllPackagesCheckbox);
             this.cookedAssetsSplit.Panel1.Controls.Add(this.packagesTitle);
             this.cookedAssetsSplit.Panel1.Controls.Add(this.filterPanel);
-            this.cookedAssetsSplit.Panel1MinSize = 160;
+            this.cookedAssetsSplit.Panel1MinSize = 200;
             // 
             // cookedAssetsSplit.Panel2
             // 
@@ -194,6 +194,17 @@
             this.sortLabel.TabIndex = 1;
             this.sortLabel.Text = "Sort type:";
             this.sortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ALRedundanciesCheckbox
+            // 
+            this.ALRedundanciesCheckbox.AutoSize = true;
+            this.ALRedundanciesCheckbox.Location = new System.Drawing.Point(7, 30);
+            this.ALRedundanciesCheckbox.Name = "ALRedundanciesCheckbox";
+            this.ALRedundanciesCheckbox.Size = new System.Drawing.Size(186, 17);
+            this.ALRedundanciesCheckbox.TabIndex = 5;
+            this.ALRedundanciesCheckbox.Text = "Only AlwaysLoaded redundancies";
+            this.toolTip.SetToolTip(this.ALRedundanciesCheckbox, resources.GetString("ALRedundanciesCheckbox.ToolTip"));
+            this.ALRedundanciesCheckbox.UseVisualStyleBackColor = true;
             // 
             // sharedCheckbox
             // 
@@ -333,17 +344,6 @@
             this.toolTip.AutoPopDelay = 15000;
             this.toolTip.InitialDelay = 500;
             this.toolTip.ReshowDelay = 100;
-            // 
-            // ALRedundanciesCheckbox
-            // 
-            this.ALRedundanciesCheckbox.AutoSize = true;
-            this.ALRedundanciesCheckbox.Location = new System.Drawing.Point(7, 30);
-            this.ALRedundanciesCheckbox.Name = "ALRedundanciesCheckbox";
-            this.ALRedundanciesCheckbox.Size = new System.Drawing.Size(186, 17);
-            this.ALRedundanciesCheckbox.TabIndex = 5;
-            this.ALRedundanciesCheckbox.Text = "Only AlwaysLoaded redundancies";
-            this.toolTip.SetToolTip(this.ALRedundanciesCheckbox, resources.GetString("ALRedundanciesCheckbox.ToolTip"));
-            this.ALRedundanciesCheckbox.UseVisualStyleBackColor = true;
             // 
             // CookedContentAnalysisResults
             // 
