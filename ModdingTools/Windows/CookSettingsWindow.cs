@@ -134,7 +134,8 @@ namespace ModdingTools.Windows
 
         private void textBox_Maps_AudioLanguages_KeyUp(object sender, KeyEventArgs e)
         {
-            ConfirmedAudioLanguages();
+            if (e.KeyCode == Keys.Enter)
+                ConfirmedAudioLanguages();
         }
 
         public void ConfirmedAudioLanguages()
