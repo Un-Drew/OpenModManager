@@ -53,13 +53,12 @@ namespace ModdingTools.Windows
 
             check_EnableCustomCooking.Checked = TempCookSettings.EnableCustomCooking;
 
-            check_Env_CookInIsolation.Checked = TempCookSettings.Env_CookInIsolation;
+            check_Common_CookInIsolation.Checked = TempCookSettings.Common_CookInIsolation;
+            check_Common_ExcludeBaseALAssets.Checked = TempCookSettings.Common_ExcludeBaseAlwaysLoadedAssets;
 
             combo_Script_LoadScope.SelectedIndex = (int)TempCookSettings.Script_LoadScope;
             check_Script_ALWorkaround.Checked = TempCookSettings.Script_AlwaysLoadedWorkaround;
-            check_Script_ExcludeBaseALAssets.Checked = TempCookSettings.Script_ExcludeBaseAlwaysLoadedAssets;
 
-            check_Maps_ExcludeBaseALAssets.Checked = TempCookSettings.Maps_ExcludeBaseAlwaysLoadedAssets;
             textBox_Maps_AudioLanguages.Text = TempCookSettings.Maps_AudioLanguages;
             check_Maps_DeleteLocINT.Checked = TempCookSettings.Maps_DeleteLocInt;
             combo_Maps_MoveMethod.SelectedIndex = (int)TempCookSettings.Maps_MoveMethod;
@@ -101,10 +100,16 @@ namespace ModdingTools.Windows
             UpdateDisabledBackground();
         }
 
-        private void check_Env_CookInIsolation_CheckedChanged(object sender, EventArgs e)
+        private void check_Common_CookInIsolation_CheckedChanged(object sender, EventArgs e)
         {
             if (NotUserInflicted) return;
-            TempCookSettings.Env_CookInIsolation = check_Env_CookInIsolation.Checked;
+            TempCookSettings.Common_CookInIsolation = check_Common_CookInIsolation.Checked;
+        }
+
+        private void check_Common_ExcludeBaseALAssets_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NotUserInflicted) return;
+            TempCookSettings.Common_ExcludeBaseAlwaysLoadedAssets = check_Common_ExcludeBaseALAssets.Checked;
         }
 
         private void check_Script_ALWorkaround_CheckedChanged(object sender, EventArgs e)
@@ -115,23 +120,10 @@ namespace ModdingTools.Windows
             UpdateMoveMethodState();
         }
 
-        private void check_Script_ExcludeBaseALAssets_CheckedChanged(object sender, EventArgs e)
-        {
-            if (NotUserInflicted) return;
-            TempCookSettings.Script_ExcludeBaseAlwaysLoadedAssets = check_Script_ExcludeBaseALAssets.Checked;
-        }
-
         private void combo_Script_LoadScope_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (NotUserInflicted) return;
             TempCookSettings.Script_LoadScope = (CookSettings.ScriptLoadScope)combo_Script_LoadScope.SelectedIndex;
-            UpdateMoveMethodState();
-        }
-
-        private void check_Maps_ExcludeBaseALAssets_CheckedChanged(object sender, EventArgs e)
-        {
-            if (NotUserInflicted) return;
-            TempCookSettings.Maps_ExcludeBaseAlwaysLoadedAssets = check_Maps_ExcludeBaseALAssets.Checked;
             UpdateMoveMethodState();
         }
 
@@ -167,7 +159,6 @@ namespace ModdingTools.Windows
             var color = check_Script_ALWorkaround.Checked ? Color.White : Color.Gray;
             // Kind of a hack, but this looks better than using "Enabled" which uses a hardcoded color.
             // Maybe this could be a class?
-            check_Script_ExcludeBaseALAssets.ForeColor = color;
             label_Script_LoadScope.ForeColor = color;
             combo_Script_LoadScope.BackColor = color;
         }
@@ -183,7 +174,9 @@ namespace ModdingTools.Windows
 
         public void UpdateMoveMethodState()
         {
-            bool mapsRequireMoving = check_Script_ALWorkaround.Checked && combo_Script_LoadScope.SelectedIndex != 0 && check_Maps_ExcludeBaseALAssets.Checked;
+            // Always false, for now. But will probably be necessary when Cook Groups are implemented.
+            // ToDo: Since the general settings don't affect this anymore, it might be better to move this to the cook groups tab.
+            bool mapsRequireMoving = false;
             var color = mapsRequireMoving ? Color.White : Color.Gray;
             label_Maps_MoveMethod.ForeColor = color;
             combo_Maps_MoveMethod.BackColor = color;

@@ -31,13 +31,12 @@ namespace ModdingTools.Settings
 
         /* GENERAL SETTINGS */
 
-        public bool Env_CookInIsolation { get; set; } = false;
+        public bool Common_CookInIsolation { get; set; } = false;
+        public bool Common_ExcludeBaseAlwaysLoadedAssets { get; set; } = false;
 
         public bool Script_AlwaysLoadedWorkaround { get; set; } = false;
-        public bool Script_ExcludeBaseAlwaysLoadedAssets { get; set; } = false;
         public ScriptLoadScope Script_LoadScope { get; set; } = ScriptLoadScope.AlwaysLoaded;
 
-        public bool Maps_ExcludeBaseAlwaysLoadedAssets { get; set; } = false;
         public string Maps_AudioLanguages { get; set; } = "";
         public bool Maps_DeleteLocInt { get; set; } = false;
         public MoveMethod Maps_MoveMethod { get; set; } = MoveMethod.Copy;
@@ -128,13 +127,12 @@ namespace ModdingTools.Settings
 
             EnableCustomCooking = settings.EnableCustomCooking;
 
-            Env_CookInIsolation = settings.Env_CookInIsolation;
+            Common_CookInIsolation = settings.Common_CookInIsolation;
+            Common_ExcludeBaseAlwaysLoadedAssets = settings.Common_ExcludeBaseAlwaysLoadedAssets;
 
             Script_AlwaysLoadedWorkaround = settings.Script_AlwaysLoadedWorkaround;
-            Script_ExcludeBaseAlwaysLoadedAssets = settings.Script_ExcludeBaseAlwaysLoadedAssets;
             Script_LoadScope = settings.Script_LoadScope;
 
-            Maps_ExcludeBaseAlwaysLoadedAssets = settings.Maps_ExcludeBaseAlwaysLoadedAssets;
             Maps_AudioLanguages = settings.Maps_AudioLanguages;
             Maps_DeleteLocInt = settings.Maps_DeleteLocInt;
             Maps_MoveMethod = settings.Maps_MoveMethod;

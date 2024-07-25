@@ -40,23 +40,19 @@
             this.check_Maps_DeleteLocINT = new System.Windows.Forms.CheckBox();
             this.textBox_Maps_AudioLanguages = new CUFramework.Controls.CUTextBox();
             this.label_Maps_AudioLanguages = new System.Windows.Forms.LinkLabel();
-            this.check_Maps_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
             this.settingsTitle_Maps = new System.Windows.Forms.Label();
             this.generalSettings_Script = new System.Windows.Forms.Panel();
             this.combo_Script_LoadScope = new System.Windows.Forms.ComboBox();
             this.label_Script_LoadScope = new System.Windows.Forms.Label();
-            this.check_Script_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
-            this.nestLevel2 = new System.Windows.Forms.Panel();
-            this.nestLine4 = new System.Windows.Forms.Panel();
-            this.nestLine3 = new System.Windows.Forms.Panel();
             this.nestLevel1 = new System.Windows.Forms.Panel();
             this.nestLine2 = new System.Windows.Forms.Panel();
             this.nestLine1 = new System.Windows.Forms.Panel();
             this.check_Script_ALWorkaround = new System.Windows.Forms.CheckBox();
             this.settingsTitle_Script = new System.Windows.Forms.Label();
-            this.generalSettings_Env = new System.Windows.Forms.Panel();
-            this.check_Env_CookInIsolation = new System.Windows.Forms.CheckBox();
-            this.settingsTitle_Env = new System.Windows.Forms.Label();
+            this.generalSettings_Common = new System.Windows.Forms.Panel();
+            this.check_Common_ExcludeBaseALAssets = new System.Windows.Forms.CheckBox();
+            this.check_Common_CookInIsolation = new System.Windows.Forms.CheckBox();
+            this.settingsTitle_Common = new System.Windows.Forms.Label();
             this.tabCookGroups = new System.Windows.Forms.TabPage();
             this.tabImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabController = new CUFramework.Controls.Tabs.CUTabController();
@@ -71,9 +67,8 @@
             this.tabGeneral.SuspendLayout();
             this.generalSettings_Maps.SuspendLayout();
             this.generalSettings_Script.SuspendLayout();
-            this.nestLevel2.SuspendLayout();
             this.nestLevel1.SuspendLayout();
-            this.generalSettings_Env.SuspendLayout();
+            this.generalSettings_Common.SuspendLayout();
             this.cookSettingsTitleBorder.SuspendLayout();
             this.cookSettingsTitleContent.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -104,7 +99,7 @@
             this.cookSettingsPanel.Location = new System.Drawing.Point(4, 64);
             this.cookSettingsPanel.Name = "cookSettingsPanel";
             this.cookSettingsPanel.Padding = new System.Windows.Forms.Padding(2);
-            this.cookSettingsPanel.Size = new System.Drawing.Size(442, 329);
+            this.cookSettingsPanel.Size = new System.Drawing.Size(442, 308);
             this.cookSettingsPanel.TabIndex = 31;
             // 
             // tabControl
@@ -117,7 +112,7 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(338, 325);
+            this.tabControl.Size = new System.Drawing.Size(338, 304);
             this.tabControl.TabIndex = 1;
             // 
             // tabGeneral
@@ -125,12 +120,12 @@
             this.tabGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.tabGeneral.Controls.Add(this.generalSettings_Maps);
             this.tabGeneral.Controls.Add(this.generalSettings_Script);
-            this.tabGeneral.Controls.Add(this.generalSettings_Env);
+            this.tabGeneral.Controls.Add(this.generalSettings_Common);
             this.tabGeneral.ImageIndex = 0;
             this.tabGeneral.Location = new System.Drawing.Point(0, 0);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(4);
-            this.tabGeneral.Size = new System.Drawing.Size(338, 325);
+            this.tabGeneral.Size = new System.Drawing.Size(338, 304);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "GENERAL";
             // 
@@ -143,12 +138,11 @@
             this.generalSettings_Maps.Controls.Add(this.check_Maps_DeleteLocINT);
             this.generalSettings_Maps.Controls.Add(this.textBox_Maps_AudioLanguages);
             this.generalSettings_Maps.Controls.Add(this.label_Maps_AudioLanguages);
-            this.generalSettings_Maps.Controls.Add(this.check_Maps_ExcludeBaseALAssets);
             this.generalSettings_Maps.Controls.Add(this.settingsTitle_Maps);
-            this.generalSettings_Maps.Location = new System.Drawing.Point(7, 171);
+            this.generalSettings_Maps.Location = new System.Drawing.Point(7, 173);
             this.generalSettings_Maps.Name = "generalSettings_Maps";
             this.generalSettings_Maps.Padding = new System.Windows.Forms.Padding(4);
-            this.generalSettings_Maps.Size = new System.Drawing.Size(324, 147);
+            this.generalSettings_Maps.Size = new System.Drawing.Size(324, 124);
             this.generalSettings_Maps.TabIndex = 33;
             // 
             // combo_Maps_MoveMethod
@@ -157,7 +151,7 @@
             this.combo_Maps_MoveMethod.Items.AddRange(new object[] {
             "COPY (safer)",
             "MOVE (faster)"});
-            this.combo_Maps_MoveMethod.Location = new System.Drawing.Point(145, 117);
+            this.combo_Maps_MoveMethod.Location = new System.Drawing.Point(145, 94);
             this.combo_Maps_MoveMethod.Name = "combo_Maps_MoveMethod";
             this.combo_Maps_MoveMethod.Size = new System.Drawing.Size(170, 21);
             this.combo_Maps_MoveMethod.TabIndex = 43;
@@ -167,7 +161,7 @@
             // 
             // label_Maps_MoveMethod
             // 
-            this.label_Maps_MoveMethod.Location = new System.Drawing.Point(7, 117);
+            this.label_Maps_MoveMethod.Location = new System.Drawing.Point(7, 94);
             this.label_Maps_MoveMethod.Margin = new System.Windows.Forms.Padding(3);
             this.label_Maps_MoveMethod.Name = "label_Maps_MoveMethod";
             this.label_Maps_MoveMethod.Size = new System.Drawing.Size(130, 21);
@@ -181,7 +175,7 @@
             // check_Maps_DeleteLocINT
             // 
             this.check_Maps_DeleteLocINT.AutoSize = true;
-            this.check_Maps_DeleteLocINT.Location = new System.Drawing.Point(7, 94);
+            this.check_Maps_DeleteLocINT.Location = new System.Drawing.Point(7, 71);
             this.check_Maps_DeleteLocINT.Name = "check_Maps_DeleteLocINT";
             this.check_Maps_DeleteLocINT.Size = new System.Drawing.Size(230, 17);
             this.check_Maps_DeleteLocINT.TabIndex = 41;
@@ -195,7 +189,7 @@
             this.textBox_Maps_AudioLanguages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.textBox_Maps_AudioLanguages.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
             this.textBox_Maps_AudioLanguages.ForeColor = System.Drawing.Color.White;
-            this.textBox_Maps_AudioLanguages.Location = new System.Drawing.Point(7, 68);
+            this.textBox_Maps_AudioLanguages.Location = new System.Drawing.Point(7, 45);
             this.textBox_Maps_AudioLanguages.Name = "textBox_Maps_AudioLanguages";
             this.textBox_Maps_AudioLanguages.Size = new System.Drawing.Size(306, 20);
             this.textBox_Maps_AudioLanguages.TabIndex = 40;
@@ -209,7 +203,7 @@
             this.label_Maps_AudioLanguages.AutoSize = true;
             this.label_Maps_AudioLanguages.LinkArea = new System.Windows.Forms.LinkArea(30, 17);
             this.label_Maps_AudioLanguages.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.label_Maps_AudioLanguages.Location = new System.Drawing.Point(7, 49);
+            this.label_Maps_AudioLanguages.Location = new System.Drawing.Point(7, 26);
             this.label_Maps_AudioLanguages.Margin = new System.Windows.Forms.Padding(3);
             this.label_Maps_AudioLanguages.Name = "label_Maps_AudioLanguages";
             this.label_Maps_AudioLanguages.Size = new System.Drawing.Size(257, 17);
@@ -220,18 +214,6 @@
             this.label_Maps_AudioLanguages.UseCompatibleTextRendering = true;
             this.label_Maps_AudioLanguages.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
             this.label_Maps_AudioLanguages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label_Maps_AudioLanguages_LinkClicked);
-            // 
-            // check_Maps_ExcludeBaseALAssets
-            // 
-            this.check_Maps_ExcludeBaseALAssets.AutoSize = true;
-            this.check_Maps_ExcludeBaseALAssets.Location = new System.Drawing.Point(7, 26);
-            this.check_Maps_ExcludeBaseALAssets.Name = "check_Maps_ExcludeBaseALAssets";
-            this.check_Maps_ExcludeBaseALAssets.Size = new System.Drawing.Size(224, 17);
-            this.check_Maps_ExcludeBaseALAssets.TabIndex = 0;
-            this.check_Maps_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
-            this.toolTip.SetToolTip(this.check_Maps_ExcludeBaseALAssets, resources.GetString("check_Maps_ExcludeBaseALAssets.ToolTip"));
-            this.check_Maps_ExcludeBaseALAssets.UseVisualStyleBackColor = true;
-            this.check_Maps_ExcludeBaseALAssets.CheckedChanged += new System.EventHandler(this.check_Maps_ExcludeBaseALAssets_CheckedChanged);
             // 
             // settingsTitle_Maps
             // 
@@ -251,15 +233,13 @@
             this.generalSettings_Script.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.generalSettings_Script.Controls.Add(this.combo_Script_LoadScope);
             this.generalSettings_Script.Controls.Add(this.label_Script_LoadScope);
-            this.generalSettings_Script.Controls.Add(this.check_Script_ExcludeBaseALAssets);
-            this.generalSettings_Script.Controls.Add(this.nestLevel2);
             this.generalSettings_Script.Controls.Add(this.nestLevel1);
             this.generalSettings_Script.Controls.Add(this.check_Script_ALWorkaround);
             this.generalSettings_Script.Controls.Add(this.settingsTitle_Script);
-            this.generalSettings_Script.Location = new System.Drawing.Point(7, 63);
+            this.generalSettings_Script.Location = new System.Drawing.Point(7, 88);
             this.generalSettings_Script.Name = "generalSettings_Script";
             this.generalSettings_Script.Padding = new System.Windows.Forms.Padding(4);
-            this.generalSettings_Script.Size = new System.Drawing.Size(324, 102);
+            this.generalSettings_Script.Size = new System.Drawing.Size(324, 79);
             this.generalSettings_Script.TabIndex = 31;
             // 
             // combo_Script_LoadScope
@@ -270,7 +250,7 @@
             "AlwaysLoadad",
             "Non-AlwaysLoaded",
             "Auto"});
-            this.combo_Script_LoadScope.Location = new System.Drawing.Point(145, 72);
+            this.combo_Script_LoadScope.Location = new System.Drawing.Point(145, 49);
             this.combo_Script_LoadScope.Name = "combo_Script_LoadScope";
             this.combo_Script_LoadScope.Size = new System.Drawing.Size(170, 21);
             this.combo_Script_LoadScope.TabIndex = 38;
@@ -280,7 +260,7 @@
             // 
             // label_Script_LoadScope
             // 
-            this.label_Script_LoadScope.Location = new System.Drawing.Point(26, 72);
+            this.label_Script_LoadScope.Location = new System.Drawing.Point(26, 49);
             this.label_Script_LoadScope.Margin = new System.Windows.Forms.Padding(3);
             this.label_Script_LoadScope.Name = "label_Script_LoadScope";
             this.label_Script_LoadScope.Size = new System.Drawing.Size(110, 21);
@@ -288,49 +268,6 @@
             this.label_Script_LoadScope.Text = "Load scope:";
             this.label_Script_LoadScope.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip.SetToolTip(this.label_Script_LoadScope, resources.GetString("label_Script_LoadScope.ToolTip"));
-            // 
-            // check_Script_ExcludeBaseALAssets
-            // 
-            this.check_Script_ExcludeBaseALAssets.AutoSize = true;
-            this.check_Script_ExcludeBaseALAssets.Location = new System.Drawing.Point(26, 49);
-            this.check_Script_ExcludeBaseALAssets.Name = "check_Script_ExcludeBaseALAssets";
-            this.check_Script_ExcludeBaseALAssets.Size = new System.Drawing.Size(224, 17);
-            this.check_Script_ExcludeBaseALAssets.TabIndex = 33;
-            this.check_Script_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
-            this.toolTip.SetToolTip(this.check_Script_ExcludeBaseALAssets, resources.GetString("check_Script_ExcludeBaseALAssets.ToolTip"));
-            this.check_Script_ExcludeBaseALAssets.UseVisualStyleBackColor = false;
-            this.check_Script_ExcludeBaseALAssets.CheckedChanged += new System.EventHandler(this.check_Script_ExcludeBaseALAssets_CheckedChanged);
-            // 
-            // nestLevel2
-            // 
-            this.nestLevel2.BackColor = System.Drawing.Color.Transparent;
-            this.nestLevel2.Controls.Add(this.nestLine4);
-            this.nestLevel2.Controls.Add(this.nestLine3);
-            this.nestLevel2.Location = new System.Drawing.Point(12, 57);
-            this.nestLevel2.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.nestLevel2.Name = "nestLevel2";
-            this.nestLevel2.Size = new System.Drawing.Size(11, 27);
-            this.nestLevel2.TabIndex = 37;
-            // 
-            // nestLine4
-            // 
-            this.nestLine4.BackColor = System.Drawing.Color.Gray;
-            this.nestLine4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.nestLine4.Location = new System.Drawing.Point(1, 26);
-            this.nestLine4.Margin = new System.Windows.Forms.Padding(0);
-            this.nestLine4.Name = "nestLine4";
-            this.nestLine4.Size = new System.Drawing.Size(10, 1);
-            this.nestLine4.TabIndex = 35;
-            // 
-            // nestLine3
-            // 
-            this.nestLine3.BackColor = System.Drawing.Color.Gray;
-            this.nestLine3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.nestLine3.Location = new System.Drawing.Point(0, 0);
-            this.nestLine3.Margin = new System.Windows.Forms.Padding(0);
-            this.nestLine3.Name = "nestLine3";
-            this.nestLine3.Size = new System.Drawing.Size(1, 27);
-            this.nestLine3.TabIndex = 34;
             // 
             // nestLevel1
             // 
@@ -340,14 +277,14 @@
             this.nestLevel1.Location = new System.Drawing.Point(12, 46);
             this.nestLevel1.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.nestLevel1.Name = "nestLevel1";
-            this.nestLevel1.Size = new System.Drawing.Size(11, 11);
+            this.nestLevel1.Size = new System.Drawing.Size(11, 14);
             this.nestLevel1.TabIndex = 36;
             // 
             // nestLine2
             // 
             this.nestLine2.BackColor = System.Drawing.Color.Gray;
             this.nestLine2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.nestLine2.Location = new System.Drawing.Point(1, 10);
+            this.nestLine2.Location = new System.Drawing.Point(1, 13);
             this.nestLine2.Margin = new System.Windows.Forms.Padding(0);
             this.nestLine2.Name = "nestLine2";
             this.nestLine2.Size = new System.Drawing.Size(10, 1);
@@ -360,7 +297,7 @@
             this.nestLine1.Location = new System.Drawing.Point(0, 0);
             this.nestLine1.Margin = new System.Windows.Forms.Padding(0);
             this.nestLine1.Name = "nestLine1";
-            this.nestLine1.Size = new System.Drawing.Size(1, 11);
+            this.nestLine1.Size = new System.Drawing.Size(1, 14);
             this.nestLine1.TabIndex = 34;
             // 
             // check_Script_ALWorkaround
@@ -387,43 +324,56 @@
             this.settingsTitle_Script.TabIndex = 29;
             this.settingsTitle_Script.Text = "SCRIPT PACKAGE";
             // 
-            // generalSettings_Env
+            // generalSettings_Common
             // 
-            this.generalSettings_Env.BackColor = System.Drawing.Color.Transparent;
-            this.generalSettings_Env.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.generalSettings_Env.Controls.Add(this.check_Env_CookInIsolation);
-            this.generalSettings_Env.Controls.Add(this.settingsTitle_Env);
-            this.generalSettings_Env.Location = new System.Drawing.Point(7, 7);
-            this.generalSettings_Env.Name = "generalSettings_Env";
-            this.generalSettings_Env.Padding = new System.Windows.Forms.Padding(4);
-            this.generalSettings_Env.Size = new System.Drawing.Size(324, 50);
-            this.generalSettings_Env.TabIndex = 32;
+            this.generalSettings_Common.BackColor = System.Drawing.Color.Transparent;
+            this.generalSettings_Common.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.generalSettings_Common.Controls.Add(this.check_Common_ExcludeBaseALAssets);
+            this.generalSettings_Common.Controls.Add(this.check_Common_CookInIsolation);
+            this.generalSettings_Common.Controls.Add(this.settingsTitle_Common);
+            this.generalSettings_Common.Location = new System.Drawing.Point(7, 7);
+            this.generalSettings_Common.Name = "generalSettings_Common";
+            this.generalSettings_Common.Padding = new System.Windows.Forms.Padding(4);
+            this.generalSettings_Common.Size = new System.Drawing.Size(324, 75);
+            this.generalSettings_Common.TabIndex = 32;
             // 
-            // check_Env_CookInIsolation
+            // check_Common_ExcludeBaseALAssets
             // 
-            this.check_Env_CookInIsolation.AutoSize = true;
-            this.check_Env_CookInIsolation.Location = new System.Drawing.Point(7, 26);
-            this.check_Env_CookInIsolation.Name = "check_Env_CookInIsolation";
-            this.check_Env_CookInIsolation.Size = new System.Drawing.Size(105, 17);
-            this.check_Env_CookInIsolation.TabIndex = 0;
-            this.check_Env_CookInIsolation.Text = "Cook in islolation";
-            this.toolTip.SetToolTip(this.check_Env_CookInIsolation, "If enabled, temporarily disables all other local mods while cooking this mod. Cou" +
+            this.check_Common_ExcludeBaseALAssets.AutoSize = true;
+            this.check_Common_ExcludeBaseALAssets.Location = new System.Drawing.Point(7, 49);
+            this.check_Common_ExcludeBaseALAssets.Name = "check_Common_ExcludeBaseALAssets";
+            this.check_Common_ExcludeBaseALAssets.Size = new System.Drawing.Size(224, 17);
+            this.check_Common_ExcludeBaseALAssets.TabIndex = 30;
+            this.check_Common_ExcludeBaseALAssets.Text = "Exclude base-game AlwaysLoaded assets";
+            this.toolTip.SetToolTip(this.check_Common_ExcludeBaseALAssets, resources.GetString("check_Common_ExcludeBaseALAssets.ToolTip"));
+            this.check_Common_ExcludeBaseALAssets.UseVisualStyleBackColor = true;
+            this.check_Common_ExcludeBaseALAssets.CheckedChanged += new System.EventHandler(this.check_Common_ExcludeBaseALAssets_CheckedChanged);
+            // 
+            // check_Common_CookInIsolation
+            // 
+            this.check_Common_CookInIsolation.AutoSize = true;
+            this.check_Common_CookInIsolation.Location = new System.Drawing.Point(7, 26);
+            this.check_Common_CookInIsolation.Name = "check_Common_CookInIsolation";
+            this.check_Common_CookInIsolation.Size = new System.Drawing.Size(105, 17);
+            this.check_Common_CookInIsolation.TabIndex = 0;
+            this.check_Common_CookInIsolation.Text = "Cook in islolation";
+            this.toolTip.SetToolTip(this.check_Common_CookInIsolation, "If enabled, temporarily disables all other local mods while cooking this mod. Cou" +
         "ld\r\nbe used to speed up the cooking process, as well as to avoid AlwaysLoaded is" +
         "sues\r\ncaused by other mods.");
-            this.check_Env_CookInIsolation.UseVisualStyleBackColor = true;
-            this.check_Env_CookInIsolation.CheckedChanged += new System.EventHandler(this.check_Env_CookInIsolation_CheckedChanged);
+            this.check_Common_CookInIsolation.UseVisualStyleBackColor = true;
+            this.check_Common_CookInIsolation.CheckedChanged += new System.EventHandler(this.check_Common_CookInIsolation_CheckedChanged);
             // 
-            // settingsTitle_Env
+            // settingsTitle_Common
             // 
-            this.settingsTitle_Env.AutoSize = true;
-            this.settingsTitle_Env.BackColor = System.Drawing.Color.Transparent;
-            this.settingsTitle_Env.ForeColor = System.Drawing.Color.DarkGray;
-            this.settingsTitle_Env.Location = new System.Drawing.Point(7, 7);
-            this.settingsTitle_Env.Margin = new System.Windows.Forms.Padding(3);
-            this.settingsTitle_Env.Name = "settingsTitle_Env";
-            this.settingsTitle_Env.Size = new System.Drawing.Size(87, 13);
-            this.settingsTitle_Env.TabIndex = 29;
-            this.settingsTitle_Env.Text = "ENVIRONMENT";
+            this.settingsTitle_Common.AutoSize = true;
+            this.settingsTitle_Common.BackColor = System.Drawing.Color.Transparent;
+            this.settingsTitle_Common.ForeColor = System.Drawing.Color.DarkGray;
+            this.settingsTitle_Common.Location = new System.Drawing.Point(7, 7);
+            this.settingsTitle_Common.Margin = new System.Windows.Forms.Padding(3);
+            this.settingsTitle_Common.Name = "settingsTitle_Common";
+            this.settingsTitle_Common.Size = new System.Drawing.Size(56, 13);
+            this.settingsTitle_Common.TabIndex = 29;
+            this.settingsTitle_Common.Text = "COMMON";
             // 
             // tabCookGroups
             // 
@@ -432,7 +382,7 @@
             this.tabCookGroups.Location = new System.Drawing.Point(0, 0);
             this.tabCookGroups.Name = "tabCookGroups";
             this.tabCookGroups.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCookGroups.Size = new System.Drawing.Size(338, 325);
+            this.tabCookGroups.Size = new System.Drawing.Size(338, 304);
             this.tabCookGroups.TabIndex = 1;
             this.tabCookGroups.Text = "COOK GROUPS";
             // 
@@ -452,7 +402,7 @@
             this.tabController.Name = "tabController";
             this.tabController.ParentTabControl = this.tabControl;
             this.tabController.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            this.tabController.Size = new System.Drawing.Size(100, 325);
+            this.tabController.Size = new System.Drawing.Size(100, 304);
             this.tabController.TabIndex = 0;
             this.tabController.Text = "cuTabController1";
             // 
@@ -492,7 +442,7 @@
             this.buttonSave.Location = new System.Drawing.Point(3, 3);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.NoFocus = false;
-            this.buttonSave.Size = new System.Drawing.Size(217, 26);
+            this.buttonSave.Size = new System.Drawing.Size(217, 28);
             this.buttonSave.TabIndex = 33;
             this.buttonSave.Text = "SAVE";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -506,13 +456,13 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonCancel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonSave, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 396);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 374);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 34);
             this.tableLayoutPanel1.TabIndex = 34;
             // 
             // buttonCancel
@@ -524,7 +474,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(226, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.NoFocus = false;
-            this.buttonCancel.Size = new System.Drawing.Size(217, 26);
+            this.buttonCancel.Size = new System.Drawing.Size(217, 28);
             this.buttonCancel.TabIndex = 34;
             this.buttonCancel.Text = "CANCEL";
             this.buttonCancel.UseVisualStyleBackColor = false;
@@ -534,7 +484,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 430);
+            this.ClientSize = new System.Drawing.Size(450, 410);
             this.ControlBoxVisible = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.cookSettingsPanel);
@@ -558,10 +508,9 @@
             this.generalSettings_Maps.PerformLayout();
             this.generalSettings_Script.ResumeLayout(false);
             this.generalSettings_Script.PerformLayout();
-            this.nestLevel2.ResumeLayout(false);
             this.nestLevel1.ResumeLayout(false);
-            this.generalSettings_Env.ResumeLayout(false);
-            this.generalSettings_Env.PerformLayout();
+            this.generalSettings_Common.ResumeLayout(false);
+            this.generalSettings_Common.PerformLayout();
             this.cookSettingsTitleBorder.ResumeLayout(false);
             this.cookSettingsTitleContent.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -584,17 +533,15 @@
         private System.Windows.Forms.Label settingsTitle_Script;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Panel generalSettings_Script;
-        private System.Windows.Forms.Panel generalSettings_Env;
-        private System.Windows.Forms.CheckBox check_Env_CookInIsolation;
-        private System.Windows.Forms.Label settingsTitle_Env;
-        private System.Windows.Forms.CheckBox check_Script_ExcludeBaseALAssets;
+        private System.Windows.Forms.Panel generalSettings_Common;
+        private System.Windows.Forms.CheckBox check_Common_CookInIsolation;
+        private System.Windows.Forms.Label settingsTitle_Common;
         private System.Windows.Forms.Panel nestLevel1;
         private System.Windows.Forms.Panel nestLine2;
         private System.Windows.Forms.Panel nestLine1;
         private System.Windows.Forms.Label label_Script_LoadScope;
         private System.Windows.Forms.ComboBox combo_Script_LoadScope;
         private System.Windows.Forms.Panel generalSettings_Maps;
-        private System.Windows.Forms.CheckBox check_Maps_ExcludeBaseALAssets;
         private System.Windows.Forms.Label settingsTitle_Maps;
         private CUFramework.Controls.CUTextBox textBox_Maps_AudioLanguages;
         private System.Windows.Forms.LinkLabel label_Maps_AudioLanguages;
@@ -602,10 +549,8 @@
         private CUFramework.Controls.CUButton buttonSave;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private CUFramework.Controls.CUButton buttonCancel;
-        private System.Windows.Forms.Panel nestLevel2;
-        private System.Windows.Forms.Panel nestLine4;
-        private System.Windows.Forms.Panel nestLine3;
         private System.Windows.Forms.Label label_Maps_MoveMethod;
         private System.Windows.Forms.ComboBox combo_Maps_MoveMethod;
+        private System.Windows.Forms.CheckBox check_Common_ExcludeBaseALAssets;
     }
 }
