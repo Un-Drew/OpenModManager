@@ -490,7 +490,7 @@ namespace ModdingTools.Windows
                 len /= 1024d;
             }
 
-            return len.ToString(len >= 100f ? "F0" : len >= 10f ? "F1" : "F2") + " " + sizes[order];
+            return len.ToString((len >= 100f || order == 0) ? "F0" : len >= 10f ? "F1" : "F2") + " " + sizes[order];
         }
     }
 }
