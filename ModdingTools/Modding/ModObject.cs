@@ -20,6 +20,7 @@ using ModdingTools.Windows.Tools;
 using System.Web;
 using ModdingTools.Settings;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace ModdingTools.Modding
 {
@@ -384,6 +385,22 @@ namespace ModdingTools.Modding
 
         public bool CookMod(AbstractProcessRunner runner, bool async = true, bool cleanConsole = true, bool fast = false)
         {
+            if (CookSettings.EnableCustomCooking)
+            {
+                if (async)
+                {
+                    Task.Factory.StartNew(() =>
+                    {
+                        CustomCooking.TryCustomCook(runner, this, CustomCooking.DetermineRequiredCookCommands(this, this.CookSettings));
+                    });
+                    return true;
+                }
+                else
+                {
+                    return CustomCooking.TryCustomCook(runner, this, CustomCooking.DetermineRequiredCookCommands(this, this.CookSettings));
+                }
+            }
+
             if (OMMSettings.Instance.AlwaysloadedWorkaround && OMMSettings.Instance.FastCook)
             {
                 throw new Exception("Idk how do you enabled FastCooking and AlwaysLoadedWorkaround at the same time, but please, choose only one lol");

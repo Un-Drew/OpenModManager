@@ -106,6 +106,7 @@
     <Compile Include="BuildData.cs" />
     <Compile Include="Engine\AbstractProcessRunner.cs" />
     <Compile Include="Engine\CookedContentAnalysis.cs" />
+    <Compile Include="Engine\CustomCooking.cs" />
     <Compile Include="Engine\DecompressFacade.cs" />
     <Compile Include="Engine\EditorProcessStateWatchdog.cs" />
     <Compile Include="Engine\SteamWorkshopStorage.cs" />

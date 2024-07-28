@@ -2,6 +2,7 @@
 using ModdingTools.Settings;
 using Steamworks;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Media;
@@ -99,6 +100,36 @@ namespace ModdingTools.Engine
                     "-MULTILANGUAGECOOK=" + (OMMSettings.Instance.MultilangCook ? "INT+CHN+DEU+ESN+FRA+ITA+JPN+KOR+PTB" : "INT"),
                     "-MODSONLY=" + mod.GetDirectoryName()
                 },
+                Path.GetDirectoryName(EditorExecutablePath),
+                onFinish
+            );
+        }
+
+        public ExecutableArgumentsPair GetCustomCookMod(string modName, string cookLanguages, bool skipStartupObjs, Action onFinish = null)
+        {
+            List<string> args = new List<string>(10)
+            {
+                "CookPackages",
+                "-PLATFORM=PC",
+                "-MODSONLY=" + modName,
+                "-NOPAUSEONSUCCESS",
+                "-SKIPMATERIALCLEANUP",
+                "-SKIPPSYSMODULES",
+                "-SKIPPAMPOBJS",
+                "-QUICK"
+            };
+            if (String.IsNullOrEmpty(cookLanguages))
+                args.Add("-NOLOCCOOKING");
+            else
+                args.Add("-MULTILANGUAGECOOK=" + cookLanguages);
+
+            if (skipStartupObjs)
+                args.Add("-SKIPSTARTUPOBJS");
+            
+            return new ExecutableArgumentsPair(
+                "Cooking mod (custom)...",
+                EditorExecutablePath,
+                args.ToArray(),
                 Path.GetDirectoryName(EditorExecutablePath),
                 onFinish
             );
