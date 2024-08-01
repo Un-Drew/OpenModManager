@@ -109,6 +109,7 @@
     <Compile Include="Engine\CustomCooking.cs" />
     <Compile Include="Engine\DecompressFacade.cs" />
     <Compile Include="Engine\EditorProcessStateWatchdog.cs" />
+    <Compile Include="Engine\PackageGenerator.cs" />
     <Compile Include="Engine\SteamWorkshopStorage.cs" />
     <Compile Include="Engine\TGA\TargaImage.cs" />
     <Compile Include="GUI\GUIProcessRunner.cs" />

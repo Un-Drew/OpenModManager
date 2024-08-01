@@ -7,6 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using ModdingTools.Modding;
 using ModdingTools.Settings;
+using UELib;
+using UELib.Flags;
 
 namespace ModdingTools.Engine
 {
@@ -101,6 +103,20 @@ namespace ModdingTools.Engine
         // Wrapper for custom cooking. Aborts if another custom cook is already happening.
         static public bool TryCustomCook(AbstractProcessRunner runner, ModObject mod, List<CustomCookCommand> cookCommands)
         {
+            /*
+            // TODO: Remove!!!!!
+            try
+            {
+                PackageGenTest();
+            }
+            catch (Exception ex)
+            {
+                runner.Log("Ooopsie woopsie!\n" + ex.ToString(), CUFramework.Shared.LogLevel.Warn);
+                return false;
+            }
+            return true;
+            */
+
             if (Interlocked.Exchange(ref _isCookingAMod, COOKING) == COOKING)
             {
                 runner.Log("Cannot run 2 custom cooks at once! Aborting...", CUFramework.Shared.LogLevel.Error);
@@ -341,6 +357,188 @@ namespace ModdingTools.Engine
 
             startPath = destPath;
             return true;
+        }
+
+        static public void PackageGenTest()
+        {
+            using (var pkg = new PackageGenerator(@"CustomReferencerTest.upk", replaceExisting: true))
+            {
+                IUnrealStream stream = pkg.Package.Stream;
+
+                /*
+                string[] names = new string[]
+                {
+                    "ArrayProperty",
+                    "button_circle_blue",
+                    "button_circle_yellow",
+                    "Buttons",
+                    "Circle",
+                    "Class",
+                    "Core",
+                    "Drew_ObjectReferencerTest",
+                    "Engine",
+                    "HatInTime_Hud",
+                    "MyObjectReferencer",
+                    "None",
+                    "ObjectReferencer",
+                    "Package",
+                    "ReferencedObjects",
+                    "Texture2D",
+                    "Textures"
+                };
+
+                pkg.Names.Capacity = names.Count();
+
+                foreach (var name in names)
+                {
+                    pkg.Names.Add(new GenNameTableItem(name));
+                }
+                */
+
+                pkg.Imports.Capacity = 8;
+
+                var packageEngine = new GenImportTableItem()
+                {
+                    Name = new GenName("Engine", pkg),
+                    ClassName = new GenName("Package", pkg),
+                    ClassPackageName = new GenName("Core", pkg)
+                };
+                pkg.Imports.Add(packageEngine);
+
+                var referencerClass = new GenImportTableItem()
+                {
+                    Name = new GenName("ObjectReferencer", pkg),
+                    ClassName = new GenName("Class", pkg),
+                    ClassPackageName = new GenName("Core", pkg),
+                    Outer = packageEngine
+                };
+                pkg.Imports.Add(referencerClass);
+
+                var packageHudContent = new GenImportTableItem()
+                {
+                    Name = new GenName("HatInTime_Hud", pkg),
+                    ClassName = new GenName("Package", pkg),
+                    ClassPackageName = new GenName("Core", pkg)
+                };
+                pkg.Imports.Add(packageHudContent);
+
+                var groupingButtons = new GenImportTableItem()
+                {
+                    Name = new GenName("Buttons", pkg),
+                    ClassName = new GenName("Package", pkg),
+                    ClassPackageName = new GenName("Core", pkg),
+                    Outer = packageHudContent
+                };
+                pkg.Imports.Add(groupingButtons);
+
+                var groupingCircle = new GenImportTableItem()
+                {
+                    Name = new GenName("Circle", pkg),
+                    ClassName = new GenName("Package", pkg),
+                    ClassPackageName = new GenName("Core", pkg),
+                    Outer = groupingButtons
+                };
+                pkg.Imports.Add(groupingCircle);
+
+                var groupingTextures = new GenImportTableItem()
+                {
+                    Name = new GenName("Textures", pkg),
+                    ClassName = new GenName("Package", pkg),
+                    ClassPackageName = new GenName("Core", pkg),
+                    Outer = groupingCircle
+                };
+                pkg.Imports.Add(groupingTextures);
+
+                var refA = new GenImportTableItem()
+                {
+                    Name = new GenName("button_circle_blue", pkg),
+                    ClassName = new GenName("Texture2D", pkg),
+                    ClassPackageName = new GenName("Engine", pkg),
+                    Outer = groupingTextures
+                };
+                pkg.Imports.Add(refA);
+
+                var refB = new GenImportTableItem()
+                {
+                    Name = new GenName("button_circle_yellow", pkg),
+                    ClassName = new GenName("Texture2D", pkg),
+                    ClassPackageName = new GenName("Engine", pkg),
+                    Outer = groupingTextures
+                };
+                pkg.Imports.Add(refB);
+
+                var objectReferencer = new GenExportTableItem()
+                {
+                    Name = new GenName("MyObjectReferencer", pkg),
+                    Outer = null,
+                    Class = referencerClass,
+                    Super = null,
+                    Archetype = null,
+                    ObjectFlags = (ulong)(
+                        ObjectFlagsLO.Public | ObjectFlagsLO.LoadForClient | ObjectFlagsLO.LoadForServer
+                        | ObjectFlagsLO.LoadForEdit | ObjectFlagsLO.Standalone
+                    ),
+                    // Ensure serial size & offset are BOTH written. Not necessary for Hat, but for older package versions it is.
+                    // It's a good practice to let the export know, ahead of time, that there WILL be serial data written for this.
+                    SerialSize = 1,
+                    // Was not force-cooked, or exported in any other special way.
+                    ExportFlags = 0,
+                    Depends = new List<GenObjectRef>
+                    {
+                        refA,
+                        groupingTextures,
+                        groupingCircle,
+                        groupingButtons,
+                        refB
+                    }
+                };
+                pkg.Exports.Add(objectReferencer);
+
+                // The names used by the serialized properties should be initialized NOW, before the name table is written.
+                var nameReferencedObjects = new GenName("ReferencedObjects", pkg);
+                var nameArrayProperty = new GenName("ArrayProperty", pkg);
+                var nameNone = new GenName("None", pkg);
+
+                pkg.Package.Summary.Generations.Add(new UGenerationTableItem()
+                {
+                    NameCount = pkg.Names.Count,
+                    ExportCount = pkg.Exports.Count,
+                    NetObjectCount = pkg.Exports.Count,
+                });
+
+                // Serialize the full header.
+                pkg.SerializeHeader();
+                pkg.SerializeNameTable();
+                pkg.SerializeImportTable();
+                pkg.SerializeExportTable();
+                pkg.SerializeDependsMap();
+
+                // Now write the serial data for our referencer object (properties).
+                objectReferencer.BeginWritingSerialData(stream);
+                {
+                    stream.Write((int)0); // Net index
+
+                    nameReferencedObjects.Serialize(stream); // Default property name = ReferencedObjects
+                    nameArrayProperty.Serialize(stream); // Default property type = ArrayProperty
+
+                    stream.Write((int)12); stream.Write((int)0); // SizeInBytes = 12, and StaticArrayIndex = 0
+                    {
+                        stream.Write((int)2); // Length = 2
+                        ((GenObjectRef)refA).Serialize(stream);
+                        ((GenObjectRef)refB).Serialize(stream);
+                    }
+
+                    nameNone.Serialize(stream); // Default property name = None (end of properties)
+                }
+                objectReferencer.EndWritingSerialData(stream);
+
+                // Rewrite the byte positions of all tables, until (and including) the depends map.
+                pkg.RewriteTableInfo(PackageGenerator.TableInfoRewriteScope.Depends);
+                // We wrote serial data earlier, so go to the referencer's export entry and rewrite the size and offset.
+                objectReferencer.RewriteSerialInfo(stream);
+
+                // Aaaand, we're done!
+            }
         }
     }
 }
